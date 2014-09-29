@@ -1,0 +1,378 @@
+"ulex.ml" 17 413 417 "ulex.ml" 17 413 423
+type(
+  token -> bool
+)
+ident(
+  def is_eof "ulex.ml" 23 622 622 "_none_" 1 0 -1
+)
+"ulex.ml" 18 435 439 "ulex.ml" 18 435 445
+type(
+  token
+)
+"ulex.ml" 18 435 449 "ulex.ml" 18 435 453
+type(
+  bool
+)
+"ulex.ml" 19 454 458 "ulex.ml" 19 454 459
+type(
+  token
+)
+"ulex.ml" 19 454 468 "ulex.ml" 19 454 473
+type(
+  bool
+)
+"ulex.ml" 17 413 426 "ulex.ml" 19 454 473
+type(
+  token -> bool
+)
+"ulex.ml" 23 622 626 "ulex.ml" 23 622 637
+type(
+  out_channel -> token -> unit
+)
+ident(
+  def print_token "ulex.ml" 34 1144 1184 "_none_" 1 0 -1
+)
+"ulex.ml" 23 622 638 "ulex.ml" 23 622 639
+type(
+  out_channel
+)
+ident(
+  def o "ulex.ml" 23 622 642 "ulex.ml" 34 1144 1184
+)
+"ulex.ml" 24 651 655 "ulex.ml" 24 651 662
+type(
+  token
+)
+"ulex.ml" 24 651 666 "ulex.ml" 24 651 680
+type(
+  out_channel -> (unit, out_channel, unit) format -> unit
+)
+ident(
+  ext_ref Printf.fprintf
+)
+"ulex.ml" 24 651 681 "ulex.ml" 24 651 682
+type(
+  out_channel
+)
+ident(
+  int_ref o "ulex.ml" 23 622 638 "ulex.ml" 23 622 639
+)
+"ulex.ml" 24 651 683 "ulex.ml" 24 651 687
+type(
+  (unit, out_channel, unit) format
+)
+"ulex.ml" 24 651 666 "ulex.ml" 24 651 687
+call(
+  tail
+)
+type(
+  unit
+)
+"ulex.ml" 25 742 746 "ulex.ml" 25 742 752
+type(
+  token
+)
+"ulex.ml" 25 742 757 "ulex.ml" 25 742 771
+type(
+  out_channel -> (unit, out_channel, unit) format -> unit
+)
+ident(
+  ext_ref Printf.fprintf
+)
+"ulex.ml" 25 742 772 "ulex.ml" 25 742 773
+type(
+  out_channel
+)
+ident(
+  int_ref o "ulex.ml" 23 622 638 "ulex.ml" 23 622 639
+)
+"ulex.ml" 25 742 774 "ulex.ml" 25 742 782
+type(
+  (unit, out_channel, unit) format
+)
+"ulex.ml" 25 742 757 "ulex.ml" 25 742 782
+call(
+  tail
+)
+type(
+  unit
+)
+"ulex.ml" 26 783 796 "ulex.ml" 26 783 798
+type(
+  string
+)
+ident(
+  def id "ulex.ml" 26 783 803 "ulex.ml" 26 783 836
+)
+"ulex.ml" 26 783 787 "ulex.ml" 26 783 798
+type(
+  token
+)
+"ulex.ml" 26 783 803 "ulex.ml" 26 783 817
+type(
+  out_channel -> (string -> unit, out_channel, unit) format -> string -> unit
+)
+ident(
+  ext_ref Printf.fprintf
+)
+"ulex.ml" 26 783 818 "ulex.ml" 26 783 819
+type(
+  out_channel
+)
+ident(
+  int_ref o "ulex.ml" 23 622 638 "ulex.ml" 23 622 639
+)
+"ulex.ml" 26 783 820 "ulex.ml" 26 783 833
+type(
+  (string -> unit, out_channel, unit) format
+)
+"ulex.ml" 26 783 834 "ulex.ml" 26 783 836
+type(
+  string
+)
+ident(
+  int_ref id "ulex.ml" 26 783 796 "ulex.ml" 26 783 798
+)
+"ulex.ml" 26 783 803 "ulex.ml" 26 783 836
+call(
+  tail
+)
+type(
+  unit
+)
+"ulex.ml" 27 837 841 "ulex.ml" 27 837 846
+type(
+  token
+)
+"ulex.ml" 27 837 853 "ulex.ml" 27 837 867
+type(
+  out_channel -> (unit, out_channel, unit) format -> unit
+)
+ident(
+  ext_ref Printf.fprintf
+)
+"ulex.ml" 27 837 868 "ulex.ml" 27 837 869
+type(
+  out_channel
+)
+ident(
+  int_ref o "ulex.ml" 23 622 638 "ulex.ml" 23 622 639
+)
+"ulex.ml" 27 837 870 "ulex.ml" 27 837 877
+type(
+  (unit, out_channel, unit) format
+)
+"ulex.ml" 27 837 853 "ulex.ml" 27 837 877
+call(
+  tail
+)
+type(
+  unit
+)
+"ulex.ml" 28 878 882 "ulex.ml" 28 878 889
+type(
+  token
+)
+"ulex.ml" 28 878 896 "ulex.ml" 28 878 910
+type(
+  out_channel -> (unit, out_channel, unit) format -> unit
+)
+ident(
+  ext_ref Printf.fprintf
+)
+"ulex.ml" 28 878 911 "ulex.ml" 28 878 912
+type(
+  out_channel
+)
+ident(
+  int_ref o "ulex.ml" 23 622 638 "ulex.ml" 23 622 639
+)
+"ulex.ml" 28 878 913 "ulex.ml" 28 878 922
+type(
+  (unit, out_channel, unit) format
+)
+"ulex.ml" 28 878 896 "ulex.ml" 28 878 922
+call(
+  tail
+)
+type(
+  unit
+)
+"ulex.ml" 29 923 927 "ulex.ml" 29 923 936
+type(
+  token
+)
+"ulex.ml" 29 923 940 "ulex.ml" 29 923 954
+type(
+  out_channel -> (unit, out_channel, unit) format -> unit
+)
+ident(
+  ext_ref Printf.fprintf
+)
+"ulex.ml" 29 923 955 "ulex.ml" 29 923 956
+type(
+  out_channel
+)
+ident(
+  int_ref o "ulex.ml" 23 622 638 "ulex.ml" 23 622 639
+)
+"ulex.ml" 29 923 957 "ulex.ml" 29 923 969
+type(
+  (unit, out_channel, unit) format
+)
+"ulex.ml" 29 923 940 "ulex.ml" 29 923 969
+call(
+  tail
+)
+type(
+  unit
+)
+"ulex.ml" 30 970 974 "ulex.ml" 30 970 984
+type(
+  token
+)
+"ulex.ml" 30 970 989 "ulex.ml" 30 970 1003
+type(
+  out_channel -> (unit, out_channel, unit) format -> unit
+)
+ident(
+  ext_ref Printf.fprintf
+)
+"ulex.ml" 30 970 1004 "ulex.ml" 30 970 1005
+type(
+  out_channel
+)
+ident(
+  int_ref o "ulex.ml" 23 622 638 "ulex.ml" 23 622 639
+)
+"ulex.ml" 30 970 1006 "ulex.ml" 30 970 1019
+type(
+  (unit, out_channel, unit) format
+)
+"ulex.ml" 30 970 989 "ulex.ml" 30 970 1019
+call(
+  tail
+)
+type(
+  unit
+)
+"ulex.ml" 31 1020 1024 "ulex.ml" 31 1020 1029
+type(
+  token
+)
+"ulex.ml" 31 1020 1034 "ulex.ml" 31 1020 1048
+type(
+  out_channel -> (unit, out_channel, unit) format -> unit
+)
+ident(
+  ext_ref Printf.fprintf
+)
+"ulex.ml" 31 1020 1049 "ulex.ml" 31 1020 1050
+type(
+  out_channel
+)
+ident(
+  int_ref o "ulex.ml" 23 622 638 "ulex.ml" 23 622 639
+)
+"ulex.ml" 31 1020 1051 "ulex.ml" 31 1020 1058
+type(
+  (unit, out_channel, unit) format
+)
+"ulex.ml" 31 1020 1034 "ulex.ml" 31 1020 1058
+call(
+  tail
+)
+type(
+  unit
+)
+"ulex.ml" 32 1059 1063 "ulex.ml" 32 1059 1070
+type(
+  token
+)
+"ulex.ml" 32 1059 1075 "ulex.ml" 32 1059 1089
+type(
+  out_channel -> (unit, out_channel, unit) format -> unit
+)
+ident(
+  ext_ref Printf.fprintf
+)
+"ulex.ml" 32 1059 1090 "ulex.ml" 32 1059 1091
+type(
+  out_channel
+)
+ident(
+  int_ref o "ulex.ml" 23 622 638 "ulex.ml" 23 622 639
+)
+"ulex.ml" 32 1059 1092 "ulex.ml" 32 1059 1101
+type(
+  (unit, out_channel, unit) format
+)
+"ulex.ml" 32 1059 1075 "ulex.ml" 32 1059 1101
+call(
+  tail
+)
+type(
+  unit
+)
+"ulex.ml" 33 1102 1106 "ulex.ml" 33 1102 1112
+type(
+  token
+)
+"ulex.ml" 33 1102 1117 "ulex.ml" 33 1102 1131
+type(
+  out_channel -> (unit, out_channel, unit) format -> unit
+)
+ident(
+  ext_ref Printf.fprintf
+)
+"ulex.ml" 33 1102 1132 "ulex.ml" 33 1102 1133
+type(
+  out_channel
+)
+ident(
+  int_ref o "ulex.ml" 23 622 638 "ulex.ml" 23 622 639
+)
+"ulex.ml" 33 1102 1134 "ulex.ml" 33 1102 1143
+type(
+  (unit, out_channel, unit) format
+)
+"ulex.ml" 33 1102 1117 "ulex.ml" 33 1102 1143
+call(
+  tail
+)
+type(
+  unit
+)
+"ulex.ml" 34 1144 1148 "ulex.ml" 34 1144 1154
+type(
+  token
+)
+"ulex.ml" 34 1144 1159 "ulex.ml" 34 1144 1173
+type(
+  out_channel -> (unit, out_channel, unit) format -> unit
+)
+ident(
+  ext_ref Printf.fprintf
+)
+"ulex.ml" 34 1144 1174 "ulex.ml" 34 1144 1175
+type(
+  out_channel
+)
+ident(
+  int_ref o "ulex.ml" 23 622 638 "ulex.ml" 23 622 639
+)
+"ulex.ml" 34 1144 1176 "ulex.ml" 34 1144 1184
+type(
+  (unit, out_channel, unit) format
+)
+"ulex.ml" 34 1144 1159 "ulex.ml" 34 1144 1184
+call(
+  tail
+)
+type(
+  unit
+)
+"ulex.ml" 23 622 642 "ulex.ml" 34 1144 1184
+type(
+  token -> unit
+)

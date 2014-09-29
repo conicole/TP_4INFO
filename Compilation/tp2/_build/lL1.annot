@@ -1,0 +1,275 @@
+"lL1.ml" 3 14 18 "lL1.ml" 3 14 21
+type(
+  'a -> 'b
+)
+ident(
+  def acc "lL1.ml" 5 57 57 "_none_" 1 0 -1
+)
+"lL1.ml" 3 14 29 "lL1.ml" 3 14 30
+type(
+  'a
+)
+"lL1.ml" 3 14 34 "lL1.ml" 3 14 42
+type(
+  string -> 'b
+)
+ident(
+  ext_ref Pervasives.failwith
+)
+"lL1.ml" 3 14 43 "lL1.ml" 3 14 55
+type(
+  string
+)
+"lL1.ml" 3 14 34 "lL1.ml" 3 14 55
+call(
+  tail
+)
+type(
+  'b
+)
+"lL1.ml" 3 14 25 "lL1.ml" 3 14 55
+type(
+  'a -> 'b
+)
+"lL1.ml" 5 57 61 "lL1.ml" 5 57 64
+type(
+  'a -> 'b
+)
+ident(
+  def gen "lL1.ml" 7 100 100 "_none_" 1 0 -1
+)
+"lL1.ml" 5 57 72 "lL1.ml" 5 57 73
+type(
+  'a
+)
+"lL1.ml" 5 57 77 "lL1.ml" 5 57 85
+type(
+  string -> 'b
+)
+ident(
+  ext_ref Pervasives.failwith
+)
+"lL1.ml" 5 57 86 "lL1.ml" 5 57 98
+type(
+  string
+)
+"lL1.ml" 5 57 77 "lL1.ml" 5 57 98
+call(
+  tail
+)
+type(
+  'b
+)
+"lL1.ml" 5 57 68 "lL1.ml" 5 57 98
+type(
+  'a -> 'b
+)
+"lL1.ml" 7 100 104 "lL1.ml" 7 100 108
+type(
+  'a -> 'b
+)
+ident(
+  def null "lL1.ml" 9 144 144 "_none_" 1 0 -1
+)
+"lL1.ml" 7 100 115 "lL1.ml" 7 100 116
+type(
+  'a
+)
+"lL1.ml" 7 100 120 "lL1.ml" 7 100 128
+type(
+  string -> 'b
+)
+ident(
+  ext_ref Pervasives.failwith
+)
+"lL1.ml" 7 100 129 "lL1.ml" 7 100 142
+type(
+  string
+)
+"lL1.ml" 7 100 120 "lL1.ml" 7 100 142
+call(
+  tail
+)
+type(
+  'b
+)
+"lL1.ml" 7 100 111 "lL1.ml" 7 100 142
+type(
+  'a -> 'b
+)
+"lL1.ml" 9 144 148 "lL1.ml" 9 144 153
+type(
+  'a -> 'b -> 'c
+)
+ident(
+  def first "lL1.ml" 11 192 192 "_none_" 1 0 -1
+)
+"lL1.ml" 9 144 160 "lL1.ml" 9 144 161
+type(
+  'a
+)
+"lL1.ml" 9 144 162 "lL1.ml" 9 144 163
+type(
+  'b
+)
+"lL1.ml" 9 144 167 "lL1.ml" 9 144 175
+type(
+  string -> 'c
+)
+ident(
+  ext_ref Pervasives.failwith
+)
+"lL1.ml" 9 144 176 "lL1.ml" 9 144 190
+type(
+  string
+)
+"lL1.ml" 9 144 167 "lL1.ml" 9 144 190
+call(
+  tail
+)
+type(
+  'c
+)
+"lL1.ml" 9 144 156 "lL1.ml" 9 144 190
+type(
+  'a -> 'b -> 'c
+)
+"lL1.ml" 11 192 196 "lL1.ml" 11 192 202
+type(
+  'a -> 'b -> 'c -> 'd
+)
+ident(
+  def follow "lL1.ml" 13 244 244 "_none_" 1 0 -1
+)
+"lL1.ml" 11 192 209 "lL1.ml" 11 192 210
+type(
+  'a
+)
+"lL1.ml" 11 192 211 "lL1.ml" 11 192 212
+type(
+  'b
+)
+"lL1.ml" 11 192 213 "lL1.ml" 11 192 214
+type(
+  'c
+)
+"lL1.ml" 11 192 218 "lL1.ml" 11 192 226
+type(
+  string -> 'd
+)
+ident(
+  ext_ref Pervasives.failwith
+)
+"lL1.ml" 11 192 227 "lL1.ml" 11 192 242
+type(
+  string
+)
+"lL1.ml" 11 192 218 "lL1.ml" 11 192 242
+call(
+  tail
+)
+type(
+  'd
+)
+"lL1.ml" 11 192 205 "lL1.ml" 11 192 242
+type(
+  'a -> 'b -> 'c -> 'd
+)
+"lL1.ml" 13 244 248 "lL1.ml" 13 244 254
+type(
+  'a -> 'b -> 'c -> 'd -> 'e
+)
+ident(
+  def is_ll1 "lL1.ml" 15 298 298 "_none_" 1 0 -1
+)
+"lL1.ml" 13 244 261 "lL1.ml" 13 244 262
+type(
+  'a
+)
+"lL1.ml" 13 244 263 "lL1.ml" 13 244 264
+type(
+  'b
+)
+"lL1.ml" 13 244 265 "lL1.ml" 13 244 266
+type(
+  'c
+)
+"lL1.ml" 13 244 267 "lL1.ml" 13 244 268
+type(
+  'd
+)
+"lL1.ml" 13 244 272 "lL1.ml" 13 244 280
+type(
+  string -> 'e
+)
+ident(
+  ext_ref Pervasives.failwith
+)
+"lL1.ml" 13 244 281 "lL1.ml" 13 244 296
+type(
+  string
+)
+"lL1.ml" 13 244 272 "lL1.ml" 13 244 296
+call(
+  tail
+)
+type(
+  'e
+)
+"lL1.ml" 13 244 257 "lL1.ml" 13 244 296
+type(
+  'a -> 'b -> 'c -> 'd -> 'e
+)
+"lL1.ml" 15 298 302 "lL1.ml" 15 298 307
+type(
+  'a -> 'b -> 'c -> 'd -> 'e -> 'f -> 'g
+)
+ident(
+  def deriv "lL1.ml" 15 298 353 "_none_" 1 0 -1
+)
+"lL1.ml" 15 298 315 "lL1.ml" 15 298 316
+type(
+  'a
+)
+"lL1.ml" 15 298 317 "lL1.ml" 15 298 318
+type(
+  'b
+)
+"lL1.ml" 15 298 319 "lL1.ml" 15 298 320
+type(
+  'c
+)
+"lL1.ml" 15 298 321 "lL1.ml" 15 298 322
+type(
+  'd
+)
+"lL1.ml" 15 298 323 "lL1.ml" 15 298 324
+type(
+  'e
+)
+"lL1.ml" 15 298 325 "lL1.ml" 15 298 326
+type(
+  'f
+)
+"lL1.ml" 15 298 330 "lL1.ml" 15 298 338
+type(
+  string -> 'g
+)
+ident(
+  ext_ref Pervasives.failwith
+)
+"lL1.ml" 15 298 339 "lL1.ml" 15 298 353
+type(
+  string
+)
+"lL1.ml" 15 298 330 "lL1.ml" 15 298 353
+call(
+  tail
+)
+type(
+  'g
+)
+"lL1.ml" 15 298 311 "lL1.ml" 15 298 353
+type(
+  'a -> 'b -> 'c -> 'd -> 'e -> 'f -> 'g
+)

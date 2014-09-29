@@ -1,0 +1,52 @@
+### Starting build.
+# Target: main.ml.depends, tags: { extension:ml, file:main.ml, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep.opt -modules main.ml > main.ml.depends
+# Target: engine.mli.depends, tags: { extension:mli, file:engine.mli, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep.opt -modules engine.mli > engine.mli.depends
+# Target: grammar.mli.depends, tags: { extension:mli, file:grammar.mli, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep.opt -modules grammar.mli > grammar.mli.depends
+# Target: grammar.cmi, tags: { byte, compile, extension:mli, file:grammar.mli, interf, ocaml, quiet }
+/usr/bin/ocamlc.opt -c -annot -g -o grammar.cmi grammar.mli
+# Target: lL1.mli.depends, tags: { extension:mli, file:lL1.mli, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep.opt -modules lL1.mli > lL1.mli.depends
+# Target: engine.cmi, tags: { byte, compile, extension:mli, file:engine.mli, interf, ocaml, quiet }
+/usr/bin/ocamlc.opt -c -annot -g -o engine.cmi engine.mli
+# Target: lL1.cmi, tags: { byte, compile, extension:mli, file:lL1.mli, interf, ocaml, quiet }
+/usr/bin/ocamlc.opt -c -annot -g -o lL1.cmi lL1.mli
+# Target: main.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:main.cmo, file:main.ml, implem, ocaml, quiet }
+/usr/bin/ocamlc.opt -c -annot -g -o main.cmo main.ml
+# Target: engine.ml.depends, tags: { extension:ml, file:engine.ml, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep.opt -modules engine.ml > engine.ml.depends
+# Target: grammar.ml.depends, tags: { extension:ml, file:grammar.ml, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep.opt -modules grammar.ml > grammar.ml.depends
+# Target: grammarLexer.mll, tags: { extension:mll, file:grammarLexer.mll, lexer, ocaml, ocamllex, quiet }
+/usr/bin/ocamllex.opt -q grammarLexer.mll
+# Target: grammarLexer.ml.depends, tags: { extension:ml, file:grammarLexer.ml, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep.opt -modules grammarLexer.ml > grammarLexer.ml.depends
+# Target: grammarParser.mly, tags: { extension:mly, file:grammarParser.mly, ocaml, ocamlyacc, parser, quiet }
+/usr/bin/ocamlyacc grammarParser.mly
+# Target: grammarParser.mli.depends, tags: { extension:mli, file:grammarParser.mli, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep.opt -modules grammarParser.mli > grammarParser.mli.depends
+# Target: grammarParser.cmi, tags: { byte, compile, extension:mli, file:grammarParser.mli, interf, ocaml, quiet }
+/usr/bin/ocamlc.opt -c -annot -g -o grammarParser.cmi grammarParser.mli
+# Target: grammarLexer.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:grammarLexer.cmo, file:grammarLexer.ml, implem, ocaml, quiet }
+/usr/bin/ocamlc.opt -c -annot -g -o grammarLexer.cmo grammarLexer.ml
+# Target: grammarParser.ml.depends, tags: { extension:ml, file:grammarParser.ml, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep.opt -modules grammarParser.ml > grammarParser.ml.depends
+# Target: grammarParser.cmx, tags: { compile, extension:cmx, extension:ml, file:grammarParser.cmx, file:grammarParser.ml, implem, native, ocaml, quiet }
+/usr/bin/ocamlopt.opt -c -annot -g -o grammarParser.cmx grammarParser.ml
+# Target: grammarLexer.cmx, tags: { compile, extension:cmx, extension:ml, file:grammarLexer.cmx, file:grammarLexer.ml, implem, native, ocaml, quiet }
+/usr/bin/ocamlopt.opt -c -annot -g -o grammarLexer.cmx grammarLexer.ml
+# Target: lL1.ml.depends, tags: { extension:ml, file:lL1.ml, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep.opt -modules lL1.ml > lL1.ml.depends
+# Target: grammar.cmx, tags: { compile, extension:cmx, extension:ml, file:grammar.cmx, file:grammar.ml, implem, native, ocaml, quiet }
+/usr/bin/ocamlopt.opt -c -annot -g -o grammar.cmx grammar.ml
+# Target: lL1.cmx, tags: { compile, extension:cmx, extension:ml, file:lL1.cmx, file:lL1.ml, implem, native, ocaml, quiet }
+/usr/bin/ocamlopt.opt -c -annot -g -o lL1.cmx lL1.ml
+# Target: engine.cmx, tags: { compile, extension:cmx, extension:ml, file:engine.cmx, file:engine.ml, implem, native, ocaml, quiet }
+/usr/bin/ocamlopt.opt -c -annot -g -o engine.cmx engine.ml
+# Target: main.cmx, tags: { compile, extension:cmx, extension:ml, file:main.cmx, file:main.ml, implem, native, ocaml, quiet }
+/usr/bin/ocamlopt.opt -c -annot -g -o main.cmx main.ml
+# Target: main.native, tags: { dont_link_with, extension:native, file:main.native, link, native, ocaml, program, quiet }
+/usr/bin/ocamlopt.opt grammarParser.cmx grammarLexer.cmx grammar.cmx lL1.cmx engine.cmx main.cmx -o main.native
+# Compilation successful.
