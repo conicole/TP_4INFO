@@ -3,6 +3,7 @@ type vn (** non-terminals *)
 type v =   (** terminals or non-terminals *)
 | Vt of vt
 | Vn of vn
+
 type grammar    
 
 type production = vn * v list

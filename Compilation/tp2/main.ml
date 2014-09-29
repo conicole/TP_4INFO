@@ -84,7 +84,7 @@ let _ =
  VNSet.fold (fun vn b -> 
   let acc = acc vn in
   let gen = gen vn in 
-  if not acc  then Printf.fprintf stdout "Non terminal %a is not accessible\n" output_vn vn;
+  if not acc  then ( Printf.fprintf stdout "Non terminal %a is not accessible\n" output_vn vn; flush stdout );
   if not gen then Printf.fprintf stdout "Non terminal %a is not generative\n" output_vn vn;
   acc && gen && b ) nt true in
   if not wf then exit 1;
