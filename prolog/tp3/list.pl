@@ -23,7 +23,7 @@ compte(A,[Tete|Reste],Cpt):- \==(A,Tete),
 			     compte(A,Reste,Cpt).
 
 
-/* TEST
+/* TESTS
 
 [eclipse 34]: compte(1,[1,1,1,3,1],N).
 
@@ -39,7 +39,7 @@ Yes (0.00s cpu)
 renverser([],A,A).
 renverser([Tete1|Reste1],A,R) :- renverser( Reste1, [Tete1|A],R).
 
-/* TEST
+/* TESTS
 
 [eclipse 48]: renverser([1,2,3],[],N).
   (1) 1 CALL  renverser([1, 2, 3], [], N)  %> creep
@@ -62,7 +62,7 @@ comparer([Tete1|Reste1],[Tete1|Reste2]):- comparer(Reste1,Reste2).
 palind(L1):- renverser(L1,[],L2),
 	     comparer(L1,L2).
 
-/* TEST
+/* TESTS
 
 [eclipse 2]: palind([1,2,3,2,1]).
 
@@ -78,7 +78,7 @@ nieme(N,[_|Reste],A) :- \==(N,1),
 			nieme(N2,Reste,A),
 			N is N2+1.
 
-/* TEST
+/* TESTS
 
 [eclipse 3]: nieme(5,[1,2,3,4,5,6,7,8,9],A).
 
@@ -123,7 +123,7 @@ conc3([],[],L,L).
 conc3(L1,L2,L3,R):-conc2(L1,L2,L12),
 		   conc2(L12,L3,R).
 
-/* TEST
+/* TESTS
 
 [eclipse 24]: conc3([1,2,3],[4,5,6],[7,8,9],R).
 
@@ -170,7 +170,7 @@ elim([Tete|Reste],L2,R):-(membre(Tete,L2),
 			 elim(Reste,L2,R));
 			 elim(Reste,[Tete|L2],R).
 
-/* TEST
+/* TESTS
 
 [eclipse 43]: elim([1,2,2,2,3,7,4,5,5,9],[],R).
 
@@ -178,5 +178,91 @@ R = [9, 5, 4, 7, 3, 2, 1]
 
 */
 
-tri
 
+inserer(E,[Tete|Reste],[Tete|Reste2]):-E>Tete,
+			     inserer(E,Reste,Reste2).
+inserer(E,L1,[E|L1]).
+			     
+
+/* TESTS
+
+| ?- inserer(4,[1,2,3,5],L).
+
+L = [1,2,3,4,5] ? 
+
+| ?- inserer(4,[1,2],L).    
+
+L = [1,2,4] ? 
+
+*/
+
+tri([E],[E]).
+tri([Tete|Reste],R) :- tri(Reste,Rtmp), inserer(Tete,Rtmp,R).
+
+/* TESTS
+
+| ?- tri([9,8,7,6,5,4,3,2,1],L).
+
+L = [1,2,3,4,5,6,7,8,9] ? 
+
+*/
+
+/* QUESTION 2.1 */
+
+inclus([],_).
+inclus([Tete|Reste],Y):-membre(Tete,Y),
+			inclus(Reste,Y).
+
+/* TESTS
+
+| ?- inclus([2,3,6],[1,2,3,4,5]).
+
+no
+| ?- inclus([2,3,4],[1,2,3,4,5]).
+
+true ?
+
+*/
+
+non_inclus([Tete|Reste],Y):-(membre(Tete,Y),
+			    non_inclus(Reste,Y));
+			    hors_de(Tete,Y).
+
+/* TESTS
+
+| ?- non_inclus([2,3,4],[1,2,3,4,5]).
+
+no
+| ?- non_inclus([2,3,42],[1,2,3,4,5]).
+
+true ? 
+
+*/
+
+union_ens([],L,L).
+union_ens([Tete|Reste],Y,Z):-(non_inclus([Tete],Y),
+			     union_ens(Reste,[Tete|Y],Z));
+			     union_ens(Reste,Y,Z).
+
+/* TESTS
+
+| ?- union_ens([1,2,3],[4,5,6],Z).
+
+Z = [3,2,1,4,5,6] ? 
+
+yes
+| ?- union_ens([1,2,2],[3,5,6],Z).
+
+Z = [2,1,3,5,6] ? 
+
+yes
+| ?- union_ens([1,2,3],[3,5,6],Z).
+
+Z = [2,1,3,5,6] ? 
+
+yes
+
+*/
+union_ens([1,2,3,4,5,6,7],[8,9,10,11,45],L).
+
+main :- compute(input, Solution), writef('%t\n', [Solution]).

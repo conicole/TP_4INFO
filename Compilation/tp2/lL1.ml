@@ -25,6 +25,7 @@ open Grammar
 (*       |      ||      |       *)
 (*       |______||______|       *)
 
+(* test of egality *)
 let v_equal vn v  = match v with 
 		 | Vt _ -> false
 		 | Vn a -> vn_equal vn a
