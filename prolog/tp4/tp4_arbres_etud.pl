@@ -9,7 +9,7 @@ TP 4 Arbres binaires - Prolog
 
 /*
 -------------------------------------------------------------------------------
- Définition des prédicats
+ DÃ©finition des prÃ©dicats
 -------------------------------------------------------------------------------
 */
 
@@ -87,15 +87,6 @@ remplacer(SA1,SA2,arb_bin(R,G,D),arb_bin(R,ResG,ResD)):-
 
 /*********** TESTS ***********
 
-[eclipse 14]: sous_arbre_binaire(arb_bin(6,vide,vide), arb_bin(3, arb_bin(4, vide, vide), arb_bin(5, arb_bin(6, vide, vide), arb_bin(7, vide, vide)))).
-
-Yes (0.00s cpu, solution 1, maybe more) ? ;
-
-No (0.00s cpu)
-[eclipse 15]: sous_arbre_binaire(arb_bin(12,vide,vide), arb_bin(3, arb_bin(4, vide, vide), arb_bin(5, arb_bin(6, vide, vide), arb_bin(7, vide, vide)))).
-
-No (0.00s cpu)
-
 ******************************/
 
 /*
@@ -104,8 +95,8 @@ No (0.00s cpu)
 -------------------------------------------------------------------------------
 */
 
-% Quelques arbres à copier coller pour vous faire gagner du temps, mais
-% n'hésitez pas à en définir d'autres
+% Quelques arbres Ã  copier coller pour vous faire gagner du temps, mais
+% n'hÃ©sitez pas Ã  en dÃ©finir d'autres
 
 /*
 arb_bin(1, arb_bin(2, arb_bin(6, vide, vide), vide), arb_bin(3, arb_bin(4, vide, vide), arb_bin(5, vide, vide)))
