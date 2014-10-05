@@ -1,8 +1,8 @@
 /**
 TP 4 Arbres binaires - Prolog
 
-@author Prenom1 NOM1
-@author Corentin NICOLE Maud LERAY
+@author Maud LERAY
+@author Corentin NICOLE
 @version Annee scolaire 2014/2015
 */
 
