@@ -1,286 +1,286 @@
-"lL1.ml" 28 883 887 "lL1.ml" 28 883 894
+"lL1.ml" 29 933 937 "lL1.ml" 29 933 944
 type(
   Grammar.vn -> Grammar.v -> bool
 )
 ident(
-  def v_equal "lL1.ml" 33 965 965 "_none_" 1 0 -1
+  def v_equal "lL1.ml" 34 1020 1020 "_none_" 1 0 -1
 )
-"lL1.ml" 28 883 895 "lL1.ml" 28 883 897
+"lL1.ml" 29 933 945 "lL1.ml" 29 933 947
 type(
   Grammar.vn
 )
 ident(
-  def vn "lL1.ml" 28 883 898 "lL1.ml" 30 936 962
+  def vn "lL1.ml" 29 933 948 "lL1.ml" 31 988 1014
 )
-"lL1.ml" 28 883 898 "lL1.ml" 28 883 899
+"lL1.ml" 29 933 948 "lL1.ml" 29 933 949
 type(
   Grammar.v
 )
 ident(
-  def v "lL1.ml" 28 883 903 "lL1.ml" 30 936 962
+  def v "lL1.ml" 29 933 953 "lL1.ml" 31 988 1014
 )
-"lL1.ml" 28 883 909 "lL1.ml" 28 883 910
+"lL1.ml" 29 933 959 "lL1.ml" 29 933 960
 type(
   Grammar.v
 )
 ident(
-  int_ref v "lL1.ml" 28 883 898 "lL1.ml" 28 883 899
+  int_ref v "lL1.ml" 29 933 948 "lL1.ml" 29 933 949
 )
-"lL1.ml" 29 917 925 "lL1.ml" 29 917 926
+"lL1.ml" 30 968 976 "lL1.ml" 30 968 977
 type(
   Grammar.vt
 )
-"lL1.ml" 29 917 922 "lL1.ml" 29 917 926
+"lL1.ml" 30 968 973 "lL1.ml" 30 968 977
 type(
   Grammar.v
 )
-"lL1.ml" 29 917 930 "lL1.ml" 29 917 935
+"lL1.ml" 30 968 981 "lL1.ml" 30 968 986
 type(
   bool
 )
-"lL1.ml" 30 936 944 "lL1.ml" 30 936 945
+"lL1.ml" 31 988 996 "lL1.ml" 31 988 997
 type(
   Grammar.vn
 )
 ident(
-  def a "lL1.ml" 30 936 949 "lL1.ml" 30 936 962
+  def a "lL1.ml" 31 988 1001 "lL1.ml" 31 988 1014
 )
-"lL1.ml" 30 936 941 "lL1.ml" 30 936 945
+"lL1.ml" 31 988 993 "lL1.ml" 31 988 997
 type(
   Grammar.v
 )
-"lL1.ml" 30 936 949 "lL1.ml" 30 936 957
+"lL1.ml" 31 988 1001 "lL1.ml" 31 988 1009
 type(
   Grammar.vn -> Grammar.vn -> bool
 )
 ident(
   ext_ref Grammar.vn_equal
 )
-"lL1.ml" 30 936 958 "lL1.ml" 30 936 960
+"lL1.ml" 31 988 1010 "lL1.ml" 31 988 1012
 type(
   Grammar.vn
 )
 ident(
-  int_ref vn "lL1.ml" 28 883 895 "lL1.ml" 28 883 897
+  int_ref vn "lL1.ml" 29 933 945 "lL1.ml" 29 933 947
 )
-"lL1.ml" 30 936 961 "lL1.ml" 30 936 962
+"lL1.ml" 31 988 1013 "lL1.ml" 31 988 1014
 type(
   Grammar.vn
 )
 ident(
-  int_ref a "lL1.ml" 30 936 944 "lL1.ml" 30 936 945
+  int_ref a "lL1.ml" 31 988 996 "lL1.ml" 31 988 997
 )
-"lL1.ml" 30 936 949 "lL1.ml" 30 936 962
+"lL1.ml" 31 988 1001 "lL1.ml" 31 988 1014
 call(
   tail
 )
 type(
   bool
 )
-"lL1.ml" 28 883 903 "lL1.ml" 30 936 962
+"lL1.ml" 29 933 953 "lL1.ml" 31 988 1014
 type(
   bool
 )
-"lL1.ml" 33 965 969 "lL1.ml" 33 965 980
+"lL1.ml" 34 1020 1024 "lL1.ml" 34 1020 1035
 type(
   Grammar.vn -> 'a * Grammar.v list -> 'a option
 )
 ident(
-  def prodchecker "lL1.ml" 39 1124 1124 "_none_" 1 0 -1
+  def prodchecker "lL1.ml" 40 1185 1185 "_none_" 1 0 -1
 )
-"lL1.ml" 33 965 981 "lL1.ml" 33 965 983
+"lL1.ml" 34 1020 1036 "lL1.ml" 34 1020 1038
 type(
   Grammar.vn
 )
 ident(
-  def vn "lL1.ml" 33 965 984 "lL1.ml" 36 1102 1121
+  def vn "lL1.ml" 34 1020 1039 "lL1.ml" 37 1160 1179
 )
-"lL1.ml" 33 965 984 "lL1.ml" 33 965 988
+"lL1.ml" 34 1020 1039 "lL1.ml" 34 1020 1043
 type(
   'a * Grammar.v list
 )
 ident(
-  def prod "lL1.ml" 33 965 991 "lL1.ml" 36 1102 1121
+  def prod "lL1.ml" 34 1020 1046 "lL1.ml" 37 1160 1179
 )
-"lL1.ml" 33 965 997 "lL1.ml" 33 965 1001
+"lL1.ml" 34 1020 1052 "lL1.ml" 34 1020 1056
 type(
   'a * Grammar.v list
 )
 ident(
-  int_ref prod "lL1.ml" 33 965 984 "lL1.ml" 33 965 988
+  int_ref prod "lL1.ml" 34 1020 1039 "lL1.ml" 34 1020 1043
 )
-"lL1.ml" 34 1007 1020 "lL1.ml" 34 1007 1027
+"lL1.ml" 35 1063 1076 "lL1.ml" 35 1063 1083
 type(
   'a
 )
 ident(
-  def vLentin "lL1.ml" 34 1007 1038 "lL1.ml" 36 1102 1121
+  def vLentin "lL1.ml" 35 1063 1094 "lL1.ml" 37 1160 1179
 )
-"lL1.ml" 34 1007 1028 "lL1.ml" 34 1007 1033
+"lL1.ml" 35 1063 1084 "lL1.ml" 35 1063 1089
 type(
   Grammar.v list
 )
 ident(
-  def vlist "lL1.ml" 34 1007 1038 "lL1.ml" 36 1102 1121
+  def vlist "lL1.ml" 35 1063 1094 "lL1.ml" 37 1160 1179
 )
-"lL1.ml" 34 1007 1019 "lL1.ml" 34 1007 1034
+"lL1.ml" 35 1063 1075 "lL1.ml" 35 1063 1090
 type(
   'a * Grammar.v list
 )
-"lL1.ml" 34 1007 1042 "lL1.ml" 34 1007 1053
+"lL1.ml" 35 1063 1098 "lL1.ml" 35 1063 1109
 type(
   (Grammar.v -> bool) -> Grammar.v list -> bool
 )
 ident(
   ext_ref List.exists
 )
-"lL1.ml" 34 1007 1055 "lL1.ml" 34 1007 1062
+"lL1.ml" 35 1063 1111 "lL1.ml" 35 1063 1118
 type(
   Grammar.vn -> Grammar.v -> bool
 )
 ident(
-  int_ref v_equal "lL1.ml" 28 883 887 "lL1.ml" 28 883 894
+  int_ref v_equal "lL1.ml" 29 933 937 "lL1.ml" 29 933 944
 )
-"lL1.ml" 34 1007 1063 "lL1.ml" 34 1007 1065
+"lL1.ml" 35 1063 1119 "lL1.ml" 35 1063 1121
 type(
   Grammar.vn
 )
 ident(
-  int_ref vn "lL1.ml" 33 965 981 "lL1.ml" 33 965 983
+  int_ref vn "lL1.ml" 34 1020 1036 "lL1.ml" 34 1020 1038
 )
-"lL1.ml" 34 1007 1054 "lL1.ml" 34 1007 1066
+"lL1.ml" 35 1063 1110 "lL1.ml" 35 1063 1122
 call(
   stack
 )
 type(
   Grammar.v -> bool
 )
-"lL1.ml" 34 1007 1067 "lL1.ml" 34 1007 1072
+"lL1.ml" 35 1063 1123 "lL1.ml" 35 1063 1128
 type(
   Grammar.v list
 )
 ident(
-  int_ref vlist "lL1.ml" 34 1007 1028 "lL1.ml" 34 1007 1033
+  int_ref vlist "lL1.ml" 35 1063 1084 "lL1.ml" 35 1063 1089
 )
-"lL1.ml" 34 1007 1041 "lL1.ml" 34 1007 1073
+"lL1.ml" 35 1063 1097 "lL1.ml" 35 1063 1129
 call(
   stack
 )
 type(
   bool
 )
-"lL1.ml" 35 1074 1094 "lL1.ml" 35 1074 1101
+"lL1.ml" 36 1131 1151 "lL1.ml" 36 1131 1158
 type(
   'a
 )
 ident(
-  int_ref vLentin "lL1.ml" 34 1007 1020 "lL1.ml" 34 1007 1027
+  int_ref vLentin "lL1.ml" 35 1063 1076 "lL1.ml" 35 1063 1083
 )
-"lL1.ml" 35 1074 1089 "lL1.ml" 35 1074 1101
+"lL1.ml" 36 1131 1146 "lL1.ml" 36 1131 1158
 type(
   'a option
 )
-"lL1.ml" 36 1102 1117 "lL1.ml" 36 1102 1121
+"lL1.ml" 37 1160 1175 "lL1.ml" 37 1160 1179
 type(
   'a option
 )
-"lL1.ml" 34 1007 1038 "lL1.ml" 36 1102 1121
+"lL1.ml" 35 1063 1094 "lL1.ml" 37 1160 1179
 type(
   'a option
 )
-"lL1.ml" 33 965 991 "lL1.ml" 36 1102 1121
+"lL1.ml" 34 1020 1046 "lL1.ml" 37 1160 1179
 type(
   'a option
 )
-"lL1.ml" 39 1124 1128 "lL1.ml" 39 1124 1134
+"lL1.ml" 40 1185 1189 "lL1.ml" 40 1185 1195
 type(
   Grammar.grammar -> (Grammar.vn -> bool) -> Grammar.vn -> bool
 )
 ident(
-  def acc_vn "lL1.ml" 46 1303 1303 "_none_" 1 0 -1
+  def acc_vn "lL1.ml" 45 1338 1338 "_none_" 1 0 -1
 )
-"lL1.ml" 39 1124 1135 "lL1.ml" 39 1124 1136
+"lL1.ml" 40 1185 1196 "lL1.ml" 40 1185 1197
 type(
   Grammar.grammar
 )
 ident(
-  def g "lL1.ml" 39 1124 1137 "lL1.ml" 42 1196 1288
+  def g "lL1.ml" 40 1185 1198 "lL1.ml" 43 1260 1323
 )
-"lL1.ml" 39 1124 1137 "lL1.ml" 39 1124 1138
+"lL1.ml" 40 1185 1198 "lL1.ml" 40 1185 1199
 type(
   Grammar.vn -> bool
 )
 ident(
-  def f "lL1.ml" 40 1141 1143 "lL1.ml" 42 1196 1288
+  def f "lL1.ml" 41 1203 1205 "lL1.ml" 43 1260 1323
 )
-"lL1.ml" 40 1141 1147 "lL1.ml" 40 1141 1149
+"lL1.ml" 41 1203 1209 "lL1.ml" 41 1203 1211
 type(
   Grammar.vn
 )
 ident(
-  def vn "lL1.ml" 40 1141 1153 "lL1.ml" 42 1196 1288
+  def vn "lL1.ml" 41 1203 1215 "lL1.ml" 43 1260 1323
 )
-"lL1.ml" 40 1141 1157 "lL1.ml" 40 1141 1165
+"lL1.ml" 41 1203 1219 "lL1.ml" 41 1203 1227
 type(
   Grammar.vn -> Grammar.vn -> bool
 )
 ident(
   ext_ref Grammar.vn_equal
 )
-"lL1.ml" 40 1141 1167 "lL1.ml" 40 1141 1172
+"lL1.ml" 41 1203 1229 "lL1.ml" 41 1203 1234
 type(
   Grammar.grammar -> Grammar.vn
 )
 ident(
   ext_ref Grammar.axiom
 )
-"lL1.ml" 40 1141 1173 "lL1.ml" 40 1141 1174
+"lL1.ml" 41 1203 1235 "lL1.ml" 41 1203 1236
 type(
   Grammar.grammar
 )
 ident(
-  int_ref g "lL1.ml" 39 1124 1135 "lL1.ml" 39 1124 1136
+  int_ref g "lL1.ml" 40 1185 1196 "lL1.ml" 40 1185 1197
 )
-"lL1.ml" 40 1141 1166 "lL1.ml" 40 1141 1175
+"lL1.ml" 41 1203 1228 "lL1.ml" 41 1203 1237
 call(
   stack
 )
 type(
   Grammar.vn
 )
-"lL1.ml" 40 1141 1176 "lL1.ml" 40 1141 1178
+"lL1.ml" 41 1203 1238 "lL1.ml" 41 1203 1240
 type(
   Grammar.vn
 )
 ident(
-  int_ref vn "lL1.ml" 40 1141 1147 "lL1.ml" 40 1141 1149
+  int_ref vn "lL1.ml" 41 1203 1209 "lL1.ml" 41 1203 1211
 )
-"lL1.ml" 40 1141 1156 "lL1.ml" 40 1141 1179
+"lL1.ml" 41 1203 1218 "lL1.ml" 41 1203 1241
 call(
   stack
 )
 type(
   bool
 )
-"lL1.ml" 41 1181 1191 "lL1.ml" 41 1181 1195
+"lL1.ml" 42 1244 1254 "lL1.ml" 42 1244 1258
 type(
   bool
 )
-"lL1.ml" 42 1196 1235 "lL1.ml" 42 1196 1246
+"lL1.ml" 43 1260 1270 "lL1.ml" 43 1260 1281
 type(
   (Grammar.vn -> bool) -> Grammar.vn list -> bool
 )
 ident(
   ext_ref List.exists
 )
-"lL1.ml" 42 1196 1247 "lL1.ml" 42 1196 1248
+"lL1.ml" 43 1260 1282 "lL1.ml" 43 1260 1283
 type(
   Grammar.vn -> bool
 )
 ident(
-  int_ref f "lL1.ml" 39 1124 1137 "lL1.ml" 39 1124 1138
+  int_ref f "lL1.ml" 40 1185 1198 "lL1.ml" 40 1185 1199
 )
-"lL1.ml" 42 1196 1250 "lL1.ml" 42 1196 1267
+"lL1.ml" 43 1260 1285 "lL1.ml" 43 1260 1302
 type(
   Grammar.grammar ->
   (Grammar.production -> Grammar.vn option) -> Grammar.vn list
@@ -288,71 +288,97 @@ type(
 ident(
   ext_ref Grammar.filter_production
 )
-"lL1.ml" 42 1196 1268 "lL1.ml" 42 1196 1269
+"lL1.ml" 43 1260 1303 "lL1.ml" 43 1260 1304
 type(
   Grammar.grammar
 )
 ident(
-  int_ref g "lL1.ml" 39 1124 1135 "lL1.ml" 39 1124 1136
+  int_ref g "lL1.ml" 40 1185 1196 "lL1.ml" 40 1185 1197
 )
-"lL1.ml" 42 1196 1271 "lL1.ml" 42 1196 1282
+"lL1.ml" 43 1260 1306 "lL1.ml" 43 1260 1317
 type(
   Grammar.vn -> Grammar.production -> Grammar.vn option
 )
 ident(
-  int_ref prodchecker "lL1.ml" 33 965 969 "lL1.ml" 33 965 980
+  int_ref prodchecker "lL1.ml" 34 1020 1024 "lL1.ml" 34 1020 1035
 )
-"lL1.ml" 42 1196 1283 "lL1.ml" 42 1196 1285
+"lL1.ml" 43 1260 1318 "lL1.ml" 43 1260 1320
 type(
   Grammar.vn
 )
 ident(
-  int_ref vn "lL1.ml" 40 1141 1147 "lL1.ml" 40 1141 1149
+  int_ref vn "lL1.ml" 41 1203 1209 "lL1.ml" 41 1203 1211
 )
-"lL1.ml" 42 1196 1270 "lL1.ml" 42 1196 1286
+"lL1.ml" 43 1260 1305 "lL1.ml" 43 1260 1321
 call(
   stack
 )
 type(
   Grammar.production -> Grammar.vn option
 )
-"lL1.ml" 42 1196 1249 "lL1.ml" 42 1196 1288
+"lL1.ml" 43 1260 1284 "lL1.ml" 43 1260 1323
 call(
   stack
 )
 type(
   Grammar.vn list
 )
-"lL1.ml" 42 1196 1235 "lL1.ml" 42 1196 1288
+"lL1.ml" 43 1260 1270 "lL1.ml" 43 1260 1323
 call(
   tail
 )
 type(
   bool
 )
-"lL1.ml" 40 1141 1153 "lL1.ml" 42 1196 1288
+"lL1.ml" 41 1203 1215 "lL1.ml" 43 1260 1323
 type(
   bool
 )
-"lL1.ml" 40 1141 1143 "lL1.ml" 42 1196 1288
+"lL1.ml" 41 1203 1205 "lL1.ml" 43 1260 1323
 type(
   Grammar.vn -> bool
 )
-"lL1.ml" 46 1303 1307 "lL1.ml" 46 1303 1310
+"lL1.ml" 45 1338 1342 "lL1.ml" 45 1338 1345
+type(
+  'a -> 'b -> bool
+)
+ident(
+  def gen "lL1.ml" 47 1369 1369 "_none_" 1 0 -1
+)
+"lL1.ml" 45 1338 1346 "lL1.ml" 45 1338 1347
+type(
+  'a
+)
+ident(
+  def g "lL1.ml" 45 1338 1350 "lL1.ml" 45 1338 1363
+)
+"lL1.ml" 45 1338 1354 "lL1.ml" 45 1338 1355
+type(
+  'b
+)
+"lL1.ml" 45 1338 1359 "lL1.ml" 45 1338 1363
+type(
+  bool
+)
+"lL1.ml" 45 1338 1350 "lL1.ml" 45 1338 1363
+type(
+  'b -> bool
+)
+"lL1.ml" 47 1369 1373 "lL1.ml" 47 1369 1376
 type(
   Grammar.grammar -> Grammar.vn -> bool
 )
 ident(
-  def acc "lL1.ml" 50 1363 1363 "_none_" 1 0 -1
+  def acc "lL1.ml" 49 1429 1429 "_none_" 1 0 -1
 )
-"lL1.ml" 46 1303 1318 "lL1.ml" 46 1303 1319
+"lL1.ml" 47 1369 1384 "lL1.ml" 47 1369 1385
 type(
   Grammar.grammar
 )
 ident(
-  def g "lL1.ml" 46 1303 1323 "lL1.ml" 46 1303 1357
+  def g "lL1.ml" 47 1369 1389 "lL1.ml" 47 1369 1423
 )
-"lL1.ml" 46 1303 1323 "lL1.ml" 46 1303 1333
+"lL1.ml" 47 1369 1389 "lL1.ml" 47 1369 1399
 type(
   Grammar.grammar ->
   (bool -> bool -> bool) ->
@@ -361,291 +387,2128 @@ type(
 ident(
   ext_ref Grammar.kleene_fun
 )
-"lL1.ml" 46 1303 1334 "lL1.ml" 46 1303 1335
+"lL1.ml" 47 1369 1400 "lL1.ml" 47 1369 1401
 type(
   Grammar.grammar
 )
 ident(
-  int_ref g "lL1.ml" 46 1303 1318 "lL1.ml" 46 1303 1319
+  int_ref g "lL1.ml" 47 1369 1384 "lL1.ml" 47 1369 1385
 )
-"lL1.ml" 46 1303 1336 "lL1.ml" 46 1303 1340
+"lL1.ml" 47 1369 1402 "lL1.ml" 47 1369 1406
 type(
   bool -> bool -> bool
 )
 ident(
   ext_ref Pervasives.( <= )
 )
-"lL1.ml" 46 1303 1342 "lL1.ml" 46 1303 1348
+"lL1.ml" 47 1369 1408 "lL1.ml" 47 1369 1414
 type(
   Grammar.grammar -> (Grammar.vn -> bool) -> Grammar.vn -> bool
 )
 ident(
-  int_ref acc_vn "lL1.ml" 39 1124 1128 "lL1.ml" 39 1124 1134
+  int_ref acc_vn "lL1.ml" 40 1185 1189 "lL1.ml" 40 1185 1195
 )
-"lL1.ml" 46 1303 1349 "lL1.ml" 46 1303 1350
+"lL1.ml" 47 1369 1415 "lL1.ml" 47 1369 1416
 type(
   Grammar.grammar
 )
 ident(
-  int_ref g "lL1.ml" 46 1303 1318 "lL1.ml" 46 1303 1319
+  int_ref g "lL1.ml" 47 1369 1384 "lL1.ml" 47 1369 1385
 )
-"lL1.ml" 46 1303 1341 "lL1.ml" 46 1303 1351
+"lL1.ml" 47 1369 1407 "lL1.ml" 47 1369 1417
 call(
   stack
 )
 type(
   (Grammar.vn -> bool) -> Grammar.vn -> bool
 )
-"lL1.ml" 46 1303 1352 "lL1.ml" 46 1303 1357
+"lL1.ml" 47 1369 1418 "lL1.ml" 47 1369 1423
 type(
   bool
 )
-"lL1.ml" 46 1303 1323 "lL1.ml" 46 1303 1357
+"lL1.ml" 47 1369 1389 "lL1.ml" 47 1369 1423
 call(
   tail
 )
 type(
   Grammar.vn -> bool
 )
-"lL1.ml" 46 1303 1314 "lL1.ml" 46 1303 1357
+"lL1.ml" 47 1369 1380 "lL1.ml" 47 1369 1423
 type(
   Grammar.grammar -> Grammar.vn -> bool
 )
-"lL1.ml" 50 1363 1367 "lL1.ml" 50 1363 1370
+"lL1.ml" 49 1429 1433 "lL1.ml" 49 1429 1443
 type(
-  'a -> 'b -> bool
+  bool -> bool -> bool
 )
 ident(
-  def gen "lL1.ml" 52 1394 1394 "_none_" 1 0 -1
+  def order_bool "lL1.ml" 52 1476 1476 "_none_" 1 0 -1
 )
-"lL1.ml" 50 1363 1378 "lL1.ml" 50 1363 1379
-type(
-  'a
-)
-ident(
-  def x "lL1.ml" 50 1363 1380 "lL1.ml" 50 1363 1390
-)
-"lL1.ml" 50 1363 1380 "lL1.ml" 50 1363 1381
-type(
-  'b
-)
-ident(
-  def b "lL1.ml" 50 1363 1385 "lL1.ml" 50 1363 1390
-)
-"lL1.ml" 50 1363 1385 "lL1.ml" 50 1363 1390
+"lL1.ml" 49 1429 1450 "lL1.ml" 49 1429 1451
 type(
   bool
 )
-"lL1.ml" 50 1363 1374 "lL1.ml" 50 1363 1390
-type(
-  'a -> 'b -> bool
+ident(
+  def x "lL1.ml" 49 1429 1452 "lL1.ml" 49 1429 1467
 )
-"lL1.ml" 52 1394 1398 "lL1.ml" 52 1394 1402
+"lL1.ml" 49 1429 1452 "lL1.ml" 49 1429 1453
 type(
-  'a -> 'b
+  bool
 )
 ident(
-  def null "lL1.ml" 54 1438 1438 "_none_" 1 0 -1
+  def y "lL1.ml" 49 1429 1457 "lL1.ml" 49 1429 1467
 )
-"lL1.ml" 52 1394 1409 "lL1.ml" 52 1394 1410
+"lL1.ml" 49 1429 1457 "lL1.ml" 49 1429 1460
 type(
-  'a
-)
-"lL1.ml" 52 1394 1414 "lL1.ml" 52 1394 1422
-type(
-  string -> 'b
+  bool -> bool
 )
 ident(
-  ext_ref Pervasives.failwith
+  ext_ref Pervasives.not
 )
-"lL1.ml" 52 1394 1423 "lL1.ml" 52 1394 1436
+"lL1.ml" 49 1429 1461 "lL1.ml" 49 1429 1462
 type(
-  string
+  bool
 )
-"lL1.ml" 52 1394 1414 "lL1.ml" 52 1394 1436
+ident(
+  int_ref x "lL1.ml" 49 1429 1450 "lL1.ml" 49 1429 1451
+)
+"lL1.ml" 49 1429 1457 "lL1.ml" 49 1429 1462
+type(
+  bool
+)
+"lL1.ml" 49 1429 1463 "lL1.ml" 49 1429 1465
+type(
+  bool -> bool -> bool
+)
+ident(
+  ext_ref Pervasives.( || )
+)
+"lL1.ml" 49 1429 1466 "lL1.ml" 49 1429 1467
+type(
+  bool
+)
+ident(
+  int_ref y "lL1.ml" 49 1429 1452 "lL1.ml" 49 1429 1453
+)
+"lL1.ml" 49 1429 1457 "lL1.ml" 49 1429 1467
+type(
+  bool
+)
+"lL1.ml" 49 1429 1446 "lL1.ml" 49 1429 1467
+type(
+  bool -> bool -> bool
+)
+"lL1.ml" 52 1476 1484 "lL1.ml" 52 1476 1493
+type(
+  (Grammar.vn -> bool) -> Grammar.v list -> bool
+)
+ident(
+  def null_prod "lL1.ml" 52 1476 1476 "_none_" 1 0 -1
+)
+"lL1.ml" 52 1476 1533 "lL1.ml" 52 1476 1537
+type(
+  Grammar.vn -> bool
+)
+ident(
+  def null "lL1.ml" 52 1476 1538 "lL1.ml" 59 1662 1677
+)
+"lL1.ml" 52 1476 1538 "lL1.ml" 52 1476 1539
+type(
+  Grammar.v list
+)
+ident(
+  def l "lL1.ml" 53 1545 1547 "lL1.ml" 59 1662 1677
+)
+"lL1.ml" 53 1545 1553 "lL1.ml" 53 1545 1554
+type(
+  Grammar.v list
+)
+ident(
+  int_ref l "lL1.ml" 52 1476 1538 "lL1.ml" 52 1476 1539
+)
+"lL1.ml" 54 1561 1565 "lL1.ml" 54 1561 1567
+type(
+  Grammar.v list
+)
+"lL1.ml" 54 1561 1571 "lL1.ml" 54 1561 1575
+type(
+  bool
+)
+"lL1.ml" 55 1577 1584 "lL1.ml" 55 1577 1586
+type(
+  Grammar.vt
+)
+ident(
+  def vt "lL1.ml" 55 1577 1593 "lL1.ml" 55 1577 1598
+)
+"lL1.ml" 55 1577 1581 "lL1.ml" 55 1577 1586
+type(
+  Grammar.v
+)
+"lL1.ml" 55 1577 1588 "lL1.ml" 55 1577 1589
+type(
+  Grammar.v list
+)
+"lL1.ml" 55 1577 1581 "lL1.ml" 55 1577 1589
+type(
+  Grammar.v list
+)
+"lL1.ml" 55 1577 1593 "lL1.ml" 55 1577 1598
+type(
+  bool
+)
+"lL1.ml" 56 1600 1607 "lL1.ml" 56 1600 1609
+type(
+  Grammar.vn
+)
+ident(
+  def vn "lL1.ml" 57 1617 1622 "lL1.ml" 59 1662 1677
+)
+"lL1.ml" 56 1600 1604 "lL1.ml" 56 1600 1609
+type(
+  Grammar.v
+)
+"lL1.ml" 56 1600 1611 "lL1.ml" 56 1600 1612
+type(
+  Grammar.v list
+)
+ident(
+  def r "lL1.ml" 57 1617 1622 "lL1.ml" 59 1662 1677
+)
+"lL1.ml" 56 1600 1604 "lL1.ml" 56 1600 1612
+type(
+  Grammar.v list
+)
+"lL1.ml" 57 1617 1625 "lL1.ml" 57 1617 1629
+type(
+  Grammar.vn -> bool
+)
+ident(
+  int_ref null "lL1.ml" 52 1476 1533 "lL1.ml" 52 1476 1537
+)
+"lL1.ml" 57 1617 1630 "lL1.ml" 57 1617 1632
+type(
+  Grammar.vn
+)
+ident(
+  int_ref vn "lL1.ml" 56 1600 1607 "lL1.ml" 56 1600 1609
+)
+"lL1.ml" 57 1617 1625 "lL1.ml" 57 1617 1632
+call(
+  stack
+)
+type(
+  bool
+)
+"lL1.ml" 58 1634 1644 "lL1.ml" 58 1634 1653
+type(
+  (Grammar.vn -> bool) -> Grammar.v list -> bool
+)
+ident(
+  int_ref null_prod "lL1.ml" 52 1476 1484 "lL1.ml" 52 1476 1493
+)
+"lL1.ml" 58 1634 1654 "lL1.ml" 58 1634 1658
+type(
+  Grammar.vn -> bool
+)
+ident(
+  int_ref null "lL1.ml" 52 1476 1533 "lL1.ml" 52 1476 1537
+)
+"lL1.ml" 58 1634 1659 "lL1.ml" 58 1634 1660
+type(
+  Grammar.v list
+)
+ident(
+  int_ref r "lL1.ml" 56 1600 1611 "lL1.ml" 56 1600 1612
+)
+"lL1.ml" 58 1634 1644 "lL1.ml" 58 1634 1660
 call(
   tail
 )
 type(
-  'b
+  bool
 )
-"lL1.ml" 52 1394 1405 "lL1.ml" 52 1394 1436
+"lL1.ml" 59 1662 1672 "lL1.ml" 59 1662 1677
 type(
-  'a -> 'b
+  bool
 )
-"lL1.ml" 54 1438 1442 "lL1.ml" 54 1438 1447
+"lL1.ml" 57 1617 1622 "lL1.ml" 59 1662 1677
 type(
-  'a -> 'b -> 'c
+  bool
+)
+"lL1.ml" 53 1545 1547 "lL1.ml" 59 1662 1677
+type(
+  bool
+)
+"lL1.ml" 52 1476 1529 "lL1.ml" 59 1662 1677
+type(
+  (Grammar.vn -> bool) -> Grammar.v list -> bool
+)
+type(
+  (Grammar.vn -> bool) -> Grammar.v list -> bool
+)
+"lL1.ml" 61 1681 1689 "lL1.ml" 61 1681 1696
+type(
+  Grammar.grammar -> (Grammar.vn -> bool) -> Grammar.vn -> bool
 )
 ident(
-  def first "lL1.ml" 56 1486 1486 "_none_" 1 0 -1
+  def null_vn "lL1.ml" 61 1681 1681 "_none_" 1 0 -1
 )
-"lL1.ml" 54 1438 1454 "lL1.ml" 54 1438 1455
+"lL1.ml" 61 1681 1741 "lL1.ml" 61 1681 1742
 type(
-  'a
-)
-"lL1.ml" 54 1438 1456 "lL1.ml" 54 1438 1457
-type(
-  'b
-)
-"lL1.ml" 54 1438 1461 "lL1.ml" 54 1438 1469
-type(
-  string -> 'c
+  Grammar.grammar
 )
 ident(
-  ext_ref Pervasives.failwith
+  def g "lL1.ml" 61 1681 1743 "lL1.ml" 62 1756 1805
 )
-"lL1.ml" 54 1438 1470 "lL1.ml" 54 1438 1484
+"lL1.ml" 61 1681 1743 "lL1.ml" 61 1681 1747
 type(
-  string
+  Grammar.vn -> bool
 )
-"lL1.ml" 54 1438 1461 "lL1.ml" 54 1438 1484
+ident(
+  def null "lL1.ml" 61 1681 1748 "lL1.ml" 62 1756 1805
+)
+"lL1.ml" 61 1681 1748 "lL1.ml" 61 1681 1750
+type(
+  Grammar.vn
+)
+ident(
+  def vn "lL1.ml" 62 1756 1758 "lL1.ml" 62 1756 1805
+)
+"lL1.ml" 62 1756 1758 "lL1.ml" 62 1756 1769
+type(
+  (Grammar.v list -> bool) -> Grammar.v list list -> bool
+)
+ident(
+  ext_ref List.exists
+)
+"lL1.ml" 62 1756 1771 "lL1.ml" 62 1756 1780
+type(
+  (Grammar.vn -> bool) -> Grammar.v list -> bool
+)
+ident(
+  int_ref null_prod "lL1.ml" 52 1476 1484 "lL1.ml" 52 1476 1493
+)
+"lL1.ml" 62 1756 1781 "lL1.ml" 62 1756 1785
+type(
+  Grammar.vn -> bool
+)
+ident(
+  int_ref null "lL1.ml" 61 1681 1743 "lL1.ml" 61 1681 1747
+)
+"lL1.ml" 62 1756 1770 "lL1.ml" 62 1756 1786
+call(
+  stack
+)
+type(
+  Grammar.v list -> bool
+)
+"lL1.ml" 62 1756 1789 "lL1.ml" 62 1756 1799
+type(
+  Grammar.grammar -> Grammar.vn -> Grammar.v list list
+)
+ident(
+  ext_ref Grammar.production
+)
+"lL1.ml" 62 1756 1800 "lL1.ml" 62 1756 1801
+type(
+  Grammar.grammar
+)
+ident(
+  int_ref g "lL1.ml" 61 1681 1741 "lL1.ml" 61 1681 1742
+)
+"lL1.ml" 62 1756 1802 "lL1.ml" 62 1756 1804
+type(
+  Grammar.vn
+)
+ident(
+  int_ref vn "lL1.ml" 61 1681 1748 "lL1.ml" 61 1681 1750
+)
+"lL1.ml" 62 1756 1788 "lL1.ml" 62 1756 1805
+call(
+  stack
+)
+type(
+  Grammar.v list list
+)
+"lL1.ml" 62 1756 1758 "lL1.ml" 62 1756 1805
 call(
   tail
 )
+type(
+  bool
+)
+"lL1.ml" 61 1681 1737 "lL1.ml" 62 1756 1805
+type(
+  Grammar.grammar -> (Grammar.vn -> bool) -> Grammar.vn -> bool
+)
+type(
+  Grammar.grammar -> (Grammar.vn -> bool) -> Grammar.vn -> bool
+)
+"lL1.ml" 65 1811 1815 "lL1.ml" 65 1811 1819
+type(
+  Grammar.grammar -> Grammar.vn -> bool
+)
+ident(
+  def null "lL1.ml" 71 1914 1914 "_none_" 1 0 -1
+)
+"lL1.ml" 65 1811 1852 "lL1.ml" 65 1811 1853
+type(
+  Grammar.grammar
+)
+ident(
+  def g "lL1.ml" 66 1859 1861 "lL1.ml" 66 1859 1902
+)
+"lL1.ml" 66 1859 1861 "lL1.ml" 66 1859 1871
+type(
+  Grammar.grammar ->
+  (bool -> bool -> bool) ->
+  ((Grammar.vn -> bool) -> Grammar.vn -> bool) -> bool -> Grammar.vn -> bool
+)
+ident(
+  ext_ref Grammar.kleene_fun
+)
+"lL1.ml" 66 1859 1872 "lL1.ml" 66 1859 1873
+type(
+  Grammar.grammar
+)
+ident(
+  int_ref g "lL1.ml" 65 1811 1852 "lL1.ml" 65 1811 1853
+)
+"lL1.ml" 66 1859 1874 "lL1.ml" 66 1859 1884
+type(
+  bool -> bool -> bool
+)
+ident(
+  int_ref order_bool "lL1.ml" 49 1429 1433 "lL1.ml" 49 1429 1443
+)
+"lL1.ml" 66 1859 1886 "lL1.ml" 66 1859 1893
+type(
+  Grammar.grammar -> (Grammar.vn -> bool) -> Grammar.vn -> bool
+)
+ident(
+  int_ref null_vn "lL1.ml" 61 1681 1689 "lL1.ml" 61 1681 1696
+)
+"lL1.ml" 66 1859 1894 "lL1.ml" 66 1859 1895
+type(
+  Grammar.grammar
+)
+ident(
+  int_ref g "lL1.ml" 65 1811 1852 "lL1.ml" 65 1811 1853
+)
+"lL1.ml" 66 1859 1885 "lL1.ml" 66 1859 1896
+call(
+  stack
+)
+type(
+  (Grammar.vn -> bool) -> Grammar.vn -> bool
+)
+"lL1.ml" 66 1859 1897 "lL1.ml" 66 1859 1902
+type(
+  bool
+)
+"lL1.ml" 66 1859 1861 "lL1.ml" 66 1859 1902
+call(
+  tail
+)
+type(
+  Grammar.vn -> bool
+)
+"lL1.ml" 65 1811 1848 "lL1.ml" 66 1859 1902
+type(
+  Grammar.grammar -> Grammar.vn -> bool
+)
+type(
+  Grammar.grammar -> Grammar.vn -> bool
+)
+"lL1.ml" 71 1914 1918 "lL1.ml" 71 1914 1924
+type(
+  'a -> 'b -> 'c -> 'd -> Grammar.VTSet.t
+)
+ident(
+  def follow "lL1.ml" 73 1959 1959 "_none_" 1 0 -1
+)
+"lL1.ml" 71 1914 1931 "lL1.ml" 71 1914 1932
+type(
+  'a
+)
+"lL1.ml" 71 1914 1933 "lL1.ml" 71 1914 1934
+type(
+  'b
+)
+"lL1.ml" 71 1914 1935 "lL1.ml" 71 1914 1936
 type(
   'c
 )
-"lL1.ml" 54 1438 1450 "lL1.ml" 54 1438 1484
-type(
-  'a -> 'b -> 'c
-)
-"lL1.ml" 56 1486 1490 "lL1.ml" 56 1486 1496
-type(
-  'a -> 'b -> 'c -> 'd
-)
-ident(
-  def follow "lL1.ml" 58 1538 1538 "_none_" 1 0 -1
-)
-"lL1.ml" 56 1486 1503 "lL1.ml" 56 1486 1504
-type(
-  'a
-)
-"lL1.ml" 56 1486 1505 "lL1.ml" 56 1486 1506
-type(
-  'b
-)
-"lL1.ml" 56 1486 1507 "lL1.ml" 56 1486 1508
-type(
-  'c
-)
-"lL1.ml" 56 1486 1512 "lL1.ml" 56 1486 1520
-type(
-  string -> 'd
-)
-ident(
-  ext_ref Pervasives.failwith
-)
-"lL1.ml" 56 1486 1521 "lL1.ml" 56 1486 1536
-type(
-  string
-)
-"lL1.ml" 56 1486 1512 "lL1.ml" 56 1486 1536
-call(
-  tail
-)
+"lL1.ml" 71 1914 1937 "lL1.ml" 71 1914 1938
 type(
   'd
 )
-"lL1.ml" 56 1486 1499 "lL1.ml" 56 1486 1536
+"lL1.ml" 71 1914 1942 "lL1.ml" 71 1914 1953
 type(
-  'a -> 'b -> 'c -> 'd
-)
-"lL1.ml" 58 1538 1542 "lL1.ml" 58 1538 1548
-type(
-  'a -> 'b -> 'c -> 'd -> 'e
+  Grammar.VTSet.t
 )
 ident(
-  def is_ll1 "lL1.ml" 60 1592 1592 "_none_" 1 0 -1
+  ext_ref Grammar.VTSet.empty
 )
-"lL1.ml" 58 1538 1555 "lL1.ml" 58 1538 1556
+"lL1.ml" 71 1914 1927 "lL1.ml" 71 1914 1953
 type(
-  'a
+  'a -> 'b -> 'c -> 'd -> Grammar.VTSet.t
 )
-"lL1.ml" 58 1538 1557 "lL1.ml" 58 1538 1558
-type(
-  'b
-)
-"lL1.ml" 58 1538 1559 "lL1.ml" 58 1538 1560
-type(
-  'c
-)
-"lL1.ml" 58 1538 1561 "lL1.ml" 58 1538 1562
-type(
-  'd
-)
-"lL1.ml" 58 1538 1566 "lL1.ml" 58 1538 1574
-type(
-  string -> 'e
-)
-ident(
-  ext_ref Pervasives.failwith
-)
-"lL1.ml" 58 1538 1575 "lL1.ml" 58 1538 1590
-type(
-  string
-)
-"lL1.ml" 58 1538 1566 "lL1.ml" 58 1538 1590
-call(
-  tail
-)
-type(
-  'e
-)
-"lL1.ml" 58 1538 1551 "lL1.ml" 58 1538 1590
-type(
-  'a -> 'b -> 'c -> 'd -> 'e
-)
-"lL1.ml" 60 1592 1596 "lL1.ml" 60 1592 1601
+"lL1.ml" 73 1959 1963 "lL1.ml" 73 1959 1968
 type(
   'a -> 'b -> 'c -> 'd -> 'e -> 'f -> 'g
 )
 ident(
-  def deriv "lL1.ml" 60 1592 1647 "_none_" 1 0 -1
+  def deriv "lL1.ml" 75 2018 2018 "_none_" 1 0 -1
 )
-"lL1.ml" 60 1592 1609 "lL1.ml" 60 1592 1610
+"lL1.ml" 73 1959 1976 "lL1.ml" 73 1959 1977
 type(
   'a
 )
-"lL1.ml" 60 1592 1611 "lL1.ml" 60 1592 1612
+"lL1.ml" 73 1959 1978 "lL1.ml" 73 1959 1979
 type(
   'b
 )
-"lL1.ml" 60 1592 1613 "lL1.ml" 60 1592 1614
+"lL1.ml" 73 1959 1980 "lL1.ml" 73 1959 1981
 type(
   'c
 )
-"lL1.ml" 60 1592 1615 "lL1.ml" 60 1592 1616
+"lL1.ml" 73 1959 1982 "lL1.ml" 73 1959 1983
 type(
   'd
 )
-"lL1.ml" 60 1592 1617 "lL1.ml" 60 1592 1618
+"lL1.ml" 73 1959 1984 "lL1.ml" 73 1959 1985
 type(
   'e
 )
-"lL1.ml" 60 1592 1619 "lL1.ml" 60 1592 1620
+"lL1.ml" 73 1959 1986 "lL1.ml" 73 1959 1987
 type(
   'f
 )
-"lL1.ml" 60 1592 1624 "lL1.ml" 60 1592 1632
+"lL1.ml" 73 1959 1991 "lL1.ml" 73 1959 1999
 type(
   string -> 'g
 )
 ident(
   ext_ref Pervasives.failwith
 )
-"lL1.ml" 60 1592 1633 "lL1.ml" 60 1592 1647
+"lL1.ml" 73 1959 2000 "lL1.ml" 73 1959 2014
 type(
   string
 )
-"lL1.ml" 60 1592 1624 "lL1.ml" 60 1592 1647
+"lL1.ml" 73 1959 1991 "lL1.ml" 73 1959 2014
 call(
   tail
 )
 type(
   'g
 )
-"lL1.ml" 60 1592 1605 "lL1.ml" 60 1592 1647
+"lL1.ml" 73 1959 1972 "lL1.ml" 73 1959 2014
 type(
   'a -> 'b -> 'c -> 'd -> 'e -> 'f -> 'g
+)
+"lL1.ml" 75 2018 2026 "lL1.ml" 75 2018 2036
+type(
+  (Grammar.vn -> bool) ->
+  (Grammar.vn -> Grammar.VTSet.t) -> Grammar.v list -> Grammar.VTSet.t
+)
+ident(
+  def first_prod "lL1.ml" 75 2018 2018 "_none_" 1 0 -1
+)
+"lL1.ml" 76 2095 2100 "lL1.ml" 76 2095 2104
+type(
+  Grammar.vn -> bool
+)
+ident(
+  def null "lL1.ml" 76 2095 2105 "lL1.ml" 83 2286 2302
+)
+"lL1.ml" 76 2095 2105 "lL1.ml" 76 2095 2110
+type(
+  Grammar.vn -> Grammar.VTSet.t
+)
+ident(
+  def first "lL1.ml" 76 2095 2111 "lL1.ml" 83 2286 2302
+)
+"lL1.ml" 76 2095 2111 "lL1.ml" 76 2095 2112
+type(
+  Grammar.v list
+)
+ident(
+  def l "lL1.ml" 77 2118 2120 "lL1.ml" 83 2286 2302
+)
+"lL1.ml" 77 2118 2126 "lL1.ml" 77 2118 2127
+type(
+  Grammar.v list
+)
+ident(
+  int_ref l "lL1.ml" 76 2095 2111 "lL1.ml" 76 2095 2112
+)
+"lL1.ml" 78 2135 2139 "lL1.ml" 78 2135 2141
+type(
+  Grammar.v list
+)
+"lL1.ml" 78 2135 2145 "lL1.ml" 78 2135 2156
+type(
+  Grammar.VTSet.t
+)
+ident(
+  ext_ref Grammar.VTSet.empty
+)
+"lL1.ml" 79 2158 2165 "lL1.ml" 79 2158 2167
+type(
+  Grammar.vt
+)
+ident(
+  def vt "lL1.ml" 79 2158 2174 "lL1.ml" 79 2158 2192
+)
+"lL1.ml" 79 2158 2162 "lL1.ml" 79 2158 2167
+type(
+  Grammar.v
+)
+"lL1.ml" 79 2158 2169 "lL1.ml" 79 2158 2170
+type(
+  Grammar.v list
+)
+"lL1.ml" 79 2158 2162 "lL1.ml" 79 2158 2170
+type(
+  Grammar.v list
+)
+"lL1.ml" 79 2158 2174 "lL1.ml" 79 2158 2189
+type(
+  Grammar.VTSet.elt -> Grammar.VTSet.t
+)
+ident(
+  ext_ref Grammar.VTSet.singleton
+)
+"lL1.ml" 79 2158 2190 "lL1.ml" 79 2158 2192
+type(
+  Grammar.VTSet.elt
+)
+ident(
+  int_ref vt "lL1.ml" 79 2158 2165 "lL1.ml" 79 2158 2167
+)
+"lL1.ml" 79 2158 2174 "lL1.ml" 79 2158 2192
+call(
+  tail
+)
+type(
+  Grammar.VTSet.t
+)
+"lL1.ml" 80 2194 2201 "lL1.ml" 80 2194 2203
+type(
+  Grammar.vn
+)
+ident(
+  def vn "lL1.ml" 81 2212 2215 "lL1.ml" 83 2286 2302
+)
+"lL1.ml" 80 2194 2198 "lL1.ml" 80 2194 2203
+type(
+  Grammar.v
+)
+"lL1.ml" 80 2194 2205 "lL1.ml" 80 2194 2206
+type(
+  Grammar.v list
+)
+ident(
+  def l "lL1.ml" 81 2212 2215 "lL1.ml" 83 2286 2302
+)
+"lL1.ml" 80 2194 2198 "lL1.ml" 80 2194 2206
+type(
+  Grammar.v list
+)
+"lL1.ml" 81 2212 2218 "lL1.ml" 81 2212 2222
+type(
+  Grammar.vn -> bool
+)
+ident(
+  int_ref null "lL1.ml" 76 2095 2100 "lL1.ml" 76 2095 2104
+)
+"lL1.ml" 81 2212 2223 "lL1.ml" 81 2212 2225
+type(
+  Grammar.vn
+)
+ident(
+  int_ref vn "lL1.ml" 80 2194 2201 "lL1.ml" 80 2194 2203
+)
+"lL1.ml" 81 2212 2218 "lL1.ml" 81 2212 2225
+call(
+  stack
+)
+type(
+  bool
+)
+"lL1.ml" 82 2228 2236 "lL1.ml" 82 2228 2247
+type(
+  Grammar.VTSet.t -> Grammar.VTSet.t -> Grammar.VTSet.t
+)
+ident(
+  ext_ref Grammar.VTSet.union
+)
+"lL1.ml" 82 2228 2249 "lL1.ml" 82 2228 2254
+type(
+  Grammar.vn -> Grammar.VTSet.t
+)
+ident(
+  int_ref first "lL1.ml" 76 2095 2105 "lL1.ml" 76 2095 2110
+)
+"lL1.ml" 82 2228 2255 "lL1.ml" 82 2228 2257
+type(
+  Grammar.vn
+)
+ident(
+  int_ref vn "lL1.ml" 80 2194 2201 "lL1.ml" 80 2194 2203
+)
+"lL1.ml" 82 2228 2248 "lL1.ml" 82 2228 2258
+call(
+  stack
+)
+type(
+  Grammar.VTSet.t
+)
+"lL1.ml" 82 2228 2260 "lL1.ml" 82 2228 2270
+type(
+  (Grammar.vn -> bool) ->
+  (Grammar.vn -> Grammar.VTSet.t) -> Grammar.v list -> Grammar.VTSet.t
+)
+ident(
+  int_ref first_prod "lL1.ml" 75 2018 2026 "lL1.ml" 75 2018 2036
+)
+"lL1.ml" 82 2228 2271 "lL1.ml" 82 2228 2275
+type(
+  Grammar.vn -> bool
+)
+ident(
+  int_ref null "lL1.ml" 76 2095 2100 "lL1.ml" 76 2095 2104
+)
+"lL1.ml" 82 2228 2276 "lL1.ml" 82 2228 2281
+type(
+  Grammar.vn -> Grammar.VTSet.t
+)
+ident(
+  int_ref first "lL1.ml" 76 2095 2105 "lL1.ml" 76 2095 2110
+)
+"lL1.ml" 82 2228 2282 "lL1.ml" 82 2228 2283
+type(
+  Grammar.v list
+)
+ident(
+  int_ref l "lL1.ml" 80 2194 2205 "lL1.ml" 80 2194 2206
+)
+"lL1.ml" 82 2228 2259 "lL1.ml" 82 2228 2284
+call(
+  stack
+)
+type(
+  Grammar.VTSet.t
+)
+"lL1.ml" 82 2228 2236 "lL1.ml" 82 2228 2284
+call(
+  tail
+)
+type(
+  Grammar.VTSet.t
+)
+"lL1.ml" 83 2286 2294 "lL1.ml" 83 2286 2299
+type(
+  Grammar.vn -> Grammar.VTSet.t
+)
+ident(
+  int_ref first "lL1.ml" 76 2095 2105 "lL1.ml" 76 2095 2110
+)
+"lL1.ml" 83 2286 2300 "lL1.ml" 83 2286 2302
+type(
+  Grammar.vn
+)
+ident(
+  int_ref vn "lL1.ml" 80 2194 2201 "lL1.ml" 80 2194 2203
+)
+"lL1.ml" 83 2286 2294 "lL1.ml" 83 2286 2302
+call(
+  tail
+)
+type(
+  Grammar.VTSet.t
+)
+"lL1.ml" 81 2212 2215 "lL1.ml" 83 2286 2302
+type(
+  Grammar.VTSet.t
+)
+"lL1.ml" 77 2118 2120 "lL1.ml" 83 2286 2302
+type(
+  Grammar.VTSet.t
+)
+"lL1.ml" 76 2095 2096 "lL1.ml" 83 2286 2302
+type(
+  (Grammar.vn -> bool) ->
+  (Grammar.vn -> Grammar.VTSet.t) -> Grammar.v list -> Grammar.VTSet.t
+)
+type(
+  (Grammar.vn -> bool) ->
+  (Grammar.vn -> Grammar.VTSet.t) -> Grammar.v list -> Grammar.VTSet.t
+)
+"lL1.ml" 85 2306 2310 "lL1.ml" 85 2306 2318
+type(
+  Grammar.grammar ->
+  (Grammar.vn -> bool) ->
+  (Grammar.vn -> Grammar.VTSet.t) -> Grammar.vn -> Grammar.VTSet.t
+)
+ident(
+  def first_vn "lL1.ml" 90 2532 2532 "_none_" 1 0 -1
+)
+"lL1.ml" 86 2385 2390 "lL1.ml" 86 2385 2391
+type(
+  Grammar.grammar
+)
+ident(
+  def g "lL1.ml" 86 2385 2392 "lL1.ml" 88 2441 2528
+)
+"lL1.ml" 86 2385 2392 "lL1.ml" 86 2385 2396
+type(
+  Grammar.vn -> bool
+)
+ident(
+  def null "lL1.ml" 86 2385 2397 "lL1.ml" 88 2441 2528
+)
+"lL1.ml" 86 2385 2397 "lL1.ml" 86 2385 2402
+type(
+  Grammar.vn -> Grammar.VTSet.t
+)
+ident(
+  def first "lL1.ml" 86 2385 2403 "lL1.ml" 88 2441 2528
+)
+"lL1.ml" 86 2385 2403 "lL1.ml" 86 2385 2405
+type(
+  Grammar.vn
+)
+ident(
+  def vn "lL1.ml" 87 2411 2413 "lL1.ml" 88 2441 2528
+)
+"lL1.ml" 87 2411 2417 "lL1.ml" 87 2411 2418
+type(
+  Grammar.v list list
+)
+ident(
+  def l "lL1.ml" 88 2441 2443 "lL1.ml" 88 2441 2528
+)
+"lL1.ml" 87 2411 2421 "lL1.ml" 87 2411 2431
+type(
+  Grammar.grammar -> Grammar.vn -> Grammar.v list list
+)
+ident(
+  ext_ref Grammar.production
+)
+"lL1.ml" 87 2411 2432 "lL1.ml" 87 2411 2433
+type(
+  Grammar.grammar
+)
+ident(
+  int_ref g "lL1.ml" 86 2385 2390 "lL1.ml" 86 2385 2391
+)
+"lL1.ml" 87 2411 2434 "lL1.ml" 87 2411 2436
+type(
+  Grammar.vn
+)
+ident(
+  int_ref vn "lL1.ml" 86 2385 2403 "lL1.ml" 86 2385 2405
+)
+"lL1.ml" 87 2411 2421 "lL1.ml" 87 2411 2436
+call(
+  stack
+)
+type(
+  Grammar.v list list
+)
+"lL1.ml" 88 2441 2443 "lL1.ml" 88 2441 2457
+type(
+  (Grammar.VTSet.t -> Grammar.v list -> Grammar.VTSet.t) ->
+  Grammar.VTSet.t -> Grammar.v list list -> Grammar.VTSet.t
+)
+ident(
+  ext_ref List.fold_left
+)
+"lL1.ml" 88 2441 2463 "lL1.ml" 88 2441 2466
+type(
+  Grammar.VTSet.t
+)
+ident(
+  def acc "lL1.ml" 88 2441 2467 "lL1.ml" 88 2441 2513
+)
+"lL1.ml" 88 2441 2467 "lL1.ml" 88 2441 2468
+type(
+  Grammar.v list
+)
+ident(
+  def p "lL1.ml" 88 2441 2472 "lL1.ml" 88 2441 2513
+)
+"lL1.ml" 88 2441 2472 "lL1.ml" 88 2441 2483
+type(
+  Grammar.VTSet.t -> Grammar.VTSet.t -> Grammar.VTSet.t
+)
+ident(
+  ext_ref Grammar.VTSet.union
+)
+"lL1.ml" 88 2441 2484 "lL1.ml" 88 2441 2487
+type(
+  Grammar.VTSet.t
+)
+ident(
+  int_ref acc "lL1.ml" 88 2441 2463 "lL1.ml" 88 2441 2466
+)
+"lL1.ml" 88 2441 2489 "lL1.ml" 88 2441 2499
+type(
+  (Grammar.vn -> bool) ->
+  (Grammar.vn -> Grammar.VTSet.t) -> Grammar.v list -> Grammar.VTSet.t
+)
+ident(
+  int_ref first_prod "lL1.ml" 75 2018 2026 "lL1.ml" 75 2018 2036
+)
+"lL1.ml" 88 2441 2500 "lL1.ml" 88 2441 2504
+type(
+  Grammar.vn -> bool
+)
+ident(
+  int_ref null "lL1.ml" 86 2385 2392 "lL1.ml" 86 2385 2396
+)
+"lL1.ml" 88 2441 2505 "lL1.ml" 88 2441 2510
+type(
+  Grammar.vn -> Grammar.VTSet.t
+)
+ident(
+  int_ref first "lL1.ml" 86 2385 2397 "lL1.ml" 86 2385 2402
+)
+"lL1.ml" 88 2441 2511 "lL1.ml" 88 2441 2512
+type(
+  Grammar.v list
+)
+ident(
+  int_ref p "lL1.ml" 88 2441 2467 "lL1.ml" 88 2441 2468
+)
+"lL1.ml" 88 2441 2488 "lL1.ml" 88 2441 2513
+call(
+  stack
+)
+type(
+  Grammar.VTSet.t
+)
+"lL1.ml" 88 2441 2472 "lL1.ml" 88 2441 2513
+call(
+  tail
+)
+type(
+  Grammar.VTSet.t
+)
+"lL1.ml" 88 2441 2458 "lL1.ml" 88 2441 2514
+type(
+  Grammar.VTSet.t -> Grammar.v list -> Grammar.VTSet.t
+)
+"lL1.ml" 88 2441 2515 "lL1.ml" 88 2441 2526
+type(
+  Grammar.VTSet.t
+)
+ident(
+  ext_ref Grammar.VTSet.empty
+)
+"lL1.ml" 88 2441 2527 "lL1.ml" 88 2441 2528
+type(
+  Grammar.v list list
+)
+ident(
+  int_ref l "lL1.ml" 87 2411 2417 "lL1.ml" 87 2411 2418
+)
+"lL1.ml" 88 2441 2443 "lL1.ml" 88 2441 2528
+call(
+  tail
+)
+type(
+  Grammar.VTSet.t
+)
+"lL1.ml" 87 2411 2413 "lL1.ml" 88 2441 2528
+type(
+  Grammar.VTSet.t
+)
+"lL1.ml" 86 2385 2386 "lL1.ml" 88 2441 2528
+type(
+  Grammar.grammar ->
+  (Grammar.vn -> bool) ->
+  (Grammar.vn -> Grammar.VTSet.t) -> Grammar.vn -> Grammar.VTSet.t
+)
+type(
+  Grammar.grammar ->
+  (Grammar.vn -> bool) ->
+  (Grammar.vn -> Grammar.VTSet.t) -> Grammar.vn -> Grammar.VTSet.t
+)
+"lL1.ml" 90 2532 2536 "lL1.ml" 90 2532 2545
+type(
+  Grammar.VTSet.t -> Grammar.VTSet.t -> bool
+)
+ident(
+  def order_set "lL1.ml" 92 2564 2564 "_none_" 1 0 -1
+)
+"lL1.ml" 90 2532 2548 "lL1.ml" 90 2532 2560
+type(
+  Grammar.VTSet.t -> Grammar.VTSet.t -> bool
+)
+ident(
+  ext_ref Grammar.VTSet.subset
+)
+"lL1.ml" 92 2564 2568 "lL1.ml" 92 2564 2575
+type(
+  Grammar.VTSet.t
+)
+ident(
+  def bot_set "lL1.ml" 94 2594 2594 "_none_" 1 0 -1
+)
+"lL1.ml" 92 2564 2579 "lL1.ml" 92 2564 2590
+type(
+  Grammar.VTSet.t
+)
+ident(
+  ext_ref Grammar.VTSet.empty
+)
+"lL1.ml" 94 2594 2598 "lL1.ml" 94 2594 2603
+type(
+  Grammar.grammar -> (Grammar.vn -> bool) -> Grammar.vn -> Grammar.VTSet.t
+)
+ident(
+  def first "lL1.ml" 97 2722 2722 "_none_" 1 0 -1
+)
+"lL1.ml" 95 2655 2660 "lL1.ml" 95 2655 2661
+type(
+  Grammar.grammar
+)
+ident(
+  def g "lL1.ml" 95 2655 2662 "lL1.ml" 95 2655 2718
+)
+"lL1.ml" 95 2655 2662 "lL1.ml" 95 2655 2666
+type(
+  Grammar.vn -> bool
+)
+ident(
+  def null "lL1.ml" 95 2655 2670 "lL1.ml" 95 2655 2718
+)
+"lL1.ml" 95 2655 2670 "lL1.ml" 95 2655 2680
+type(
+  Grammar.grammar ->
+  (Grammar.VTSet.t -> Grammar.VTSet.t -> bool) ->
+  ((Grammar.vn -> Grammar.VTSet.t) -> Grammar.vn -> Grammar.VTSet.t) ->
+  Grammar.VTSet.t -> Grammar.vn -> Grammar.VTSet.t
+)
+ident(
+  ext_ref Grammar.kleene_fun
+)
+"lL1.ml" 95 2655 2681 "lL1.ml" 95 2655 2682
+type(
+  Grammar.grammar
+)
+ident(
+  int_ref g "lL1.ml" 95 2655 2660 "lL1.ml" 95 2655 2661
+)
+"lL1.ml" 95 2655 2683 "lL1.ml" 95 2655 2692
+type(
+  Grammar.VTSet.t -> Grammar.VTSet.t -> bool
+)
+ident(
+  int_ref order_set "lL1.ml" 90 2532 2536 "lL1.ml" 90 2532 2545
+)
+"lL1.ml" 95 2655 2694 "lL1.ml" 95 2655 2702
+type(
+  Grammar.grammar ->
+  (Grammar.vn -> bool) ->
+  (Grammar.vn -> Grammar.VTSet.t) -> Grammar.vn -> Grammar.VTSet.t
+)
+ident(
+  int_ref first_vn "lL1.ml" 85 2306 2310 "lL1.ml" 85 2306 2318
+)
+"lL1.ml" 95 2655 2703 "lL1.ml" 95 2655 2704
+type(
+  Grammar.grammar
+)
+ident(
+  int_ref g "lL1.ml" 95 2655 2660 "lL1.ml" 95 2655 2661
+)
+"lL1.ml" 95 2655 2705 "lL1.ml" 95 2655 2709
+type(
+  Grammar.vn -> bool
+)
+ident(
+  int_ref null "lL1.ml" 95 2655 2662 "lL1.ml" 95 2655 2666
+)
+"lL1.ml" 95 2655 2693 "lL1.ml" 95 2655 2710
+call(
+  stack
+)
+type(
+  (Grammar.vn -> Grammar.VTSet.t) -> Grammar.vn -> Grammar.VTSet.t
+)
+"lL1.ml" 95 2655 2711 "lL1.ml" 95 2655 2718
+type(
+  Grammar.VTSet.t
+)
+ident(
+  int_ref bot_set "lL1.ml" 92 2564 2568 "lL1.ml" 92 2564 2575
+)
+"lL1.ml" 95 2655 2670 "lL1.ml" 95 2655 2718
+call(
+  tail
+)
+type(
+  Grammar.vn -> Grammar.VTSet.t
+)
+"lL1.ml" 95 2655 2656 "lL1.ml" 95 2655 2718
+type(
+  Grammar.grammar -> (Grammar.vn -> bool) -> Grammar.vn -> Grammar.VTSet.t
+)
+type(
+  Grammar.grammar -> (Grammar.vn -> bool) -> Grammar.vn -> Grammar.VTSet.t
+)
+"lL1.ml" 97 2722 2726 "lL1.ml" 97 2722 2736
+type(
+  ('a -> 'a -> bool) -> 'a list -> bool
+)
+ident(
+  def check_pair "lL1.ml" 104 2870 2870 "_none_" 1 0 -1
+)
+"lL1.ml" 97 2722 2737 "lL1.ml" 97 2722 2738
+type(
+  'a -> 'a -> bool
+)
+ident(
+  def p "lL1.ml" 97 2722 2739 "lL1.ml" 102 2854 2866
+)
+"lL1.ml" 97 2722 2739 "lL1.ml" 97 2722 2740
+type(
+  'a list
+)
+ident(
+  def l "lL1.ml" 98 2745 2746 "lL1.ml" 102 2854 2866
+)
+"lL1.ml" 98 2745 2754 "lL1.ml" 98 2745 2763
+type(
+  'a list -> bool
+)
+ident(
+  def check_rec "lL1.ml" 98 2745 2746 "lL1.ml" 102 2854 2866
+)
+"lL1.ml" 98 2745 2764 "lL1.ml" 98 2745 2765
+type(
+  'a list
+)
+ident(
+  def l "lL1.ml" 99 2770 2772 "lL1.ml" 101 2802 2849
+)
+"lL1.ml" 99 2770 2778 "lL1.ml" 99 2770 2779
+type(
+  'a list
+)
+ident(
+  int_ref l "lL1.ml" 98 2745 2764 "lL1.ml" 98 2745 2765
+)
+"lL1.ml" 100 2786 2790 "lL1.ml" 100 2786 2792
+type(
+  'a list
+)
+"lL1.ml" 100 2786 2796 "lL1.ml" 100 2786 2800
+type(
+  bool
+)
+"lL1.ml" 101 2802 2806 "lL1.ml" 101 2802 2807
+type(
+  'a
+)
+ident(
+  def e "lL1.ml" 101 2802 2814 "lL1.ml" 101 2802 2849
+)
+"lL1.ml" 101 2802 2809 "lL1.ml" 101 2802 2810
+type(
+  'a list
+)
+ident(
+  def l "lL1.ml" 101 2802 2814 "lL1.ml" 101 2802 2849
+)
+"lL1.ml" 101 2802 2806 "lL1.ml" 101 2802 2810
+type(
+  'a list
+)
+"lL1.ml" 101 2802 2814 "lL1.ml" 101 2802 2826
+type(
+  ('a -> bool) -> 'a list -> bool
+)
+ident(
+  ext_ref List.for_all
+)
+"lL1.ml" 101 2802 2828 "lL1.ml" 101 2802 2829
+type(
+  'a -> 'a -> bool
+)
+ident(
+  int_ref p "lL1.ml" 97 2722 2737 "lL1.ml" 97 2722 2738
+)
+"lL1.ml" 101 2802 2830 "lL1.ml" 101 2802 2831
+type(
+  'a
+)
+ident(
+  int_ref e "lL1.ml" 101 2802 2806 "lL1.ml" 101 2802 2807
+)
+"lL1.ml" 101 2802 2827 "lL1.ml" 101 2802 2832
+call(
+  stack
+)
+type(
+  'a -> bool
+)
+"lL1.ml" 101 2802 2833 "lL1.ml" 101 2802 2834
+type(
+  'a list
+)
+ident(
+  int_ref l "lL1.ml" 101 2802 2809 "lL1.ml" 101 2802 2810
+)
+"lL1.ml" 101 2802 2814 "lL1.ml" 101 2802 2834
+call(
+  stack
+)
+type(
+  bool
+)
+"lL1.ml" 101 2802 2835 "lL1.ml" 101 2802 2837
+type(
+  bool -> bool -> bool
+)
+ident(
+  ext_ref Pervasives.( && )
+)
+"lL1.ml" 101 2802 2838 "lL1.ml" 101 2802 2847
+type(
+  'a list -> bool
+)
+ident(
+  int_ref check_rec "lL1.ml" 98 2745 2754 "lL1.ml" 98 2745 2763
+)
+"lL1.ml" 101 2802 2848 "lL1.ml" 101 2802 2849
+type(
+  'a list
+)
+ident(
+  int_ref l "lL1.ml" 101 2802 2809 "lL1.ml" 101 2802 2810
+)
+"lL1.ml" 101 2802 2838 "lL1.ml" 101 2802 2849
+call(
+  tail
+)
+type(
+  bool
+)
+"lL1.ml" 101 2802 2814 "lL1.ml" 101 2802 2849
+type(
+  bool
+)
+"lL1.ml" 99 2770 2772 "lL1.ml" 101 2802 2849
+type(
+  bool
+)
+"lL1.ml" 102 2854 2855 "lL1.ml" 102 2854 2864
+type(
+  'a list -> bool
+)
+ident(
+  int_ref check_rec "lL1.ml" 98 2745 2754 "lL1.ml" 98 2745 2763
+)
+"lL1.ml" 102 2854 2865 "lL1.ml" 102 2854 2866
+type(
+  'a list
+)
+ident(
+  int_ref l "lL1.ml" 97 2722 2739 "lL1.ml" 97 2722 2740
+)
+"lL1.ml" 102 2854 2855 "lL1.ml" 102 2854 2866
+call(
+  tail
+)
+type(
+  bool
+)
+"lL1.ml" 98 2745 2746 "lL1.ml" 102 2854 2866
+type(
+  bool
+)
+"lL1.ml" 104 2870 2874 "lL1.ml" 104 2870 2886
+type(
+  (Grammar.vn -> bool) ->
+  (Grammar.vn -> Grammar.VTSet.t) -> Grammar.v list list -> bool
+)
+ident(
+  def check_ll1_c1 "lL1.ml" 110 3110 3110 "_none_" 1 0 -1
+)
+"lL1.ml" 105 2951 2956 "lL1.ml" 105 2951 2960
+type(
+  Grammar.vn -> bool
+)
+ident(
+  def null "lL1.ml" 105 2951 2961 "lL1.ml" 108 3086 3106
+)
+"lL1.ml" 105 2951 2961 "lL1.ml" 105 2951 2966
+type(
+  Grammar.vn -> Grammar.VTSet.t
+)
+ident(
+  def first "lL1.ml" 105 2951 2967 "lL1.ml" 108 3086 3106
+)
+"lL1.ml" 105 2951 2967 "lL1.ml" 105 2951 2972
+type(
+  Grammar.v list list
+)
+ident(
+  def prods "lL1.ml" 106 2978 2980 "lL1.ml" 108 3086 3106
+)
+"lL1.ml" 106 2978 2984 "lL1.ml" 106 2978 2985
+type(
+  Grammar.v list -> Grammar.v list -> bool
+)
+ident(
+  def p "lL1.ml" 108 3086 3088 "lL1.ml" 108 3086 3106
+)
+"lL1.ml" 106 2978 2986 "lL1.ml" 106 2978 2988
+type(
+  Grammar.v list
+)
+ident(
+  def l1 "lL1.ml" 106 2978 2989 "lL1.ml" 107 3011 3081
+)
+"lL1.ml" 106 2978 2989 "lL1.ml" 106 2978 2991
+type(
+  Grammar.v list
+)
+ident(
+  def l2 "lL1.ml" 106 2978 2994 "lL1.ml" 107 3011 3081
+)
+"lL1.ml" 106 2978 2994 "lL1.ml" 106 2978 3008
+type(
+  Grammar.VTSet.t -> bool
+)
+ident(
+  ext_ref Grammar.VTSet.is_empty
+)
+"lL1.ml" 107 3011 3015 "lL1.ml" 107 3011 3026
+type(
+  Grammar.VTSet.t -> Grammar.VTSet.t -> Grammar.VTSet.t
+)
+ident(
+  ext_ref Grammar.VTSet.inter
+)
+"lL1.ml" 107 3011 3028 "lL1.ml" 107 3011 3038
+type(
+  (Grammar.vn -> bool) ->
+  (Grammar.vn -> Grammar.VTSet.t) -> Grammar.v list -> Grammar.VTSet.t
+)
+ident(
+  int_ref first_prod "lL1.ml" 75 2018 2026 "lL1.ml" 75 2018 2036
+)
+"lL1.ml" 107 3011 3039 "lL1.ml" 107 3011 3043
+type(
+  Grammar.vn -> bool
+)
+ident(
+  int_ref null "lL1.ml" 105 2951 2956 "lL1.ml" 105 2951 2960
+)
+"lL1.ml" 107 3011 3044 "lL1.ml" 107 3011 3049
+type(
+  Grammar.vn -> Grammar.VTSet.t
+)
+ident(
+  int_ref first "lL1.ml" 105 2951 2961 "lL1.ml" 105 2951 2966
+)
+"lL1.ml" 107 3011 3050 "lL1.ml" 107 3011 3052
+type(
+  Grammar.v list
+)
+ident(
+  int_ref l1 "lL1.ml" 106 2978 2986 "lL1.ml" 106 2978 2988
+)
+"lL1.ml" 107 3011 3027 "lL1.ml" 107 3011 3053
+call(
+  stack
+)
+type(
+  Grammar.VTSet.t
+)
+"lL1.ml" 107 3011 3055 "lL1.ml" 107 3011 3065
+type(
+  (Grammar.vn -> bool) ->
+  (Grammar.vn -> Grammar.VTSet.t) -> Grammar.v list -> Grammar.VTSet.t
+)
+ident(
+  int_ref first_prod "lL1.ml" 75 2018 2026 "lL1.ml" 75 2018 2036
+)
+"lL1.ml" 107 3011 3066 "lL1.ml" 107 3011 3070
+type(
+  Grammar.vn -> bool
+)
+ident(
+  int_ref null "lL1.ml" 105 2951 2956 "lL1.ml" 105 2951 2960
+)
+"lL1.ml" 107 3011 3071 "lL1.ml" 107 3011 3076
+type(
+  Grammar.vn -> Grammar.VTSet.t
+)
+ident(
+  int_ref first "lL1.ml" 105 2951 2961 "lL1.ml" 105 2951 2966
+)
+"lL1.ml" 107 3011 3077 "lL1.ml" 107 3011 3079
+type(
+  Grammar.v list
+)
+ident(
+  int_ref l2 "lL1.ml" 106 2978 2989 "lL1.ml" 106 2978 2991
+)
+"lL1.ml" 107 3011 3054 "lL1.ml" 107 3011 3080
+call(
+  stack
+)
+type(
+  Grammar.VTSet.t
+)
+"lL1.ml" 107 3011 3014 "lL1.ml" 107 3011 3081
+call(
+  stack
+)
+type(
+  Grammar.VTSet.t
+)
+"lL1.ml" 106 2978 2994 "lL1.ml" 107 3011 3081
+call(
+  tail
+)
+type(
+  bool
+)
+"lL1.ml" 108 3086 3088 "lL1.ml" 108 3086 3098
+type(
+  (Grammar.v list -> Grammar.v list -> bool) -> Grammar.v list list -> bool
+)
+ident(
+  int_ref check_pair "lL1.ml" 97 2722 2726 "lL1.ml" 97 2722 2736
+)
+"lL1.ml" 108 3086 3099 "lL1.ml" 108 3086 3100
+type(
+  Grammar.v list -> Grammar.v list -> bool
+)
+ident(
+  int_ref p "lL1.ml" 106 2978 2984 "lL1.ml" 106 2978 2985
+)
+"lL1.ml" 108 3086 3101 "lL1.ml" 108 3086 3106
+type(
+  Grammar.v list list
+)
+ident(
+  int_ref prods "lL1.ml" 105 2951 2967 "lL1.ml" 105 2951 2972
+)
+"lL1.ml" 108 3086 3088 "lL1.ml" 108 3086 3106
+call(
+  tail
+)
+type(
+  bool
+)
+"lL1.ml" 106 2978 2980 "lL1.ml" 108 3086 3106
+type(
+  bool
+)
+"lL1.ml" 105 2951 2952 "lL1.ml" 108 3086 3106
+type(
+  (Grammar.vn -> bool) ->
+  (Grammar.vn -> Grammar.VTSet.t) -> Grammar.v list list -> bool
+)
+type(
+  (Grammar.vn -> bool) ->
+  (Grammar.vn -> Grammar.VTSet.t) -> Grammar.v list list -> bool
+)
+"lL1.ml" 110 3110 3114 "lL1.ml" 110 3110 3126
+type(
+  (Grammar.vn -> bool) ->
+  (Grammar.vn -> Grammar.VTSet.t) ->
+  (Grammar.vn -> Grammar.VTSet.t) -> Grammar.vn -> bool
+)
+ident(
+  def check_ll1_c2 "lL1.ml" 116 3319 3319 "_none_" 1 0 -1
+)
+"lL1.ml" 111 3198 3203 "lL1.ml" 111 3198 3207
+type(
+  Grammar.vn -> bool
+)
+ident(
+  def null "lL1.ml" 111 3198 3208 "lL1.ml" 114 3304 3315
+)
+"lL1.ml" 111 3198 3208 "lL1.ml" 111 3198 3213
+type(
+  Grammar.vn -> Grammar.VTSet.t
+)
+ident(
+  def first "lL1.ml" 111 3198 3214 "lL1.ml" 114 3304 3315
+)
+"lL1.ml" 111 3198 3214 "lL1.ml" 111 3198 3220
+type(
+  Grammar.vn -> Grammar.VTSet.t
+)
+ident(
+  def follow "lL1.ml" 111 3198 3221 "lL1.ml" 114 3304 3315
+)
+"lL1.ml" 111 3198 3221 "lL1.ml" 111 3198 3223
+type(
+  Grammar.vn
+)
+ident(
+  def vn "lL1.ml" 112 3229 3231 "lL1.ml" 114 3304 3315
+)
+"lL1.ml" 112 3229 3234 "lL1.ml" 112 3229 3238
+type(
+  Grammar.vn -> bool
+)
+ident(
+  int_ref null "lL1.ml" 111 3198 3203 "lL1.ml" 111 3198 3207
+)
+"lL1.ml" 112 3229 3239 "lL1.ml" 112 3229 3241
+type(
+  Grammar.vn
+)
+ident(
+  int_ref vn "lL1.ml" 111 3198 3221 "lL1.ml" 111 3198 3223
+)
+"lL1.ml" 112 3229 3234 "lL1.ml" 112 3229 3241
+call(
+  stack
+)
+type(
+  bool
+)
+"lL1.ml" 113 3244 3251 "lL1.ml" 113 3244 3265
+type(
+  Grammar.VTSet.t -> bool
+)
+ident(
+  ext_ref Grammar.VTSet.is_empty
+)
+"lL1.ml" 113 3244 3267 "lL1.ml" 113 3244 3278
+type(
+  Grammar.VTSet.t -> Grammar.VTSet.t -> Grammar.VTSet.t
+)
+ident(
+  ext_ref Grammar.VTSet.inter
+)
+"lL1.ml" 113 3244 3280 "lL1.ml" 113 3244 3285
+type(
+  Grammar.vn -> Grammar.VTSet.t
+)
+ident(
+  int_ref first "lL1.ml" 111 3198 3208 "lL1.ml" 111 3198 3213
+)
+"lL1.ml" 113 3244 3286 "lL1.ml" 113 3244 3288
+type(
+  Grammar.vn
+)
+ident(
+  int_ref vn "lL1.ml" 111 3198 3221 "lL1.ml" 111 3198 3223
+)
+"lL1.ml" 113 3244 3279 "lL1.ml" 113 3244 3289
+call(
+  stack
+)
+type(
+  Grammar.VTSet.t
+)
+"lL1.ml" 113 3244 3291 "lL1.ml" 113 3244 3297
+type(
+  Grammar.vn -> Grammar.VTSet.t
+)
+ident(
+  int_ref follow "lL1.ml" 111 3198 3214 "lL1.ml" 111 3198 3220
+)
+"lL1.ml" 113 3244 3298 "lL1.ml" 113 3244 3300
+type(
+  Grammar.vn
+)
+ident(
+  int_ref vn "lL1.ml" 111 3198 3221 "lL1.ml" 111 3198 3223
+)
+"lL1.ml" 113 3244 3290 "lL1.ml" 113 3244 3301
+call(
+  stack
+)
+type(
+  Grammar.VTSet.t
+)
+"lL1.ml" 113 3244 3266 "lL1.ml" 113 3244 3302
+call(
+  stack
+)
+type(
+  Grammar.VTSet.t
+)
+"lL1.ml" 113 3244 3251 "lL1.ml" 113 3244 3302
+call(
+  tail
+)
+type(
+  bool
+)
+"lL1.ml" 114 3304 3311 "lL1.ml" 114 3304 3315
+type(
+  bool
+)
+"lL1.ml" 112 3229 3231 "lL1.ml" 114 3304 3315
+type(
+  bool
+)
+"lL1.ml" 111 3198 3199 "lL1.ml" 114 3304 3315
+type(
+  (Grammar.vn -> bool) ->
+  (Grammar.vn -> Grammar.VTSet.t) ->
+  (Grammar.vn -> Grammar.VTSet.t) -> Grammar.vn -> bool
+)
+type(
+  (Grammar.vn -> bool) ->
+  (Grammar.vn -> Grammar.VTSet.t) ->
+  (Grammar.vn -> Grammar.VTSet.t) -> Grammar.vn -> bool
+)
+"lL1.ml" 116 3319 3323 "lL1.ml" 116 3319 3335
+type(
+  (Grammar.vn -> bool) -> Grammar.vn -> Grammar.v list list -> bool
+)
+ident(
+  def check_ll1_c3 "lL1.ml" 128 3633 3633 "_none_" 1 0 -1
+)
+"lL1.ml" 117 3387 3392 "lL1.ml" 117 3387 3396
+type(
+  Grammar.vn -> bool
+)
+ident(
+  def null "lL1.ml" 117 3387 3397 "lL1.ml" 125 3616 3627
+)
+"lL1.ml" 117 3387 3397 "lL1.ml" 117 3387 3399
+type(
+  Grammar.vn
+)
+ident(
+  def vn "lL1.ml" 117 3387 3400 "lL1.ml" 125 3616 3627
+)
+"lL1.ml" 117 3387 3400 "lL1.ml" 117 3387 3405
+type(
+  Grammar.v list list
+)
+ident(
+  def prods "lL1.ml" 118 3411 3413 "lL1.ml" 125 3616 3627
+)
+"lL1.ml" 118 3411 3416 "lL1.ml" 118 3411 3420
+type(
+  Grammar.vn -> bool
+)
+ident(
+  int_ref null "lL1.ml" 117 3387 3392 "lL1.ml" 117 3387 3396
+)
+"lL1.ml" 118 3411 3421 "lL1.ml" 118 3411 3423
+type(
+  Grammar.vn
+)
+ident(
+  int_ref vn "lL1.ml" 117 3387 3397 "lL1.ml" 117 3387 3399
+)
+"lL1.ml" 118 3411 3416 "lL1.ml" 118 3411 3423
+call(
+  stack
+)
+type(
+  bool
+)
+"lL1.ml" 120 3434 3441 "lL1.ml" 120 3434 3442
+type(
+  Grammar.v list list
+)
+ident(
+  def l "lL1.ml" 121 3484 3487 "lL1.ml" 124 3597 3614
+)
+"lL1.ml" 120 3434 3445 "lL1.ml" 120 3434 3456
+type(
+  (Grammar.v list -> bool) -> Grammar.v list list -> Grammar.v list list
+)
+ident(
+  ext_ref List.filter
+)
+"lL1.ml" 120 3434 3458 "lL1.ml" 120 3434 3467
+type(
+  (Grammar.vn -> bool) -> Grammar.v list -> bool
+)
+ident(
+  int_ref null_prod "lL1.ml" 52 1476 1484 "lL1.ml" 52 1476 1493
+)
+"lL1.ml" 120 3434 3468 "lL1.ml" 120 3434 3472
+type(
+  Grammar.vn -> bool
+)
+ident(
+  int_ref null "lL1.ml" 117 3387 3392 "lL1.ml" 117 3387 3396
+)
+"lL1.ml" 120 3434 3457 "lL1.ml" 120 3434 3473
+call(
+  stack
+)
+type(
+  Grammar.v list -> bool
+)
+"lL1.ml" 120 3434 3474 "lL1.ml" 120 3434 3479
+type(
+  Grammar.v list list
+)
+ident(
+  int_ref prods "lL1.ml" 117 3387 3400 "lL1.ml" 117 3387 3405
+)
+"lL1.ml" 120 3434 3445 "lL1.ml" 120 3434 3479
+call(
+  stack
+)
+type(
+  Grammar.v list list
+)
+"lL1.ml" 121 3484 3493 "lL1.ml" 121 3484 3494
+type(
+  Grammar.v list list
+)
+ident(
+  int_ref l "lL1.ml" 120 3434 3441 "lL1.ml" 120 3434 3442
+)
+"lL1.ml" 122 3501 3506 "lL1.ml" 122 3501 3508
+type(
+  Grammar.v list list
+)
+"lL1.ml" 122 3501 3512 "lL1.ml" 122 3501 3520
+type(
+  string -> bool
+)
+ident(
+  ext_ref Pervasives.failwith
+)
+"lL1.ml" 122 3501 3521 "lL1.ml" 122 3501 3577
+type(
+  string
+)
+"lL1.ml" 122 3501 3512 "lL1.ml" 122 3501 3577
+call(
+  tail
+)
+type(
+  bool
+)
+"lL1.ml" 123 3579 3585 "lL1.ml" 123 3579 3586
+type(
+  Grammar.v list
+)
+"lL1.ml" 123 3579 3584 "lL1.ml" 123 3579 3587
+type(
+  Grammar.v list list
+)
+"lL1.ml" 123 3579 3591 "lL1.ml" 123 3579 3595
+type(
+  bool
+)
+"lL1.ml" 124 3597 3603 "lL1.ml" 124 3597 3604
+type(
+  Grammar.v list list
+)
+"lL1.ml" 124 3597 3609 "lL1.ml" 124 3597 3614
+type(
+  bool
+)
+"lL1.ml" 121 3484 3487 "lL1.ml" 124 3597 3614
+type(
+  bool
+)
+"lL1.ml" 120 3434 3437 "lL1.ml" 124 3597 3614
+type(
+  bool
+)
+"lL1.ml" 125 3616 3623 "lL1.ml" 125 3616 3627
+type(
+  bool
+)
+"lL1.ml" 118 3411 3413 "lL1.ml" 125 3616 3627
+type(
+  bool
+)
+"lL1.ml" 117 3387 3388 "lL1.ml" 125 3616 3627
+type(
+  (Grammar.vn -> bool) -> Grammar.vn -> Grammar.v list list -> bool
+)
+type(
+  (Grammar.vn -> bool) -> Grammar.vn -> Grammar.v list list -> bool
+)
+"lL1.ml" 128 3633 3637 "lL1.ml" 128 3633 3643
+type(
+  Grammar.grammar ->
+  (Grammar.vn -> bool) ->
+  (Grammar.vn -> Grammar.VTSet.t) -> (Grammar.vn -> Grammar.VTSet.t) -> bool
+)
+ident(
+  def is_ll1 "lL1.ml" 137 4016 4027 "_none_" 1 0 -1
+)
+"lL1.ml" 129 3719 3724 "lL1.ml" 129 3719 3725
+type(
+  Grammar.grammar
+)
+ident(
+  def g "lL1.ml" 129 3719 3726 "lL1.ml" 137 4016 4027
+)
+"lL1.ml" 129 3719 3726 "lL1.ml" 129 3719 3730
+type(
+  Grammar.vn -> bool
+)
+ident(
+  def null "lL1.ml" 129 3719 3731 "lL1.ml" 137 4016 4027
+)
+"lL1.ml" 129 3719 3731 "lL1.ml" 129 3719 3736
+type(
+  Grammar.vn -> Grammar.VTSet.t
+)
+ident(
+  def first "lL1.ml" 129 3719 3737 "lL1.ml" 137 4016 4027
+)
+"lL1.ml" 129 3719 3737 "lL1.ml" 129 3719 3743
+type(
+  Grammar.vn -> Grammar.VTSet.t
+)
+ident(
+  def follow "lL1.ml" 130 3749 3750 "lL1.ml" 137 4016 4027
+)
+"lL1.ml" 130 3749 3754 "lL1.ml" 130 3749 3757
+type(
+  Grammar.VNSet.t
+)
+ident(
+  def vns "lL1.ml" 131 3778 3779 "lL1.ml" 137 4016 4027
+)
+"lL1.ml" 130 3749 3760 "lL1.ml" 130 3749 3770
+type(
+  Grammar.grammar -> Grammar.VNSet.t
+)
+ident(
+  ext_ref Grammar.nterminals
+)
+"lL1.ml" 130 3749 3772 "lL1.ml" 130 3749 3773
+type(
+  Grammar.grammar
+)
+ident(
+  int_ref g "lL1.ml" 129 3719 3724 "lL1.ml" 129 3719 3725
+)
+"lL1.ml" 130 3749 3760 "lL1.ml" 130 3749 3773
+call(
+  stack
+)
+type(
+  Grammar.VNSet.t
+)
+"lL1.ml" 131 3778 3779 "lL1.ml" 131 3778 3789
+type(
+  (Grammar.VNSet.elt -> bool -> bool) -> Grammar.VNSet.t -> bool -> bool
+)
+ident(
+  ext_ref Grammar.VNSet.fold
+)
+"lL1.ml" 131 3778 3795 "lL1.ml" 131 3778 3797
+type(
+  Grammar.VNSet.elt
+)
+ident(
+  def vn "lL1.ml" 131 3778 3798 "lL1.ml" 136 3997 4014
+)
+"lL1.ml" 131 3778 3798 "lL1.ml" 131 3778 3799
+type(
+  bool
+)
+ident(
+  def b "lL1.ml" 131 3778 3805 "lL1.ml" 136 3997 4014
+)
+"lL1.ml" 131 3778 3805 "lL1.ml" 131 3778 3806
+type(
+  bool
+)
+ident(
+  int_ref b "lL1.ml" 131 3778 3798 "lL1.ml" 131 3778 3799
+)
+"lL1.ml" 131 3778 3809 "lL1.ml" 131 3778 3811
+type(
+  bool -> bool -> bool
+)
+ident(
+  ext_ref Pervasives.( && )
+)
+"lL1.ml" 132 3814 3821 "lL1.ml" 132 3814 3826
+type(
+  Grammar.v list list
+)
+ident(
+  def prods "lL1.ml" 133 3849 3852 "lL1.ml" 136 3997 4014
+)
+"lL1.ml" 132 3814 3829 "lL1.ml" 132 3814 3839
+type(
+  Grammar.grammar -> Grammar.VNSet.elt -> Grammar.v list list
+)
+ident(
+  ext_ref Grammar.production
+)
+"lL1.ml" 132 3814 3840 "lL1.ml" 132 3814 3841
+type(
+  Grammar.grammar
+)
+ident(
+  int_ref g "lL1.ml" 129 3719 3724 "lL1.ml" 129 3719 3725
+)
+"lL1.ml" 132 3814 3842 "lL1.ml" 132 3814 3844
+type(
+  Grammar.VNSet.elt
+)
+ident(
+  int_ref vn "lL1.ml" 131 3778 3795 "lL1.ml" 131 3778 3797
+)
+"lL1.ml" 132 3814 3829 "lL1.ml" 132 3814 3844
+call(
+  stack
+)
+type(
+  Grammar.v list list
+)
+"lL1.ml" 133 3849 3856 "lL1.ml" 133 3849 3858
+type(
+  bool
+)
+ident(
+  def c1 "lL1.ml" 134 3898 3901 "lL1.ml" 136 3997 4014
+)
+"lL1.ml" 133 3849 3864 "lL1.ml" 133 3849 3876
+type(
+  (Grammar.vn -> bool) ->
+  (Grammar.vn -> Grammar.VTSet.t) -> Grammar.v list list -> bool
+)
+ident(
+  int_ref check_ll1_c1 "lL1.ml" 104 2870 2874 "lL1.ml" 104 2870 2886
+)
+"lL1.ml" 133 3849 3877 "lL1.ml" 133 3849 3881
+type(
+  Grammar.vn -> bool
+)
+ident(
+  int_ref null "lL1.ml" 129 3719 3726 "lL1.ml" 129 3719 3730
+)
+"lL1.ml" 133 3849 3882 "lL1.ml" 133 3849 3887
+type(
+  Grammar.vn -> Grammar.VTSet.t
+)
+ident(
+  int_ref first "lL1.ml" 129 3719 3731 "lL1.ml" 129 3719 3736
+)
+"lL1.ml" 133 3849 3888 "lL1.ml" 133 3849 3893
+type(
+  Grammar.v list list
+)
+ident(
+  int_ref prods "lL1.ml" 132 3814 3821 "lL1.ml" 132 3814 3826
+)
+"lL1.ml" 133 3849 3864 "lL1.ml" 133 3849 3893
+call(
+  stack
+)
+type(
+  bool
+)
+"lL1.ml" 134 3898 3905 "lL1.ml" 134 3898 3907
+type(
+  bool
+)
+ident(
+  def c2 "lL1.ml" 135 3951 3954 "lL1.ml" 136 3997 4014
+)
+"lL1.ml" 134 3898 3913 "lL1.ml" 134 3898 3925
+type(
+  (Grammar.vn -> bool) ->
+  (Grammar.vn -> Grammar.VTSet.t) ->
+  (Grammar.vn -> Grammar.VTSet.t) -> Grammar.VNSet.elt -> bool
+)
+ident(
+  int_ref check_ll1_c2 "lL1.ml" 110 3110 3114 "lL1.ml" 110 3110 3126
+)
+"lL1.ml" 134 3898 3926 "lL1.ml" 134 3898 3930
+type(
+  Grammar.vn -> bool
+)
+ident(
+  int_ref null "lL1.ml" 129 3719 3726 "lL1.ml" 129 3719 3730
+)
+"lL1.ml" 134 3898 3931 "lL1.ml" 134 3898 3936
+type(
+  Grammar.vn -> Grammar.VTSet.t
+)
+ident(
+  int_ref first "lL1.ml" 129 3719 3731 "lL1.ml" 129 3719 3736
+)
+"lL1.ml" 134 3898 3937 "lL1.ml" 134 3898 3943
+type(
+  Grammar.vn -> Grammar.VTSet.t
+)
+ident(
+  int_ref follow "lL1.ml" 129 3719 3737 "lL1.ml" 129 3719 3743
+)
+"lL1.ml" 134 3898 3944 "lL1.ml" 134 3898 3946
+type(
+  Grammar.VNSet.elt
+)
+ident(
+  int_ref vn "lL1.ml" 131 3778 3795 "lL1.ml" 131 3778 3797
+)
+"lL1.ml" 134 3898 3913 "lL1.ml" 134 3898 3946
+call(
+  stack
+)
+type(
+  bool
+)
+"lL1.ml" 135 3951 3958 "lL1.ml" 135 3951 3960
+type(
+  bool
+)
+ident(
+  def c3 "lL1.ml" 136 3997 4000 "lL1.ml" 136 3997 4014
+)
+"lL1.ml" 135 3951 3966 "lL1.ml" 135 3951 3978
+type(
+  (Grammar.vn -> bool) -> Grammar.VNSet.elt -> Grammar.v list list -> bool
+)
+ident(
+  int_ref check_ll1_c3 "lL1.ml" 116 3319 3323 "lL1.ml" 116 3319 3335
+)
+"lL1.ml" 135 3951 3979 "lL1.ml" 135 3951 3983
+type(
+  Grammar.vn -> bool
+)
+ident(
+  int_ref null "lL1.ml" 129 3719 3726 "lL1.ml" 129 3719 3730
+)
+"lL1.ml" 135 3951 3984 "lL1.ml" 135 3951 3986
+type(
+  Grammar.VNSet.elt
+)
+ident(
+  int_ref vn "lL1.ml" 131 3778 3795 "lL1.ml" 131 3778 3797
+)
+"lL1.ml" 135 3951 3987 "lL1.ml" 135 3951 3992
+type(
+  Grammar.v list list
+)
+ident(
+  int_ref prods "lL1.ml" 132 3814 3821 "lL1.ml" 132 3814 3826
+)
+"lL1.ml" 135 3951 3966 "lL1.ml" 135 3951 3992
+call(
+  stack
+)
+type(
+  bool
+)
+"lL1.ml" 136 3997 4000 "lL1.ml" 136 3997 4002
+type(
+  bool
+)
+ident(
+  int_ref c1 "lL1.ml" 133 3849 3856 "lL1.ml" 133 3849 3858
+)
+"lL1.ml" 136 3997 4003 "lL1.ml" 136 3997 4005
+type(
+  bool -> bool -> bool
+)
+ident(
+  ext_ref Pervasives.( && )
+)
+"lL1.ml" 136 3997 4006 "lL1.ml" 136 3997 4008
+type(
+  bool
+)
+ident(
+  int_ref c2 "lL1.ml" 134 3898 3905 "lL1.ml" 134 3898 3907
+)
+"lL1.ml" 136 3997 4009 "lL1.ml" 136 3997 4011
+type(
+  bool -> bool -> bool
+)
+ident(
+  ext_ref Pervasives.( && )
+)
+"lL1.ml" 136 3997 4012 "lL1.ml" 136 3997 4014
+type(
+  bool
+)
+ident(
+  int_ref c3 "lL1.ml" 135 3951 3958 "lL1.ml" 135 3951 3960
+)
+"lL1.ml" 136 3997 4006 "lL1.ml" 136 3997 4014
+type(
+  bool
+)
+"lL1.ml" 136 3997 4000 "lL1.ml" 136 3997 4014
+type(
+  bool
+)
+"lL1.ml" 135 3951 3954 "lL1.ml" 136 3997 4014
+type(
+  bool
+)
+"lL1.ml" 134 3898 3901 "lL1.ml" 136 3997 4014
+type(
+  bool
+)
+"lL1.ml" 133 3849 3852 "lL1.ml" 136 3997 4014
+type(
+  bool
+)
+"lL1.ml" 132 3814 3817 "lL1.ml" 136 3997 4014
+type(
+  bool
+)
+"lL1.ml" 131 3778 3805 "lL1.ml" 136 3997 4014
+type(
+  bool
+)
+"lL1.ml" 131 3778 3790 "lL1.ml" 137 4016 4018
+type(
+  Grammar.VNSet.elt -> bool -> bool
+)
+"lL1.ml" 137 4016 4019 "lL1.ml" 137 4016 4022
+type(
+  Grammar.VNSet.t
+)
+ident(
+  int_ref vns "lL1.ml" 130 3749 3754 "lL1.ml" 130 3749 3757
+)
+"lL1.ml" 137 4016 4023 "lL1.ml" 137 4016 4027
+type(
+  bool
+)
+"lL1.ml" 131 3778 3779 "lL1.ml" 137 4016 4027
+call(
+  tail
+)
+type(
+  bool
+)
+"lL1.ml" 130 3749 3750 "lL1.ml" 137 4016 4027
+type(
+  bool
+)
+"lL1.ml" 129 3719 3720 "lL1.ml" 137 4016 4027
+type(
+  Grammar.grammar ->
+  (Grammar.vn -> bool) ->
+  (Grammar.vn -> Grammar.VTSet.t) -> (Grammar.vn -> Grammar.VTSet.t) -> bool
+)
+type(
+  Grammar.grammar ->
+  (Grammar.vn -> bool) ->
+  (Grammar.vn -> Grammar.VTSet.t) -> (Grammar.vn -> Grammar.VTSet.t) -> bool
 )

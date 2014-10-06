@@ -40,13 +40,13 @@
 # Target: grammar.cmx, tags: { compile, extension:cmx, extension:ml, file:grammar.cmx, file:grammar.ml, implem, native, ocaml, quiet }
 /usr/bin/ocamlopt.opt -c -annot -g -o grammar.cmx grammar.ml # cached
 # Target: lL1.ml.depends, tags: { extension:ml, file:lL1.ml, ocaml, ocamldep, quiet }
-/usr/bin/ocamldep.opt -modules lL1.ml > lL1.ml.depends # cached
+/usr/bin/ocamldep.opt -modules lL1.ml > lL1.ml.depends
 # Target: lL1.cmx, tags: { compile, extension:cmx, extension:ml, file:lL1.cmx, file:lL1.ml, implem, native, ocaml, quiet }
-/usr/bin/ocamlopt.opt -c -annot -g -o lL1.cmx lL1.ml # cached
+/usr/bin/ocamlopt.opt -c -annot -g -o lL1.cmx lL1.ml
 # Target: engine.cmx, tags: { compile, extension:cmx, extension:ml, file:engine.cmx, file:engine.ml, implem, native, ocaml, quiet }
-/usr/bin/ocamlopt.opt -c -annot -g -o engine.cmx engine.ml # cached
+/usr/bin/ocamlopt.opt -c -annot -g -o engine.cmx engine.ml
 # Target: main.cmx, tags: { compile, extension:cmx, extension:ml, file:main.cmx, file:main.ml, implem, native, ocaml, quiet }
-/usr/bin/ocamlopt.opt -c -annot -g -o main.cmx main.ml # cached
+/usr/bin/ocamlopt.opt -c -annot -g -o main.cmx main.ml
 # Target: main.native, tags: { dont_link_with, extension:native, file:main.native, link, native, ocaml, program, quiet }
-/usr/bin/ocamlopt.opt grammarParser.cmx grammarLexer.cmx grammar.cmx lL1.cmx engine.cmx main.cmx -o main.native # cached
+/usr/bin/ocamlopt.opt grammarParser.cmx grammarLexer.cmx grammar.cmx lL1.cmx engine.cmx main.cmx -o main.native
 # Compilation successful.
