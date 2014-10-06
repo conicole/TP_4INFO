@@ -65,10 +65,27 @@ let rec null_vn : grammar -> (vn->bool) -> vn -> bool = fun g null vn ->
 let null : grammar -> (vn -> bool) = fun g -> 
   kleene_fun g order_bool (null_vn g) false;;
 
+let order_set = VTSet.subset
 
+let bot_set  = VTSet.empty
 
+let rec follow_prod : (vn -> bool) -> (vn -> VTSet.t) -> v list -> VTSet.t =
+ fun null first l -> 
+  match l with 
+  | [] -> VTSet.empty
+  | Vt vt::_ -> VTSet.singleton vt
+  | Vn vn::l -> 
+   if null vn 
+   then VTSet.union (first vn) (first_prod null first l)
+   else first vn
 
-let follow = fun _ _ _ _ -> VTSet.empty;;
+let follow_vn : grammar -> (vn -> bool) -> (vn -> VTSet.t) -> vn -> VTSet.t = 
+ fun g null first vn -> 
+  let l = production g vn in
+  List.fold_left (fun acc p -> VTSet.union acc (first_prod null first p)) VTSet.empty l
+
+let follow : grammar -> (vn -> bool ) -> (vn  -> VTSet.t) = 
+ fun g null -> kleene_fun g order_set (first_vn g null) bot_set
 
 let deriv  = fun _ _ _ _ _ _ -> failwith "deriv : TODO"
 
@@ -87,9 +104,7 @@ let first_vn : grammar -> (vn -> bool) -> (vn -> VTSet.t) -> vn -> VTSet.t =
   let l = production g vn in
   List.fold_left (fun acc p -> VTSet.union acc (first_prod null first p)) VTSet.empty l
 
-let order_set = VTSet.subset
 
-let bot_set  = VTSet.empty
 
 let first : grammar -> (vn -> bool ) -> (vn  -> VTSet.t) = 
  fun g null -> kleene_fun g order_set (first_vn g null) bot_set
