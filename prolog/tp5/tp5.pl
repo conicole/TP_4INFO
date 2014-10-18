@@ -63,13 +63,17 @@ add_bin(B1,B2,BR) :-
 	add_bin(B1,B2,0,BR).
 
 add_bin(B,[],0,B).
+
 add_bin([],B,0,B).
 
-add_bin([B|T],[],1,[Res|Z]):-
-	add_bit(B,0,1,Res,Cres),
-	add_bin(T,[],Cres,Z).
+add_bin([],[],1,Res):-
+	add_bin([1],[0],0,Res).
 
-add_bin([],[],1,[1]).
+add_bin([],B,1,Res):-
+	add_bin([1],B,0,Res).
+
+add_bin(B,[],1,Res):-
+	add_bin(B,[1],0,Res).
 
 add_bin([T1|R1],[T2|R2],C,[Res|Z]):-	
 	add_bit(T1,T2,C,Res,Cres),
@@ -91,12 +95,18 @@ sub_bin(B1,B2,R) :-
 
 /* QUESTION 1.7 */
 
+
+/*
+
+Premiere version : marche mais stackoverflow a partir de 8.
+
 eg_zero([0]).
 eg_zero([0|Q]) :-
 	eg_zero(Q).
 
 prod_bin([B],[1],[B]).
-prod_bin([B],[0],[0]).
+
+prod_bin([_],[0],[0]).
 
 prod_bin(_,B2,[0]):-
 	eg_zero(B2).
@@ -105,16 +115,38 @@ prod_bin(B1,B2,R) :-
 	sub_bin(B2,[1],Btemp),
 	prod_bin(B1,Btemp,Btemp2),
 	add_bin(Btemp2,B1,R).
+*/
+
+% deuxieme versions.
+
+prod_bit(0,_,[]).
+prod_bit(1,Res,Res).
+
+prod_bin([],_,[]).
+prod_bin([Tete|Rest],B,Res) :-
+prod_bit(Tete,B,TmpRes),
+prod_bin(Rest,B,TmpRes2),
+add_bin(TmpRes,[0|TmpRes2],Res).
 	
 /* QUESTION 1.8 */
 
 fact_bin([0],[1]).
-fact_bin(B,Res) :
+fact_bin(B,Res) :-
 	sub_bin(B,[1],Btemp),
 	fact_bin(Btemp,Rtemp),
 	prod_bin(B,Rtemp,Res).
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+/* QUESTION 1.9 */ 
+
+fact_bin_is(0,1).
+fact_bin_is(N,Res) :-
+	N>0,
+	Nmoins is N-1,
+	fact_bin_is(Nmoins,Temp),
+	Res is N*Temp.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%           	     TESTS                %%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -195,4 +227,18 @@ yes
 
 R = [0,1] ? 
 
+*/
+
+%% Q1.8 %%
+/*
+| ?- fact_bin([1,1],R).
+
+R = [0,1,1] ? 
+*/
+
+%% Q1.9 %% 
+/*
+| ?- fact_bin_is(3,R).
+
+R = 6 ? 
 */
