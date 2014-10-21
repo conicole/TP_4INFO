@@ -29,6 +29,7 @@ transitions(program(_, _, Deltas), Deltas).
 %compile result with: 
 % mpost filename
 % epstopdf filename.1
+/*
 dump_to_mpost(Filename, Dump) :-
         open(Filename, write, Stream),
 	        write_header(Stream),
@@ -67,7 +68,7 @@ write_tape(tape(Left, Right), Stream) :-
         write(Stream, '\", '),
         write(Stream, N),
         write('\n').
-
+*/
 %%%%%%%%%%% Optional part        
 
 %make_pairs(+, -): 'a list * ('a * 'a) list
@@ -105,11 +106,18 @@ nextFromDeltas([_|Rdeltas],StatePrev,SymbolPrev,SymbolNext,Dir,StateNext) :-
 	
 % Update_tape(+, +, +, -)
 
-update_tape(tape(LL,[_],Symbol,right, tape(RLL,R) ). 
-update_tape(tape(LL,[_|R]),Symbol,right, tape(RLL,R) ) :-
+update_tape(tape([E],[_|R]),Symbol,left,tape([''],[E|[Symbol|R]])) :- 
+  !.
+
+update_tape(tape(LL,['']),Symbol,right, tape(RLL,[''])) :-
+  addLast(LL,Symbol,RLL),
+  !.
+
+update_tape(tape(LL,[_|R]),Symbol,right, tape(RLL,R)) :-
 	addLast(LL,Symbol,RLL).
 
-update_tape(tape(LL,[TLR|R]),Symbol,right, tape(    ) ).
+update_tape(tape(LL,[_|ResteLR]),Symbol,left,tape(NLL,[E|[Symbol|ResteLR]])) :-
+  removeLast(LL,NLL,E).
 
 addLast([],E,[E]).
 addLast([T|Q],E,[T|R]) :- 
@@ -117,7 +125,22 @@ addLast([T|Q],E,[T|R]) :-
 
 removeLast([E],[],E).
 removeLast([T|Q],[T|R],E) :-
-	removeLast(Q,R).
+	removeLast(Q,R,E).
+
+% run_turing_machine(+, +, -, -): program * symbol list * symbol list * state
+% run_turing_machine(Program, Input, Output, FinalState)
+
+teteDeLecture(tape(_,[Symb|_]),Symb).
+
+run_turing_machine(Program,Input,Output,FinalState) :-
+  InitialState(Program,InitS),
+  teteDeLecture(Input,TLect),
+  next(Program, InitS, TLect, NSymb, Dir, Nstate),
+  update_tape(Input,NSymb,Dir,Ntape).
+
+  run_turing_machine(Program,Ntape, Output,FinalState).
+
+
 
 %% TEST %%
 test(0 ,SymbolNext,Dir,StateNext) :-
@@ -134,4 +157,25 @@ SymbNext = 1
 Dir = left
 StateNext = s4
 */
-	  
+
+/*
+| ?- update_tape(tape([1,2,3],['']),10,right,T).
+
+T = tape([1,2,3,10],[''])
+
+yes
+| ?- update_tape(tape([''],[3,4]),10,left,T).   
+
+T = tape([''],['',10,4])
+
+yes
+| ?- update_tape(tape([1,2],[3,4]),10,left,T).  
+
+T = tape([1],[2,10,4]) ? 
+
+yes
+| ?- update_tape(tape([1,2],[3,4]),10,right,E).  
+
+E = tape([1,2,10],[4]) ? 
+
+yes
