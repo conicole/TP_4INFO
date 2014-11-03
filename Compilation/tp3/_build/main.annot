@@ -1,0 +1,39 @@
+"main.ml" 1 0 0 "main.ml" 1 0 11
+type(
+  (Lexing.lexbuf -> Parser.token) -> Lexing.lexbuf -> unit
+)
+ident(
+  ext_ref Parser.inst
+)
+"main.ml" 1 0 12 "main.ml" 1 0 23
+type(
+  Lexing.lexbuf -> Parser.token
+)
+ident(
+  ext_ref Lexer.token
+)
+"main.ml" 1 0 25 "main.ml" 1 0 43
+type(
+  string -> Lexing.lexbuf
+)
+ident(
+  ext_ref Lexing.from_string
+)
+"main.ml" 1 0 44 "main.ml" 1 0 59
+type(
+  string
+)
+"main.ml" 1 0 24 "main.ml" 1 0 60
+call(
+  stack
+)
+type(
+  Lexing.lexbuf
+)
+"main.ml" 1 0 0 "main.ml" 1 0 60
+call(
+  stack
+)
+type(
+  unit
+)
