@@ -79,8 +79,8 @@ let rec follow_prod : (vn -> bool) -> (vn -> VTSet.t) -> v list -> VTSet.t =
    then VTSet.union (first vn) (first_prod null first l)
    else first vn
 
-let follow_vn : grammar -> (vn -> bool) -> (vn -> VTSet.t) -> vn -> VTSet.t = 
- fun g null first vn -> 
+let follow_vn : grammar -> (vn -> bool) -> (vn -> VTSet.t) -> (vn -> VTSet.t) -> vn −> VTSet.t = 
+ fun g null first f vn -> 
   let l = production g vn in
   List.fold_left (fun acc p -> VTSet.union acc (first_prod null first p)) VTSet.empty l
 
