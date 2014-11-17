@@ -1,0 +1,312 @@
+   0  $accept : %entry% $end
+
+   1  main : EOF
+   2       | expr END_OF_EXPRESSION
+   3       | error
+
+   4  expr : simple_expr
+   5       | expr TWO_POINT expr
+   6       | application
+
+   7  simple_expr : INT
+   8              | TRUE
+   9              | FALSE
+  10              | OPEN_BRACKET CLOSE_BRACKET
+
+  11  application : simple_expr_or_parenthesized_expr simple_expr_or_parenthesized_expr application_next
+
+  12  simple_expr_or_parenthesized_expr : simple_expr
+  13                                    | LEFT_PAREN expr COMMA expr RIGHT_PAREN
+  14                                    | LEFT_PAREN expr RIGHT_PAREN
+
+  15  application_next : simple_expr_or_parenthesized_expr application_next
+  16                   |
+
+  17  %entry% : '\001' main
+
+state 0
+	$accept : . %entry% $end  (0)
+
+	'\001'  shift 1
+	.  error
+
+	%entry%  goto 2
+
+
+state 1
+	%entry% : '\001' . main  (17)
+
+	error  shift 3
+	INT  shift 4
+	TRUE  shift 5
+	FALSE  shift 6
+	OPEN_BRACKET  shift 7
+	EOF  shift 8
+	LEFT_PAREN  shift 9
+	.  error
+
+	main  goto 10
+	expr  goto 11
+	simple_expr  goto 12
+	application  goto 13
+	simple_expr_or_parenthesized_expr  goto 14
+
+
+state 2
+	$accept : %entry% . $end  (0)
+
+	$end  accept
+
+
+state 3
+	main : error .  (3)
+
+	.  reduce 3
+
+
+state 4
+	simple_expr : INT .  (7)
+
+	.  reduce 7
+
+
+state 5
+	simple_expr : TRUE .  (8)
+
+	.  reduce 8
+
+
+state 6
+	simple_expr : FALSE .  (9)
+
+	.  reduce 9
+
+
+state 7
+	simple_expr : OPEN_BRACKET . CLOSE_BRACKET  (10)
+
+	CLOSE_BRACKET  shift 15
+	.  error
+
+
+state 8
+	main : EOF .  (1)
+
+	.  reduce 1
+
+
+state 9
+	simple_expr_or_parenthesized_expr : LEFT_PAREN . expr COMMA expr RIGHT_PAREN  (13)
+	simple_expr_or_parenthesized_expr : LEFT_PAREN . expr RIGHT_PAREN  (14)
+
+	INT  shift 4
+	TRUE  shift 5
+	FALSE  shift 6
+	OPEN_BRACKET  shift 7
+	LEFT_PAREN  shift 9
+	.  error
+
+	expr  goto 16
+	simple_expr  goto 12
+	application  goto 13
+	simple_expr_or_parenthesized_expr  goto 14
+
+
+state 10
+	%entry% : '\001' main .  (17)
+
+	.  reduce 17
+
+
+state 11
+	main : expr . END_OF_EXPRESSION  (2)
+	expr : expr . TWO_POINT expr  (5)
+
+	TWO_POINT  shift 17
+	END_OF_EXPRESSION  shift 18
+	.  error
+
+
+state 12
+	expr : simple_expr .  (4)
+	simple_expr_or_parenthesized_expr : simple_expr .  (12)
+
+	INT  reduce 12
+	TWO_POINT  reduce 4
+	TRUE  reduce 12
+	FALSE  reduce 12
+	OPEN_BRACKET  reduce 12
+	END_OF_EXPRESSION  reduce 4
+	LEFT_PAREN  reduce 12
+	RIGHT_PAREN  reduce 4
+	COMMA  reduce 4
+
+
+state 13
+	expr : application .  (6)
+
+	.  reduce 6
+
+
+state 14
+	application : simple_expr_or_parenthesized_expr . simple_expr_or_parenthesized_expr application_next  (11)
+
+	INT  shift 4
+	TRUE  shift 5
+	FALSE  shift 6
+	OPEN_BRACKET  shift 7
+	LEFT_PAREN  shift 9
+	.  error
+
+	simple_expr  goto 19
+	simple_expr_or_parenthesized_expr  goto 20
+
+
+state 15
+	simple_expr : OPEN_BRACKET CLOSE_BRACKET .  (10)
+
+	.  reduce 10
+
+
+state 16
+	expr : expr . TWO_POINT expr  (5)
+	simple_expr_or_parenthesized_expr : LEFT_PAREN expr . COMMA expr RIGHT_PAREN  (13)
+	simple_expr_or_parenthesized_expr : LEFT_PAREN expr . RIGHT_PAREN  (14)
+
+	TWO_POINT  shift 17
+	RIGHT_PAREN  shift 21
+	COMMA  shift 22
+	.  error
+
+
+state 17
+	expr : expr TWO_POINT . expr  (5)
+
+	INT  shift 4
+	TRUE  shift 5
+	FALSE  shift 6
+	OPEN_BRACKET  shift 7
+	LEFT_PAREN  shift 9
+	.  error
+
+	expr  goto 23
+	simple_expr  goto 12
+	application  goto 13
+	simple_expr_or_parenthesized_expr  goto 14
+
+
+state 18
+	main : expr END_OF_EXPRESSION .  (2)
+
+	.  reduce 2
+
+
+state 19
+	simple_expr_or_parenthesized_expr : simple_expr .  (12)
+
+	.  reduce 12
+
+
+state 20
+	application : simple_expr_or_parenthesized_expr simple_expr_or_parenthesized_expr . application_next  (11)
+	application_next : .  (16)
+
+	INT  shift 4
+	TRUE  shift 5
+	FALSE  shift 6
+	OPEN_BRACKET  shift 7
+	LEFT_PAREN  shift 9
+	TWO_POINT  reduce 16
+	END_OF_EXPRESSION  reduce 16
+	RIGHT_PAREN  reduce 16
+	COMMA  reduce 16
+
+	simple_expr  goto 19
+	simple_expr_or_parenthesized_expr  goto 24
+	application_next  goto 25
+
+
+state 21
+	simple_expr_or_parenthesized_expr : LEFT_PAREN expr RIGHT_PAREN .  (14)
+
+	.  reduce 14
+
+
+state 22
+	simple_expr_or_parenthesized_expr : LEFT_PAREN expr COMMA . expr RIGHT_PAREN  (13)
+
+	INT  shift 4
+	TRUE  shift 5
+	FALSE  shift 6
+	OPEN_BRACKET  shift 7
+	LEFT_PAREN  shift 9
+	.  error
+
+	expr  goto 26
+	simple_expr  goto 12
+	application  goto 13
+	simple_expr_or_parenthesized_expr  goto 14
+
+
+23: shift/reduce conflict (shift 17, reduce 5) on TWO_POINT
+state 23
+	expr : expr . TWO_POINT expr  (5)
+	expr : expr TWO_POINT expr .  (5)
+
+	TWO_POINT  shift 17
+	END_OF_EXPRESSION  reduce 5
+	RIGHT_PAREN  reduce 5
+	COMMA  reduce 5
+
+
+state 24
+	application_next : simple_expr_or_parenthesized_expr . application_next  (15)
+	application_next : .  (16)
+
+	INT  shift 4
+	TRUE  shift 5
+	FALSE  shift 6
+	OPEN_BRACKET  shift 7
+	LEFT_PAREN  shift 9
+	TWO_POINT  reduce 16
+	END_OF_EXPRESSION  reduce 16
+	RIGHT_PAREN  reduce 16
+	COMMA  reduce 16
+
+	simple_expr  goto 19
+	simple_expr_or_parenthesized_expr  goto 24
+	application_next  goto 27
+
+
+state 25
+	application : simple_expr_or_parenthesized_expr simple_expr_or_parenthesized_expr application_next .  (11)
+
+	.  reduce 11
+
+
+state 26
+	expr : expr . TWO_POINT expr  (5)
+	simple_expr_or_parenthesized_expr : LEFT_PAREN expr COMMA expr . RIGHT_PAREN  (13)
+
+	TWO_POINT  shift 17
+	RIGHT_PAREN  shift 28
+	.  error
+
+
+state 27
+	application_next : simple_expr_or_parenthesized_expr application_next .  (15)
+
+	.  reduce 15
+
+
+state 28
+	simple_expr_or_parenthesized_expr : LEFT_PAREN expr COMMA expr RIGHT_PAREN .  (13)
+
+	.  reduce 13
+
+
+State 23 contains 1 shift/reduce conflict.
+
+
+17 terminals, 8 nonterminals
+18 grammar rules, 29 states
