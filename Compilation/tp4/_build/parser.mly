@@ -4,14 +4,24 @@
 
 %token <int> INT
 %token <string> IDENT
-%token TWO_POINT
+%token TWO_TWO_POINTS
 %token TRUE FALSE
 %token OPEN_BRACKET CLOSE_BRACKET
-%token CONS
 %token LET
 %token EOF END_OF_EXPRESSION
 %token LEFT_PAREN RIGHT_PAREN
 %token COMMA
+%token PLUS
+%token MINUS
+%token TIME
+%token EQUAL
+%token LESS
+%token PREMS
+%left TWO_TWO_POINTS
+%left EQUAL
+%left LESS
+%left PLUS MINUS
+%left TIME
 %start main
 %type <Ast.ml_expr> main
 %%
@@ -31,7 +41,13 @@ main:
 
 expr:
 | simple_expr { $1 }
-| expr TWO_POINT expr  { Ml_cons($1,$3) } 
+| expr PLUS expr { Ml_binop (Ml_add,$1,$3) }
+| expr MINUS expr { Ml_binop (Ml_sub,$1,$3) }
+| expr TWO_TWO_POINTS expr  { Ml_cons($1,$3) } 
+| expr TIME expr {Ml_binop( Ml_mult,$1,$3)}
+| expr EQUAL expr {Ml_binop( Ml_eq,$1,$3)}
+| expr LESS expr { Ml_binop (Ml_less,$1,$3) } 
+| PREMS expr { Ml_unop (Ml_fst,$2)}
 | application { List.fold_left (fun res a -> Ml_app(res, a)) (List.hd $1) (List.tl $1) }
 /* TO DO */
 

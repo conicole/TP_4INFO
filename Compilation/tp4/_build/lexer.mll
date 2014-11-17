@@ -7,7 +7,7 @@
 	("let", LET);
 	("true", TRUE);
 	("false", FALSE);
-	("cons", CONS);
+  ("prems", PREMS);
       ]
 }
 
@@ -27,7 +27,13 @@ rule get_token = parse
   | ')'  { RIGHT_PAREN }
   | '[' { OPEN_BRACKET }
   | ']' { CLOSE_BRACKET }
+  | "::" { TWO_TWO_POINTS }
   | ";;" { END_OF_EXPRESSION }
+  | '+' { PLUS }
+  | '-' { MINUS }
+  | '*' { TIME }
+  |'=' { EQUAL }
+  | '<' { LESS }
   | ['A'-'Z' 'a'-'z'] ['A'-'Z' 'a'-'z' '0'-'9' '_'] * as id
                { try
                    Hashtbl.find keyword_table id
