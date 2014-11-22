@@ -11,13 +11,10 @@
         %type <unit>inst
         %%
 
-
-
-
         inst:
             IDENT FLECHE expr  EOF {}
             | error { let pos = Parsing.symbol_start_pos() in
-                      print_int pos.Lexing.pos_cnum }
+                      print_int pos.Lexing.pos_cnum; print_endline " ERROR "}
         ;
         expr:
             expr PLUS expr      {}

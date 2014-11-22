@@ -9,7 +9,6 @@ type token =
   | EOF
 
 open Parsing;;
-let _ = parse_error;;
 let yytransl_const = [|
   257 (* PLUS *);
   258 (* FLECHE *);
@@ -143,53 +142,53 @@ let yyact = [|
 ; (fun __caml_parser_env ->
     let _3 = (Parsing.peek_val __caml_parser_env 1 : 'expr) in
     Obj.repr(
-# 18 "Parser.mly"
+# 15 "Parser.mly"
                                    ()
-# 149 "Parser.ml"
+# 148 "Parser.ml"
                : unit))
 ; (fun __caml_parser_env ->
     Obj.repr(
-# 19 "Parser.mly"
+# 16 "Parser.mly"
                     ( let pos = Parsing.symbol_start_pos() in
-                      print_int pos.Lexing.pos_cnum )
-# 156 "Parser.ml"
+                      print_int pos.Lexing.pos_cnum; print_endline " ERROR ")
+# 155 "Parser.ml"
                : unit))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : 'expr) in
     let _3 = (Parsing.peek_val __caml_parser_env 0 : 'expr) in
     Obj.repr(
-# 23 "Parser.mly"
+# 20 "Parser.mly"
                                 ()
-# 164 "Parser.ml"
+# 163 "Parser.ml"
                : 'expr))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : 'expr) in
     let _3 = (Parsing.peek_val __caml_parser_env 0 : 'expr) in
     Obj.repr(
-# 24 "Parser.mly"
+# 21 "Parser.mly"
                                 ()
-# 172 "Parser.ml"
+# 171 "Parser.ml"
                : 'expr))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : 'expr) in
     let _3 = (Parsing.peek_val __caml_parser_env 0 : 'expr) in
     Obj.repr(
-# 25 "Parser.mly"
+# 22 "Parser.mly"
                                ()
-# 180 "Parser.ml"
+# 179 "Parser.ml"
                : 'expr))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 1 : 'expr) in
     Obj.repr(
-# 26 "Parser.mly"
+# 23 "Parser.mly"
                                 ()
-# 187 "Parser.ml"
+# 186 "Parser.ml"
                : 'expr))
 ; (fun __caml_parser_env ->
     Obj.repr(
-# 27 "Parser.mly"
+# 24 "Parser.mly"
                                 ()
-# 193 "Parser.ml"
+# 192 "Parser.ml"
                : 'expr))
 (* Entry inst *)
 ; (fun __caml_parser_env -> raise (Parsing.YYexit (Parsing.peek_val __caml_parser_env 0)))

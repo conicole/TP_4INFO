@@ -4,8 +4,8 @@ open Value
 exception Error of string
 
 let eval_unop op arg = match op with
-	| Ml_fst ->  Val_int(3)
-	| Ml_snd ->  Val_int(4)
+	| Ml_fst ->  fst arg
+	| Ml_snd ->  fst arg
 	| _ -> raise (Error "not implemented yet!")
 
 let eval_binop op arg1 arg2 = match op with

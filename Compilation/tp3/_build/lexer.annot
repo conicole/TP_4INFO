@@ -3,7 +3,7 @@ type(
   Lexing.lex_tables
 )
 ident(
-  def __ocaml_lex_tables "lexer.ml" 147 8577 8577 "_none_" 1 0 -1
+  def __ocaml_lex_tables "lexer.ml" 147 8577 8577 --
 )
 "lexer.ml" 9 108 111 "lexer.ml" 10 178 207
 type(
@@ -58,7 +58,7 @@ type(
   Lexing.lexbuf -> Parser.token
 )
 ident(
-  def token "lexer.ml" 147 8577 8577 "_none_" 1 0 -1
+  def token "lexer.ml" 147 8577 8577 --
 )
 "lexer.ml" 147 8577 8591 "lexer.ml" 147 8577 8597
 type(
@@ -97,7 +97,7 @@ type(
   Lexing.lexbuf -> int -> Parser.token
 )
 ident(
-  def __ocaml_lex_token_rec "lexer.ml" 147 8577 8577 "_none_" 1 0 -1
+  def __ocaml_lex_token_rec "lexer.ml" 147 8577 8577 --
 )
 "lexer.ml" 149 8635 8661 "lexer.ml" 149 8635 8667
 type(
@@ -287,9 +287,6 @@ type(
 type(
   char
 )
-ident(
-  def lxm "lexer.mll" 22 9607 9629 "lexer.mll" 26 9836 9859
-)
 "lexer.ml" 201 9527 9529 "lexer.ml" 201 9527 9551
 type(
   Lexing.lexbuf -> int -> char
@@ -325,9 +322,6 @@ type(
 "lexer.mll" 22 9607 9635 "lexer.mll" 22 9607 9638
 type(
   Lexing.position
-)
-ident(
-  def pos "lexer.mll" 23 9666 9690 "lexer.mll" 25 9741 9835
 )
 "lexer.mll" 22 9607 9641 "lexer.mll" 22 9607 9655
 type(
