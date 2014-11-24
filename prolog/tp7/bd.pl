@@ -113,18 +113,78 @@ join_fournliv_plus(NumFourn,Nom,Ville,Piece,Qte) :-
 
 % ==== Q 2.6 Division ====
 
-fourn_pas_lion(Fourn) :-
-	piece(NumPiece,_,Ville),
-	\==(Ville,lyon),
-	join_fournliv(_,Fourn,_,NumPiece,_).
+division_bis([],_).
+
+division_bis([T|Q],Fourn) :-
+	livraison(Fourn,T,_),
+	division_bis(Q,Fourn).
 
 division(Fourn) :-
-	not(fourn_pas_lion(Fourn)).
+	findall(NumP,piece_a_lion(NumP,_),R),
+	division_bis(R,Fourn).
+
+% ==== Q 2.7 Calculs de totaux ====
+
+qte_livraison(Fourn,Qte):-
+	livraison(Fourn,_,Qte).
+
+
+total_livraison_add([],0).
+
+total_livraison_add([T|Q], TotalSum ) :-
+	total_livraison_add(Q, Total ),
+	TotalSum is Total + T.
+
+total_livraison(Fourn,Total):-
+	findall(Qte,qte_livraison(Fourn,Qte),ListeQte),
+	total_livraison_add(ListeQte,Total).
+
 
 % ============================================================================= 
 % SECTION 3 : Au delà de l’algèbre relationnelle
 % ============================================================================= 
 
+% ==== Q 3.1 composant_to_make ====
+
+piece_to_make([],[]).
+
+piece_to_make([T|Q], ListeAllToMakeRes) :-
+	composant_to_make(T,ListeAllToMake1),
+	piece_to_make(Q, ListeAllToMake2),
+	append(ListeAllToMake1,ListeAllToMake2,ListeAllToMakeRes).
+
+
+composant_to_make(Composant,ListeAllToMake):-
+	findall(CompToMake,assemblage(Composant,CompToMake,_),ListeCompToMake),
+	piece_to_make(ListeCompToMake,ListeAllToMakePiece),
+	append(ListeCompToMake,ListeAllToMakePiece,ListeAllToMake).
+
+
+% ==== Q 3.2 Total_piece_pour_composant ====
+
+make_total([],0).
+make_total([composant_qte(_,Qte)|Q],TotalRes):-
+	make_total(Q,Total),
+	TotalRes is Total + Qte.
+
+
+total_piece_liste_2([],0).
+
+total_piece_liste_2([composant_qte(Composant,Qte)|Q],TotalRes) :-
+	total_piece_pour_composant(Composant,Total1),
+	total_piece_liste_2(Q,Total2),
+	TotalRes is Total1*Qte  + Total2.
+
+total_piece_liste_1([],1).
+
+total_piece_liste_1([composant_qte(Composant,Qte)|Q],TotalRes) :-
+	total_piece_pour_composant(Composant,Total1),
+	total_piece_liste_2(Q,Total2),
+	TotalRes is Total1*Qte  + Total2.
+
+total_piece_pour_composant(Composant,Total) :-
+	findall(composant_qte(CompToMake,Qte),assemblage(Composant,CompToMake,Qte),ListeCompToMake),
+	total_piece_liste_1(ListeCompToMake,Total).
 
 
 
@@ -285,6 +345,39 @@ Qte = 1000
 Yes (0.00s cpu, solution 3, maybe more) ? ;
 % =======================================================
 
+% ======== Q 2.6 Division ========
+
+| ?- division(R).
+
+R = f1 ? ;
+
+R = f4 ? ;
+
+% =======================================================
+
+
+% ==== Q 2.7 Calculs de totaux ====
+
+| ?- total_livraison(f1,Total).
+
+Total = 600
+
+yes
+| ?- total_livraison(f6,Total).
+
+Total = 1800
+
+yes
+=======================================================
+
+
+% ==== Q 3.1 composant_to_make ====
+
+| ?- composant_to_make(voiture,ListeDesTrucPourFaireMaCaisse).
+
+ListeDesTrucPourFaireMaCaisse = [porte,roue,moteur,tole,vitre,jante,pneu,piston,soupape]
+
+=======================================================
 
 
 */
