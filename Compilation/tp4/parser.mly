@@ -17,11 +17,20 @@
 %token EQUAL
 %token LESS
 %token PREMS
+%token DEUZ
+%token IF
+%token ELSE
+%token THEN
+%token FUN
+%token ARROW
+%token PIPE
 %left TWO_TWO_POINTS
 %left EQUAL
 %left LESS
 %left PLUS MINUS
 %left TIME
+%nonassoc PREMS
+%nonassoc DEUZ
 %start main
 %type <Ast.ml_expr> main
 %%
@@ -47,15 +56,36 @@ expr:
 | expr TIME expr {Ml_binop( Ml_mult,$1,$3)}
 | expr EQUAL expr {Ml_binop( Ml_eq,$1,$3)}
 | expr LESS expr { Ml_binop (Ml_less,$1,$3) } 
+| LEFT_PAREN expr COMMA expr RIGHT_PAREN { Ml_pair($2, $4) }
 | PREMS expr { Ml_unop (Ml_fst,$2)}
+| DEUZ expr { Ml_unop (Ml_snd,$2)}
+| IF expr THEN expr ELSE expr {Ml_if($2,$4,$6)}
+| FUN pattern_expression_list { Ml_fun($2) }
 | application { List.fold_left (fun res a -> Ml_app(res, a)) (List.hd $1) (List.tl $1) }
 /* TO DO */
+
+
+pattern_expression_list:
+ | PIPE pattern ARROW expr pattern_expression_list { ($2,$4)::$5 }
+ | PIPE pattern ARROW expr { ($2,$4)::[] }
+
+
+pattern:
+| LEFT_PAREN pattern COMMA pattern RIGHT_PAREN {  Ml_pattern_pair($2, $4) }
+| OPEN_BRACKET CLOSE_BRACKET {Ml_pattern_nil}
+| pattern TWO_TWO_POINTS pattern  { Ml_pattern_cons($1,$3) } 
+| TRUE { Ml_pattern_bool true }
+| FALSE { Ml_pattern_bool false }
+| IDENT  { Ml_pattern_var $1 }
+| INT { Ml_pattern_int $1 }   
+
 
 simple_expr:
 | INT { Ml_int $1 }
 | TRUE { Ml_bool true }
 | FALSE { Ml_bool false }
 | OPEN_BRACKET CLOSE_BRACKET {Ml_nil}
+
 /* TO DO */
 
 application:

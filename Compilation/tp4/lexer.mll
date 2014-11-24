@@ -8,7 +8,12 @@
 	("true", TRUE);
 	("false", FALSE);
   ("prems", PREMS);
-      ]
+  ("deuz", DEUZ );
+  ("if", IF );
+  ("then", THEN);
+  ( "else", ELSE);
+  ( "funky", FUN);
+      ] 
 }
 
 let space = [' ' '\t']
@@ -23,6 +28,7 @@ rule get_token = parse
   | "/*" ([^'*']|('*'+[^'*''/']))* '*'+ '/' { get_token lexbuf}
   | ['\n' '\r'] { Lexing.new_line lexbuf; get_token lexbuf }
   | ','  { COMMA }
+  | '|' { PIPE }
   | '('  { LEFT_PAREN }
   | ')'  { RIGHT_PAREN }
   | '[' { OPEN_BRACKET }
@@ -33,6 +39,7 @@ rule get_token = parse
   | '-' { MINUS }
   | '*' { TIME }
   |'=' { EQUAL }
+  | "->" { ARROW }
   | '<' { LESS }
   | ['A'-'Z' 'a'-'z'] ['A'-'Z' 'a'-'z' '0'-'9' '_'] * as id
                { try
