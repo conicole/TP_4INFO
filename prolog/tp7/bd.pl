@@ -183,11 +183,10 @@ total_piece_liste_1([composant_qte(Composant,Qte)|Q],TotalRes) :-
 	TotalRes is Total1*Qte  + Total2.
 
 total_piece_pour_composant(Composant,Total) :-
-	findall(composant_qte(CompToMake,Qte),assemblage(Composant,CompToMake,Qte),ListeCompToMake),
+	findall(composant_qte(CompToMake,Qte),
+		assemblage(Composant,CompToMake,Qte),
+		ListeCompToMake),
 	total_piece_liste_1(ListeCompToMake,Total).
-
-
-
 
 
 /*
