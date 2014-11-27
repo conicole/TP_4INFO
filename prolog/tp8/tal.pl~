@@ -1,0 +1,53 @@
+/**
+TP 8 Traitement Automatique de la Langue (TAL) - Prolog
+
+@author Prenom1 NOM1
+@author Prenom2 NOM2
+@version Annee scolaire 20__/20__
+*/
+
+
+/*
+===============================================================================
+===============================================================================
+ Définition des prédicats
+===============================================================================
+*/
+% Afin de simplifier la correction, merci de conserver dans votre grammaire
+% l'ordre ci-dessous
+ 
+
+phrase_simple
+gp_nominal 
+gp_verbal
+gp_prepositionnel
+relatif
+
+article
+nom_commun
+nom_propre
+adjectif
+prep       
+verbe
+pronom
+        
+        
+/*
+===============================================================================
+===============================================================================
+ Tests
+===============================================================================
+*/
+
+% Quelques phrases de test à copier coller pour vous faire gagner du temps, mais
+% n'hésitez pas à en définir d'autres
+
+/*
+analyse([le,chien,aboie]).
+analyse([les,enfants,jouent]).
+analyse([paul,marche,dans,la,rue]).
+analyse([la,femme,qui,porte,un,pull,noir,mange,un,steack]).
+analyse([les,chien,aboie]).
+analyse([la,femme,qui,porte,un,pull,noir,mange,un,chien]).              
+
+*/
