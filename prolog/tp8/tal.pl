@@ -310,57 +310,104 @@ analyse(L,ArbreS) :-
 	phrase_simple(L,[],ArbreS).
 
 phrase_simple(L,R,phr(Agn,Ar,Av,An,Ap)) :-
-	gp_nominal(L,L1,Agn),
-	relatif(L1,L2,Ar),
-	gp_verbal(L2,L3,Av),
+	gp_nominal_sg(L,L1,Agn),
+	relatif_sg(L1,L2,Ar),
+	gp_verbal_sg(L2,L3,Av),
+	gp_nominal(L3,L4,An),
+	gp_prepositionnel(L4,R,Ap).
+
+phrase_simple(L,R,phr(Agn,Ar,Av,An,Ap)) :-
+	gp_nominal_pl(L,L1,Agn),
+	relatif_pl(L1,L2,Ar),
+	gp_verbal_pl(L2,L3,Av),
 	gp_nominal(L3,L4,An),
 	gp_prepositionnel(L4,R,Ap).
 
 phrase_simple(L,R,phr(Agn,Ar,Av,An)) :-
-	gp_nominal(L,L1,Agn),
-	relatif(L1,L2,Ar),
-	gp_verbal(L2,L3,Av),
+	gp_nominal_sg(L,L1,Agn),
+	relatif_sg(L1,L2,Ar),
+	gp_verbal_sg(L2,L3,Av),
+	gp_nominal(L3,R,An).
+
+phrase_simple(L,R,phr(Agn,Ar,Av,An)) :-
+	gp_nominal_pl(L,L1,Agn),
+	relatif_pl(L1,L2,Ar),
+	gp_verbal_pl(L2,L3,Av),
 	gp_nominal(L3,R,An).
 
 phrase_simple(L,R,phr(Agn,Av,An,Ap)) :-
-	gp_nominal(L,L1,Agn),
-	gp_verbal(L1,L2,Av),
+	gp_nominal_sg(L,L1,Agn),
+	gp_verbal_sg(L1,L2,Av),
+	gp_nominal(L2,L3,An),
+	gp_prepositionnel(L3,R,Ap).
+
+phrase_simple(L,R,phr(Agn,Av,An,Ap)) :-
+	gp_nominal_pl(L,L1,Agn),
+	gp_verbal_pl(L1,L2,Av),
 	gp_nominal(L2,L3,An),
 	gp_prepositionnel(L3,R,Ap).
 
 phrase_simple(L,R,phr(Agn,Av,An)) :-
-	gp_nominal(L,L1,Agn),
-	gp_verbal(L1,L2,Av),
+	gp_nominal_sg(L,L1,Agn),
+	gp_verbal_sg(L1,L2,Av),
+	gp_nominal(L2,R,An).
+
+phrase_simple(L,R,phr(Agn,Av,An)) :-
+	gp_nominal_pl(L,L1,Agn),
+	gp_verbal_pl(L1,L2,Av),
 	gp_nominal(L2,R,An).
 	
 phrase_simple(L,R,phr(Agn,Ar,Av,Ap)) :-
-	gp_nominal(L,L1,Agn),
-	relatif(L1,L2,Ar),
+	gp_nominal_sg(L,L1,Agn),
+	relatif_sg(L1,L2,Ar),
+	gp_verbal(L2,L3,Av),
+	gp_prepositionnel(L3,R,Ap).
+
+phrase_simple(L,R,phr(Agn,Ar,Av,Ap)) :-
+	gp_nominal_pl(L,L1,Agn),
+	relatif_pl(L1,L2,Ar),
 	gp_verbal(L2,L3,Av),
 	gp_prepositionnel(L3,R,Ap).
 
 phrase_simple(L,R,phr(Agn,Ar,Av)) :-
-	gp_nominal(L,L1,Agn),
-	relatif(L1,L2,Ar),
-	gp_verbal(L2,R,Av).
+	gp_nominal_sg(L,L1,Agn),
+	relatif_sg(L1,L2,Ar),
+	gp_verbal_sg(L2,R,Av).
+
+phrase_simple(L,R,phr(Agn,Ar,Av)) :-
+	gp_nominal_pl(L,L1,Agn),
+	relatif_pl(L1,L2,Ar),
+	gp_verbal_pl(L2,R,Av).
 
 phrase_simple(L,R,phr(Agn,Av,Ap)) :-
-	gp_nominal(L,L1,Agn),
-	gp_verbal(L1,L2,Av),
+	gp_nominal_sg(L,L1,Agn),
+	gp_verbal_sg(L1,L2,Av),
+	gp_prepositionnel(L2,R,Ap).
+
+phrase_simple(L,R,phr(Agn,Av,Ap)) :-
+	gp_nominal_pl(L,L1,Agn),
+	gp_verbal_pl(L1,L2,Av),
 	gp_prepositionnel(L2,R,Ap).
 
 phrase_simple(L,R,phr(Agn,Av)) :-
-	gp_nominal(L,L1,Agn),
-	gp_verbal(L1,R,Av).
+	gp_nominal_sg(L,L1,Agn),
+	gp_verbal_sg(L1,R,Av).
 
-gp_nominal(L,R,ArbreS) :-
+phrase_simple(L,R,phr(Agn,Av)) :-
+	gp_nominal_pl(L,L1,Agn),
+	gp_verbal_pl(L1,R,Av).
+
+gp_nominal_sg(L,R,ArbreS) :-
 	gp_nominal_fem(L,R,ArbreS).
 
-gp_nominal(L,R,ArbreS) :-
+gp_nominal_sg(L,R,ArbreS) :-
 	gp_nominal_masc(L,R,ArbreS).
 
 gp_nominal(L,R,ArbreS) :-
 	gp_nominal_pl(L,R,ArbreS).
+	
+gp_nominal(L,R,ArbreS) :-
+	gp_nominal_sg(L,R,ArbreS).
 
 gp_nominal_fem(L,R,gn(Aart,Anc,Aadj)) :-
 	article_fem(L,L1,Aart),
@@ -395,36 +442,73 @@ gp_nominal_masc(L,R,gn(Aart,Anc)) :-
 gp_nominal_masc(L,R,gn(Anp)) :-
 	nom_propre_masc(L,R,Anp).
 
-gp_verbal(L,R,gv(Av)) :-
-	verbe(L,R,Av).
+gp_verbal(L,R,ArbreS) :-
+	gp_verbal_sg(L,R,ArbreS).
 
-gp_verbal(L,R,gv(Ap,Av)) :-
+gp_verbal(L,R,ArbreS) :-
+	gp_verbal_pl(L,R,ArbreS).
+
+gp_verbal_sg(L,R,gv(Av)) :-
+	verbe_sg(L,R,Av).
+
+gp_verbal_sg(L,R,gv(Ap,Av)) :-
 	pronom(L,L1,Ap),
-	verbe(L1,R,Av).
+	verbe_sg(L1,R,Av).
+
+gp_verbal_pl(L,R,gv(Av)) :-
+	verbe_pl(L,R,Av).
+
+gp_verbal_pl(L,R,gv(Ap,Av)) :-
+	pronom(L,L1,Ap),
+	verbe_pl(L1,R,Av).
 
 gp_prepositionnel(L,R,gp(Ap,Agn)) :-
 	prep(L,L1,Ap),
 	gp_nominal(L1,R,Agn).
 
-relatif(L,R,rel(Ap,Agv,Agp)):-
+relatif(L,R,ArbreS) :-
+	relatif_sg(L,R,ArbreS).
+
+relatif(L,R,ArbreS) :-
+	relatif_pl(L,R,ArbreS).
+
+relatif_pl(L,R,rel(Ap,Agv,Agn)):-
 	pronom_relatif(L,L1,Ap),
-	gp_verbal(L1,L2,Agv),
+	gp_verbal_pl(L1,L2,Agv),
+	gp_nominal_pl(L2,R,Agn).
+
+relatif_pl(L,R,rel(Ap,Agv,Agp)):-
+	pronom_relatif(L,L1,Ap),
+	gp_verbal_pl(L1,L2,Agv),
 	gp_prepositionnel(L2,R,Agp).
 
-relatif(L,R,rel(Ap,Agv)):-
+relatif_pl(L,R,rel(Ap,Agv)):-
 	pronom_relatif(L,L1,Ap),
-	gp_verbal(L1,R,Agv).
+	gp_verbal_pl(L1,R,Agv).
 
-relatif(L,R,rel(Ap,Agv,Agn)):-
+relatif_sg(L,R,rel(Ap,Agv,Agn)):-
 	pronom_relatif(L,L1,Ap),
-	gp_verbal(L1,L2,Agv),
-	gp_nominal(L2,R,Agn).
+	gp_verbal_sg(L1,L2,Agv),
+	gp_nominal_masc(L2,R,Agn).
+
+relatif_sg(L,R,rel(Ap,Agv,Agn)):-
+	pronom_relatif(L,L1,Ap),
+	gp_verbal_sg(L1,L2,Agv),
+	gp_nominal_fem(L2,R,Agn).
+
+relatif_sg(L,R,rel(Ap,Agv,Agp)):-
+	pronom_relatif(L,L1,Ap),
+	gp_verbal_sg(L1,L2,Agv),
+	gp_prepositionnel(L2,R,Agp).
+
+relatif_sg(L,R,rel(Ap,Agv)):-
+	pronom_relatif(L,L1,Ap),
+	gp_verbal_sg(L1,R,Agv).
 
 article_masc([un|L],L,art(un)).
 article_masc([le|L],L,art(le)).
 article_fem([la|L],L,art(la)).
 article_pl([les|L],L,art(les)).
-
 
 nom_commun_fem([femme|L],L,nom_com(femme)).
 nom_commun_pl([enfants|L],L,nom_com(enfants)).
@@ -443,17 +527,37 @@ adjectif_pl([livides|L],L,adj(livides)).
 
 prep([dans|L],L,prep(dans)).
 
-verbe([mange|L],L,verb(mange)).
+verbe_sg([mange|L],L,verb(mange)).
 % verbe_sg([porte|L],L,verb(porte)).
-verbe([aboie|L],L,verb(aboie)).
+%verbe_sg([aboie|L],L,verb(aboie)).
 % verbe_sg([marche|L],L,verb(marche)).
-verbe([jouent|L],L,verb(jouent)).
+verbe_pl([jouent|L],L,verb(jouent)).
  
 pronom([se|L],L,pronom(se)).
 pronom_relatif([qui|L],L,pronom(qui)).
 
 /* TESTS
 
-²
+| ?- phrase_simple([les,enfants,mange],R,Arbre).
+
+no
+
+| ?- phrase_simple([les,enfants,jouent],R,Arbre).
+
+Arbre = phr(gn(art(les),nom_com(enfants)),gv(verb(jouent)))
+R = [] ? 
+
+yes
+
+| ?- phrase_simple([la,femme,noir,mange],R,Arbre).
+
+no
+
+| ?- phrase_simple([la,femme,blanche,mange],R,Arbre).
+
+Arbre = phr(gn(art(la),nom_com(femme),adj(blanche)),gv(verb(mange)))
+R = [] ? 
+
+yes
 
 */
