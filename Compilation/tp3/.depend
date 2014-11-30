@@ -1,7 +1,7 @@
-lexer.cmo : Parser.cmi
-lexer.cmx : Parser.cmx
-main.cmo :
-main.cmx :
-Parser.cmo : Parser.cmi
-Parser.cmx : Parser.cmi
-Parser.cmi :
+arbre.cmo:
+arbre.cmx:
+lexer.cmo: Parser.cmi
+lexer.cmx: Parser.cmx
+Parser.cmo: arbre.cmo Parser.cmi
+Parser.cmx: arbre.cmx Parser.cmi
+Parser.cmi: arbre.cmo

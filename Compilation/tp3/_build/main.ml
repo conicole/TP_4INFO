@@ -1,1 +1,0 @@
-Parser.inst Lexer.token (Lexing.from_string "lego <- a + b");;
