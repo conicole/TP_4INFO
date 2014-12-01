@@ -1,43 +1,15 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Programming/Coding Assignment
-% LaTeX Template
-%
-% This template has been downloaded from:
-% http://www.latextemplates.com
-%
-% Original author:
-% Ted Pavlic (http://www.tedpavlic.com)
-%
-% Note:
-% The \lipsum[#] commands throughout this template generate dummy text
-% to fill the template out. These commands should all be removed when 
-% writing assignment content.
-%
-% This template uses a Perl script as an example snippet of code, most other
-% languages are also usable. Configure them in the "CODE INCLUSION 
-% CONFIGURATION" section.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%----------------------------------------------------------------------------------------
-%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
-%----------------------------------------------------------------------------------------
-
 \documentclass{article}
-
-\usepackage{fancyhdr} % Required for custom headers
-\usepackage{lastpage} % Required to determine the last page for the footer
-\usepackage{extramarks} % Required for headers and footers
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
 \usepackage{listings} % Required for insertion of code
 \usepackage{courier} % Required for the courier font
-\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+
 \usepackage[top=1in]{geometry}
 \usepackage{textcomp}
-%\usepackage{minted}      % (requires -shell-escape)
+
 \usepackage{xcolor}
 \usepackage{filecontents}
 
-%\lstset{breaklines=true} %listing ne deborde plus.
 % Margins
 \topmargin=-0.65in
 \evensidemargin=0in
@@ -49,77 +21,20 @@
 \linespread{1} % Line spacing
 \marginparwidth=0.05in
 
-% Set up the header and footer
-\pagestyle{fancy}
-\lhead{\hmwkAuthorName} % Top left header
-\chead{\hmwkClass} % Top center head
-\rhead{\firstxmark} % Top right header
-\lfoot{\lastxmark} % Bottom left footer
-\cfoot{} % Bottom center footer
-\rfoot{Page\ \thepage\ of\ \protect\pageref{LastPage}} % Bottom right footer
-\renewcommand\headrulewidth{0.4pt} % Size of the header rule
-\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
-
 \setlength\parindent{0pt} % Removes all indentation from paragraphs
 
-%----------------------------------------------------------------------------------------
-%	CODE INCLUSION CONFIGURATION
-%----------------------------------------------------------------------------------------
 
-
-%----------------------------------------------------------------------------------------
-%	DOCUMENT STRUCTURE COMMANDS
-%	Skip this unless you know what you're doing
-%----------------------------------------------------------------------------------------
-
-% Header and footer for when a page split occurs within a problem environment
-\newcommand{\enterProblemHeader}[1]{
-\nobreak\extramarks{#1}{#1 continued on next page\ldots}\nobreak
-\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
-}
-
-% Header and footer for when a page split occurs between problem environments
-\newcommand{\exitProblemHeader}[1]{
-\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
-\nobreak\extramarks{#1}{}\nobreak
-}
-
-\setcounter{secnumdepth}{0} % Removes default section numbers
-\newcounter{homeworkProblemCounter} % Creates a counter to keep track of the number of problems
-
-\newcommand{\homeworkProblemName}{}
-\newenvironment{homeworkProblem}[1][Problem \arabic{homeworkProblemCounter}]{ % Makes a new environment called homeworkProblem which takes 1 argument (custom name) but the default is "Problem #"
-\stepcounter{homeworkProblemCounter} % Increase counter for number of problems
-\renewcommand{\homeworkProblemName}{#1} % Assign \homeworkProblemName the name of the problem
-\section{\homeworkProblemName} % Make a section in the focument with the custom problem count
-\enterProblemHeader{\homeworkProblemName} % Header and footer within the environment
-}{
-\exitProblemHeader{\homeworkProblemName} % Header and footer after the environment
-}
-
-\newcommand{\problemAnswer}[1]{ % Defines the problem answer command with the content as the only argument
-\noindent\framebox[\columnwidth][c]{\begin{minipage}{0.98\columnwidth}#1\end{minipage}} % Makes the box around the problem answer and puts the content inside
-}
-
-\newcommand{\homeworkSectionName}{}
-\newenvironment{homeworkSection}[1]{ % New environment for sections within homework problems, takes 1 argument - the name of the section
-\renewcommand{\homeworkSectionName}{#1} % Assign \homeworkSectionName to the name of the section from the environment argument
-\subsection{\homeworkSectionName} % Make a subsection with the custom name of the subsection
-\enterProblemHeader{\homeworkProblemName\ [\homeworkSectionName]} % Header and footer within the environment
-}{
-\enterProblemHeader{\homeworkProblemName} % Header and footer after the environment
-}
 
 %----------------------------------------------------------------------------------------
 %	NAME AND CLASS SECTION
 %----------------------------------------------------------------------------------------
 
 \newcommand{\hmwkTitle}{} % Assignment title
-\newcommand{\hmwkDueDate}{jeudi\ 6 \ novembre\ 2014} % Due date
-\newcommand{\hmwkClass}{Prolog : TP6} % Course/class
+\newcommand{\hmwkDueDate}{2 décembre 2014} % Due date
+\newcommand{\hmwkClass}{Compilation : TP3} % Course/class
 \newcommand{\hmwkClassTime}{} % Class/lecture time
 \newcommand{\hmwkClassInstructor}{} % Teacher/lecturer
-\newcommand{\hmwkAuthorName}{Maud { \sc Leray} \\ Corentin {\sc Nicole} \\ \textit{groupe 1.2}} % Your name
+\newcommand{\hmwkAuthorName}{Valentin { \sc Esmieu} \\ Corentin {\sc Nicole} \\ \textit{groupe 1.2}} % Your name
 
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
@@ -143,14 +58,68 @@
 \maketitle
 \newpage
 
-\section{Questions}
+\section{Code}
 \lstinputlisting[
-  caption    = {main.ml},
+  caption    = {{\bf main.ml}},
  % breaklines,
 ]{main.ml}
 
 
+\begin{tabular}{ccccccccccccccccccccccccccccccccccccccccccccccc}
+   	& & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & \\
+	& & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & \\
+  	\hline
+	& & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & \\
+	& & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & \\
+\end{tabular}
+
+\lstinputlisting[
+  caption    = {{\bf arbre.ml}},
+ % breaklines,
+]{arbre.ml}
+
 \newpage
+
+\lstinputlisting[
+  caption    = {{\bf lexer.mll}},
+ % breaklines,
+]{lexer.mll}
+
+\begin{tabular}{ccccccccccccccccccccccccccccccccccccccccccccccc}
+   	& & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & \\
+	& & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & \\
+  	\hline
+	& & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & \\
+	& & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & & \\
+\end{tabular}
+
+\lstinputlisting[
+  caption    = {{\bf parser.mly}},
+ % breaklines,
+]{parser.mly}
+
+
+\newpage
+\section{Questions}
+\paragraph{Question 1}
+\emph{Quel est l'intérêt d'utiliser un crible avec ocamllex ?}
+
+Ceci permet de filtrer l'ensemble des lexèmes pour génerer les Ident correspondants. Dans ce TP, pour limiter le nombre de transitions, nous utilisons une table pour stocker les Ident particuliers tels que \emph{begin}, \emph{end}, etc.
+
+
+\paragraph{Question 2}
+\emph{Quelle est la différence, d'un point de vue pratique, entre écrire une grammaire sous forme LL et LR ?}
+
+Dans une grammaire LR, la détection d'erreur se fait plus tôt et permet une couverture plus large. De plus, une grammaire LR permet de traiter des grammaires ambiguës.
+
+
+\paragraph{Question 3}
+\emph{Que signifie une colonne vide dans une table SLR ?}
+
+Une colonne vide indique que le token correspondant n'est jamais utilisé.
+
+
+
 
 
 
