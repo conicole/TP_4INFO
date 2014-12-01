@@ -1,0 +1,1558 @@
+   0  $accept : %entry% $end
+
+   1  main : EOF
+   2       | LET IDENT EQUAL expr END_OF_EXPRESSION
+   3       | LET REC IDENT EQUAL expr END_OF_EXPRESSION
+   4       | expr END_OF_EXPRESSION
+   5       | error
+
+   6  expr : simple_expr
+   7       | LEFT_PAREN expr RIGHT_PAREN
+   8       | expr CONS expr
+   9       | LEFT_PAREN expr COMMA expr RIGHT_PAREN
+  10       | FST expr
+  11       | SND expr
+  12       | expr ADD expr
+  13       | expr MULT expr
+  14       | expr SUB expr
+  15       | expr LESS expr
+  16       | expr EQUAL expr
+  17       | IF expr THEN expr ELSE expr
+  18       | FUNCTION pattern_expr_list
+  19       | application
+  20       | LET IDENT EQUAL expr IN expr
+  21       | LET REC IDENT EQUAL expr IN expr
+
+  22  simple_expr : INT
+  23              | bool
+  24              | LEFT_BRACKET RIGHT_BRACKET
+  25              | IDENT
+
+  26  bool : FALSE
+  27       | TRUE
+
+  28  pattern : IDENT
+  29          | INT
+  30          | bool
+  31          | LEFT_PAREN pattern COMMA pattern RIGHT_PAREN
+  32          | LEFT_BRACKET RIGHT_BRACKET
+  33          | pattern CONS pattern
+
+  34  pattern_expr_list : pattern ARROW expr pattern_expr_list_next
+
+  35  pattern_expr_list_next : ALTERNATIVE pattern ARROW expr pattern_expr_list_next
+  36                         |
+
+  37  application : simple_expr_or_parenthesized_expr simple_expr_or_parenthesized_expr application_next
+
+  38  simple_expr_or_parenthesized_expr : simple_expr
+  39                                    | LEFT_PAREN expr RIGHT_PAREN
+
+  40  application_next : simple_expr_or_parenthesized_expr application_next
+  41                   |
+
+  42  %entry% : '\001' main
+
+state 0
+	$accept : . %entry% $end  (0)
+
+	'\001'  shift 1
+	.  error
+
+	%entry%  goto 2
+
+
+state 1
+	%entry% : '\001' . main  (42)
+
+	error  shift 3
+	INT  shift 4
+	IDENT  shift 5
+	TRUE  shift 6
+	FALSE  shift 7
+	LET  shift 8
+	FUNCTION  shift 9
+	IF  shift 10
+	FST  shift 11
+	SND  shift 12
+	LEFT_PAREN  shift 13
+	LEFT_BRACKET  shift 14
+	EOF  shift 15
+	.  error
+
+	main  goto 16
+	expr  goto 17
+	simple_expr  goto 18
+	application  goto 19
+	bool  goto 20
+	simple_expr_or_parenthesized_expr  goto 21
+
+
+state 2
+	$accept : %entry% . $end  (0)
+
+	$end  accept
+
+
+state 3
+	main : error .  (5)
+
+	.  reduce 5
+
+
+state 4
+	simple_expr : INT .  (22)
+
+	.  reduce 22
+
+
+state 5
+	simple_expr : IDENT .  (25)
+
+	.  reduce 25
+
+
+state 6
+	bool : TRUE .  (27)
+
+	.  reduce 27
+
+
+state 7
+	bool : FALSE .  (26)
+
+	.  reduce 26
+
+
+state 8
+	main : LET . IDENT EQUAL expr END_OF_EXPRESSION  (2)
+	main : LET . REC IDENT EQUAL expr END_OF_EXPRESSION  (3)
+	expr : LET . IDENT EQUAL expr IN expr  (20)
+	expr : LET . REC IDENT EQUAL expr IN expr  (21)
+
+	IDENT  shift 22
+	REC  shift 23
+	.  error
+
+
+state 9
+	expr : FUNCTION . pattern_expr_list  (18)
+
+	INT  shift 24
+	IDENT  shift 25
+	TRUE  shift 6
+	FALSE  shift 7
+	LEFT_PAREN  shift 26
+	LEFT_BRACKET  shift 27
+	.  error
+
+	pattern_expr_list  goto 28
+	bool  goto 29
+	pattern  goto 30
+
+
+state 10
+	expr : IF . expr THEN expr ELSE expr  (17)
+
+	INT  shift 4
+	IDENT  shift 5
+	TRUE  shift 6
+	FALSE  shift 7
+	LET  shift 31
+	FUNCTION  shift 9
+	IF  shift 10
+	FST  shift 11
+	SND  shift 12
+	LEFT_PAREN  shift 13
+	LEFT_BRACKET  shift 14
+	.  error
+
+	expr  goto 32
+	simple_expr  goto 18
+	application  goto 19
+	bool  goto 20
+	simple_expr_or_parenthesized_expr  goto 21
+
+
+state 11
+	expr : FST . expr  (10)
+
+	INT  shift 4
+	IDENT  shift 5
+	TRUE  shift 6
+	FALSE  shift 7
+	LET  shift 31
+	FUNCTION  shift 9
+	IF  shift 10
+	FST  shift 11
+	SND  shift 12
+	LEFT_PAREN  shift 13
+	LEFT_BRACKET  shift 14
+	.  error
+
+	expr  goto 33
+	simple_expr  goto 18
+	application  goto 19
+	bool  goto 20
+	simple_expr_or_parenthesized_expr  goto 21
+
+
+state 12
+	expr : SND . expr  (11)
+
+	INT  shift 4
+	IDENT  shift 5
+	TRUE  shift 6
+	FALSE  shift 7
+	LET  shift 31
+	FUNCTION  shift 9
+	IF  shift 10
+	FST  shift 11
+	SND  shift 12
+	LEFT_PAREN  shift 13
+	LEFT_BRACKET  shift 14
+	.  error
+
+	expr  goto 34
+	simple_expr  goto 18
+	application  goto 19
+	bool  goto 20
+	simple_expr_or_parenthesized_expr  goto 21
+
+
+state 13
+	expr : LEFT_PAREN . expr RIGHT_PAREN  (7)
+	expr : LEFT_PAREN . expr COMMA expr RIGHT_PAREN  (9)
+	simple_expr_or_parenthesized_expr : LEFT_PAREN . expr RIGHT_PAREN  (39)
+
+	INT  shift 4
+	IDENT  shift 5
+	TRUE  shift 6
+	FALSE  shift 7
+	LET  shift 31
+	FUNCTION  shift 9
+	IF  shift 10
+	FST  shift 11
+	SND  shift 12
+	LEFT_PAREN  shift 13
+	LEFT_BRACKET  shift 14
+	.  error
+
+	expr  goto 35
+	simple_expr  goto 18
+	application  goto 19
+	bool  goto 20
+	simple_expr_or_parenthesized_expr  goto 21
+
+
+state 14
+	simple_expr : LEFT_BRACKET . RIGHT_BRACKET  (24)
+
+	RIGHT_BRACKET  shift 36
+	.  error
+
+
+state 15
+	main : EOF .  (1)
+
+	.  reduce 1
+
+
+state 16
+	%entry% : '\001' main .  (42)
+
+	.  reduce 42
+
+
+state 17
+	main : expr . END_OF_EXPRESSION  (4)
+	expr : expr . CONS expr  (8)
+	expr : expr . ADD expr  (12)
+	expr : expr . MULT expr  (13)
+	expr : expr . SUB expr  (14)
+	expr : expr . LESS expr  (15)
+	expr : expr . EQUAL expr  (16)
+
+	ADD  shift 37
+	SUB  shift 38
+	MULT  shift 39
+	LESS  shift 40
+	EQUAL  shift 41
+	CONS  shift 42
+	END_OF_EXPRESSION  shift 43
+	.  error
+
+
+state 18
+	expr : simple_expr .  (6)
+	simple_expr_or_parenthesized_expr : simple_expr .  (38)
+
+	INT  reduce 38
+	IDENT  reduce 38
+	TRUE  reduce 38
+	FALSE  reduce 38
+	IN  reduce 6
+	ALTERNATIVE  reduce 6
+	THEN  reduce 6
+	ELSE  reduce 6
+	ADD  reduce 6
+	SUB  reduce 6
+	MULT  reduce 6
+	LESS  reduce 6
+	EQUAL  reduce 6
+	LEFT_PAREN  reduce 38
+	RIGHT_PAREN  reduce 6
+	LEFT_BRACKET  reduce 38
+	CONS  reduce 6
+	COMMA  reduce 6
+	END_OF_EXPRESSION  reduce 6
+
+
+state 19
+	expr : application .  (19)
+
+	.  reduce 19
+
+
+state 20
+	simple_expr : bool .  (23)
+
+	.  reduce 23
+
+
+state 21
+	application : simple_expr_or_parenthesized_expr . simple_expr_or_parenthesized_expr application_next  (37)
+
+	INT  shift 4
+	IDENT  shift 5
+	TRUE  shift 6
+	FALSE  shift 7
+	LEFT_PAREN  shift 44
+	LEFT_BRACKET  shift 14
+	.  error
+
+	simple_expr  goto 45
+	bool  goto 20
+	simple_expr_or_parenthesized_expr  goto 46
+
+
+state 22
+	main : LET IDENT . EQUAL expr END_OF_EXPRESSION  (2)
+	expr : LET IDENT . EQUAL expr IN expr  (20)
+
+	EQUAL  shift 47
+	.  error
+
+
+state 23
+	main : LET REC . IDENT EQUAL expr END_OF_EXPRESSION  (3)
+	expr : LET REC . IDENT EQUAL expr IN expr  (21)
+
+	IDENT  shift 48
+	.  error
+
+
+state 24
+	pattern : INT .  (29)
+
+	.  reduce 29
+
+
+state 25
+	pattern : IDENT .  (28)
+
+	.  reduce 28
+
+
+state 26
+	pattern : LEFT_PAREN . pattern COMMA pattern RIGHT_PAREN  (31)
+
+	INT  shift 24
+	IDENT  shift 25
+	TRUE  shift 6
+	FALSE  shift 7
+	LEFT_PAREN  shift 26
+	LEFT_BRACKET  shift 27
+	.  error
+
+	bool  goto 29
+	pattern  goto 49
+
+
+state 27
+	pattern : LEFT_BRACKET . RIGHT_BRACKET  (32)
+
+	RIGHT_BRACKET  shift 50
+	.  error
+
+
+state 28
+	expr : FUNCTION pattern_expr_list .  (18)
+
+	.  reduce 18
+
+
+state 29
+	pattern : bool .  (30)
+
+	.  reduce 30
+
+
+state 30
+	pattern : pattern . CONS pattern  (33)
+	pattern_expr_list : pattern . ARROW expr pattern_expr_list_next  (34)
+
+	ARROW  shift 51
+	CONS  shift 52
+	.  error
+
+
+state 31
+	expr : LET . IDENT EQUAL expr IN expr  (20)
+	expr : LET . REC IDENT EQUAL expr IN expr  (21)
+
+	IDENT  shift 53
+	REC  shift 54
+	.  error
+
+
+state 32
+	expr : expr . CONS expr  (8)
+	expr : expr . ADD expr  (12)
+	expr : expr . MULT expr  (13)
+	expr : expr . SUB expr  (14)
+	expr : expr . LESS expr  (15)
+	expr : expr . EQUAL expr  (16)
+	expr : IF expr . THEN expr ELSE expr  (17)
+
+	THEN  shift 55
+	ADD  shift 37
+	SUB  shift 38
+	MULT  shift 39
+	LESS  shift 40
+	EQUAL  shift 41
+	CONS  shift 42
+	.  error
+
+
+state 33
+	expr : expr . CONS expr  (8)
+	expr : FST expr .  (10)
+	expr : expr . ADD expr  (12)
+	expr : expr . MULT expr  (13)
+	expr : expr . SUB expr  (14)
+	expr : expr . LESS expr  (15)
+	expr : expr . EQUAL expr  (16)
+
+	.  reduce 10
+
+
+state 34
+	expr : expr . CONS expr  (8)
+	expr : SND expr .  (11)
+	expr : expr . ADD expr  (12)
+	expr : expr . MULT expr  (13)
+	expr : expr . SUB expr  (14)
+	expr : expr . LESS expr  (15)
+	expr : expr . EQUAL expr  (16)
+
+	.  reduce 11
+
+
+state 35
+	expr : LEFT_PAREN expr . RIGHT_PAREN  (7)
+	expr : expr . CONS expr  (8)
+	expr : LEFT_PAREN expr . COMMA expr RIGHT_PAREN  (9)
+	expr : expr . ADD expr  (12)
+	expr : expr . MULT expr  (13)
+	expr : expr . SUB expr  (14)
+	expr : expr . LESS expr  (15)
+	expr : expr . EQUAL expr  (16)
+	simple_expr_or_parenthesized_expr : LEFT_PAREN expr . RIGHT_PAREN  (39)
+
+	ADD  shift 37
+	SUB  shift 38
+	MULT  shift 39
+	LESS  shift 40
+	EQUAL  shift 41
+	RIGHT_PAREN  shift 56
+	CONS  shift 42
+	COMMA  shift 57
+	.  error
+
+
+state 36
+	simple_expr : LEFT_BRACKET RIGHT_BRACKET .  (24)
+
+	.  reduce 24
+
+
+state 37
+	expr : expr ADD . expr  (12)
+
+	INT  shift 4
+	IDENT  shift 5
+	TRUE  shift 6
+	FALSE  shift 7
+	LET  shift 31
+	FUNCTION  shift 9
+	IF  shift 10
+	FST  shift 11
+	SND  shift 12
+	LEFT_PAREN  shift 13
+	LEFT_BRACKET  shift 14
+	.  error
+
+	expr  goto 58
+	simple_expr  goto 18
+	application  goto 19
+	bool  goto 20
+	simple_expr_or_parenthesized_expr  goto 21
+
+
+state 38
+	expr : expr SUB . expr  (14)
+
+	INT  shift 4
+	IDENT  shift 5
+	TRUE  shift 6
+	FALSE  shift 7
+	LET  shift 31
+	FUNCTION  shift 9
+	IF  shift 10
+	FST  shift 11
+	SND  shift 12
+	LEFT_PAREN  shift 13
+	LEFT_BRACKET  shift 14
+	.  error
+
+	expr  goto 59
+	simple_expr  goto 18
+	application  goto 19
+	bool  goto 20
+	simple_expr_or_parenthesized_expr  goto 21
+
+
+state 39
+	expr : expr MULT . expr  (13)
+
+	INT  shift 4
+	IDENT  shift 5
+	TRUE  shift 6
+	FALSE  shift 7
+	LET  shift 31
+	FUNCTION  shift 9
+	IF  shift 10
+	FST  shift 11
+	SND  shift 12
+	LEFT_PAREN  shift 13
+	LEFT_BRACKET  shift 14
+	.  error
+
+	expr  goto 60
+	simple_expr  goto 18
+	application  goto 19
+	bool  goto 20
+	simple_expr_or_parenthesized_expr  goto 21
+
+
+state 40
+	expr : expr LESS . expr  (15)
+
+	INT  shift 4
+	IDENT  shift 5
+	TRUE  shift 6
+	FALSE  shift 7
+	LET  shift 31
+	FUNCTION  shift 9
+	IF  shift 10
+	FST  shift 11
+	SND  shift 12
+	LEFT_PAREN  shift 13
+	LEFT_BRACKET  shift 14
+	.  error
+
+	expr  goto 61
+	simple_expr  goto 18
+	application  goto 19
+	bool  goto 20
+	simple_expr_or_parenthesized_expr  goto 21
+
+
+state 41
+	expr : expr EQUAL . expr  (16)
+
+	INT  shift 4
+	IDENT  shift 5
+	TRUE  shift 6
+	FALSE  shift 7
+	LET  shift 31
+	FUNCTION  shift 9
+	IF  shift 10
+	FST  shift 11
+	SND  shift 12
+	LEFT_PAREN  shift 13
+	LEFT_BRACKET  shift 14
+	.  error
+
+	expr  goto 62
+	simple_expr  goto 18
+	application  goto 19
+	bool  goto 20
+	simple_expr_or_parenthesized_expr  goto 21
+
+
+state 42
+	expr : expr CONS . expr  (8)
+
+	INT  shift 4
+	IDENT  shift 5
+	TRUE  shift 6
+	FALSE  shift 7
+	LET  shift 31
+	FUNCTION  shift 9
+	IF  shift 10
+	FST  shift 11
+	SND  shift 12
+	LEFT_PAREN  shift 13
+	LEFT_BRACKET  shift 14
+	.  error
+
+	expr  goto 63
+	simple_expr  goto 18
+	application  goto 19
+	bool  goto 20
+	simple_expr_or_parenthesized_expr  goto 21
+
+
+state 43
+	main : expr END_OF_EXPRESSION .  (4)
+
+	.  reduce 4
+
+
+state 44
+	simple_expr_or_parenthesized_expr : LEFT_PAREN . expr RIGHT_PAREN  (39)
+
+	INT  shift 4
+	IDENT  shift 5
+	TRUE  shift 6
+	FALSE  shift 7
+	LET  shift 31
+	FUNCTION  shift 9
+	IF  shift 10
+	FST  shift 11
+	SND  shift 12
+	LEFT_PAREN  shift 13
+	LEFT_BRACKET  shift 14
+	.  error
+
+	expr  goto 64
+	simple_expr  goto 18
+	application  goto 19
+	bool  goto 20
+	simple_expr_or_parenthesized_expr  goto 21
+
+
+state 45
+	simple_expr_or_parenthesized_expr : simple_expr .  (38)
+
+	.  reduce 38
+
+
+state 46
+	application : simple_expr_or_parenthesized_expr simple_expr_or_parenthesized_expr . application_next  (37)
+	application_next : .  (41)
+
+	INT  shift 4
+	IDENT  shift 5
+	TRUE  shift 6
+	FALSE  shift 7
+	LEFT_PAREN  shift 44
+	LEFT_BRACKET  shift 14
+	IN  reduce 41
+	ALTERNATIVE  reduce 41
+	THEN  reduce 41
+	ELSE  reduce 41
+	ADD  reduce 41
+	SUB  reduce 41
+	MULT  reduce 41
+	LESS  reduce 41
+	EQUAL  reduce 41
+	RIGHT_PAREN  reduce 41
+	CONS  reduce 41
+	COMMA  reduce 41
+	END_OF_EXPRESSION  reduce 41
+
+	simple_expr  goto 45
+	bool  goto 20
+	simple_expr_or_parenthesized_expr  goto 65
+	application_next  goto 66
+
+
+state 47
+	main : LET IDENT EQUAL . expr END_OF_EXPRESSION  (2)
+	expr : LET IDENT EQUAL . expr IN expr  (20)
+
+	INT  shift 4
+	IDENT  shift 5
+	TRUE  shift 6
+	FALSE  shift 7
+	LET  shift 31
+	FUNCTION  shift 9
+	IF  shift 10
+	FST  shift 11
+	SND  shift 12
+	LEFT_PAREN  shift 13
+	LEFT_BRACKET  shift 14
+	.  error
+
+	expr  goto 67
+	simple_expr  goto 18
+	application  goto 19
+	bool  goto 20
+	simple_expr_or_parenthesized_expr  goto 21
+
+
+state 48
+	main : LET REC IDENT . EQUAL expr END_OF_EXPRESSION  (3)
+	expr : LET REC IDENT . EQUAL expr IN expr  (21)
+
+	EQUAL  shift 68
+	.  error
+
+
+state 49
+	pattern : LEFT_PAREN pattern . COMMA pattern RIGHT_PAREN  (31)
+	pattern : pattern . CONS pattern  (33)
+
+	CONS  shift 52
+	COMMA  shift 69
+	.  error
+
+
+state 50
+	pattern : LEFT_BRACKET RIGHT_BRACKET .  (32)
+
+	.  reduce 32
+
+
+state 51
+	pattern_expr_list : pattern ARROW . expr pattern_expr_list_next  (34)
+
+	INT  shift 4
+	IDENT  shift 5
+	TRUE  shift 6
+	FALSE  shift 7
+	LET  shift 31
+	FUNCTION  shift 9
+	IF  shift 10
+	FST  shift 11
+	SND  shift 12
+	LEFT_PAREN  shift 13
+	LEFT_BRACKET  shift 14
+	.  error
+
+	expr  goto 70
+	simple_expr  goto 18
+	application  goto 19
+	bool  goto 20
+	simple_expr_or_parenthesized_expr  goto 21
+
+
+state 52
+	pattern : pattern CONS . pattern  (33)
+
+	INT  shift 24
+	IDENT  shift 25
+	TRUE  shift 6
+	FALSE  shift 7
+	LEFT_PAREN  shift 26
+	LEFT_BRACKET  shift 27
+	.  error
+
+	bool  goto 29
+	pattern  goto 71
+
+
+state 53
+	expr : LET IDENT . EQUAL expr IN expr  (20)
+
+	EQUAL  shift 72
+	.  error
+
+
+state 54
+	expr : LET REC . IDENT EQUAL expr IN expr  (21)
+
+	IDENT  shift 73
+	.  error
+
+
+state 55
+	expr : IF expr THEN . expr ELSE expr  (17)
+
+	INT  shift 4
+	IDENT  shift 5
+	TRUE  shift 6
+	FALSE  shift 7
+	LET  shift 31
+	FUNCTION  shift 9
+	IF  shift 10
+	FST  shift 11
+	SND  shift 12
+	LEFT_PAREN  shift 13
+	LEFT_BRACKET  shift 14
+	.  error
+
+	expr  goto 74
+	simple_expr  goto 18
+	application  goto 19
+	bool  goto 20
+	simple_expr_or_parenthesized_expr  goto 21
+
+
+state 56
+	expr : LEFT_PAREN expr RIGHT_PAREN .  (7)
+	simple_expr_or_parenthesized_expr : LEFT_PAREN expr RIGHT_PAREN .  (39)
+
+	INT  reduce 39
+	IDENT  reduce 39
+	TRUE  reduce 39
+	FALSE  reduce 39
+	IN  reduce 7
+	ALTERNATIVE  reduce 7
+	THEN  reduce 7
+	ELSE  reduce 7
+	ADD  reduce 7
+	SUB  reduce 7
+	MULT  reduce 7
+	LESS  reduce 7
+	EQUAL  reduce 7
+	LEFT_PAREN  reduce 39
+	RIGHT_PAREN  reduce 7
+	LEFT_BRACKET  reduce 39
+	CONS  reduce 7
+	COMMA  reduce 7
+	END_OF_EXPRESSION  reduce 7
+
+
+state 57
+	expr : LEFT_PAREN expr COMMA . expr RIGHT_PAREN  (9)
+
+	INT  shift 4
+	IDENT  shift 5
+	TRUE  shift 6
+	FALSE  shift 7
+	LET  shift 31
+	FUNCTION  shift 9
+	IF  shift 10
+	FST  shift 11
+	SND  shift 12
+	LEFT_PAREN  shift 13
+	LEFT_BRACKET  shift 14
+	.  error
+
+	expr  goto 75
+	simple_expr  goto 18
+	application  goto 19
+	bool  goto 20
+	simple_expr_or_parenthesized_expr  goto 21
+
+
+state 58
+	expr : expr . CONS expr  (8)
+	expr : expr . ADD expr  (12)
+	expr : expr ADD expr .  (12)
+	expr : expr . MULT expr  (13)
+	expr : expr . SUB expr  (14)
+	expr : expr . LESS expr  (15)
+	expr : expr . EQUAL expr  (16)
+
+	MULT  shift 39
+	IN  reduce 12
+	ALTERNATIVE  reduce 12
+	THEN  reduce 12
+	ELSE  reduce 12
+	ADD  reduce 12
+	SUB  reduce 12
+	LESS  reduce 12
+	EQUAL  reduce 12
+	RIGHT_PAREN  reduce 12
+	CONS  reduce 12
+	COMMA  reduce 12
+	END_OF_EXPRESSION  reduce 12
+
+
+state 59
+	expr : expr . CONS expr  (8)
+	expr : expr . ADD expr  (12)
+	expr : expr . MULT expr  (13)
+	expr : expr . SUB expr  (14)
+	expr : expr SUB expr .  (14)
+	expr : expr . LESS expr  (15)
+	expr : expr . EQUAL expr  (16)
+
+	MULT  shift 39
+	IN  reduce 14
+	ALTERNATIVE  reduce 14
+	THEN  reduce 14
+	ELSE  reduce 14
+	ADD  reduce 14
+	SUB  reduce 14
+	LESS  reduce 14
+	EQUAL  reduce 14
+	RIGHT_PAREN  reduce 14
+	CONS  reduce 14
+	COMMA  reduce 14
+	END_OF_EXPRESSION  reduce 14
+
+
+state 60
+	expr : expr . CONS expr  (8)
+	expr : expr . ADD expr  (12)
+	expr : expr . MULT expr  (13)
+	expr : expr MULT expr .  (13)
+	expr : expr . SUB expr  (14)
+	expr : expr . LESS expr  (15)
+	expr : expr . EQUAL expr  (16)
+
+	.  reduce 13
+
+
+state 61
+	expr : expr . CONS expr  (8)
+	expr : expr . ADD expr  (12)
+	expr : expr . MULT expr  (13)
+	expr : expr . SUB expr  (14)
+	expr : expr . LESS expr  (15)
+	expr : expr LESS expr .  (15)
+	expr : expr . EQUAL expr  (16)
+
+	ADD  shift 37
+	SUB  shift 38
+	MULT  shift 39
+	CONS  shift 42
+	IN  reduce 15
+	ALTERNATIVE  reduce 15
+	THEN  reduce 15
+	ELSE  reduce 15
+	LESS  reduce 15
+	EQUAL  reduce 15
+	RIGHT_PAREN  reduce 15
+	COMMA  reduce 15
+	END_OF_EXPRESSION  reduce 15
+
+
+state 62
+	expr : expr . CONS expr  (8)
+	expr : expr . ADD expr  (12)
+	expr : expr . MULT expr  (13)
+	expr : expr . SUB expr  (14)
+	expr : expr . LESS expr  (15)
+	expr : expr . EQUAL expr  (16)
+	expr : expr EQUAL expr .  (16)
+
+	ADD  shift 37
+	SUB  shift 38
+	MULT  shift 39
+	CONS  shift 42
+	IN  reduce 16
+	ALTERNATIVE  reduce 16
+	THEN  reduce 16
+	ELSE  reduce 16
+	LESS  reduce 16
+	EQUAL  reduce 16
+	RIGHT_PAREN  reduce 16
+	COMMA  reduce 16
+	END_OF_EXPRESSION  reduce 16
+
+
+state 63
+	expr : expr . CONS expr  (8)
+	expr : expr CONS expr .  (8)
+	expr : expr . ADD expr  (12)
+	expr : expr . MULT expr  (13)
+	expr : expr . SUB expr  (14)
+	expr : expr . LESS expr  (15)
+	expr : expr . EQUAL expr  (16)
+
+	ADD  shift 37
+	SUB  shift 38
+	MULT  shift 39
+	CONS  shift 42
+	IN  reduce 8
+	ALTERNATIVE  reduce 8
+	THEN  reduce 8
+	ELSE  reduce 8
+	LESS  reduce 8
+	EQUAL  reduce 8
+	RIGHT_PAREN  reduce 8
+	COMMA  reduce 8
+	END_OF_EXPRESSION  reduce 8
+
+
+state 64
+	expr : expr . CONS expr  (8)
+	expr : expr . ADD expr  (12)
+	expr : expr . MULT expr  (13)
+	expr : expr . SUB expr  (14)
+	expr : expr . LESS expr  (15)
+	expr : expr . EQUAL expr  (16)
+	simple_expr_or_parenthesized_expr : LEFT_PAREN expr . RIGHT_PAREN  (39)
+
+	ADD  shift 37
+	SUB  shift 38
+	MULT  shift 39
+	LESS  shift 40
+	EQUAL  shift 41
+	RIGHT_PAREN  shift 76
+	CONS  shift 42
+	.  error
+
+
+state 65
+	application_next : simple_expr_or_parenthesized_expr . application_next  (40)
+	application_next : .  (41)
+
+	INT  shift 4
+	IDENT  shift 5
+	TRUE  shift 6
+	FALSE  shift 7
+	LEFT_PAREN  shift 44
+	LEFT_BRACKET  shift 14
+	IN  reduce 41
+	ALTERNATIVE  reduce 41
+	THEN  reduce 41
+	ELSE  reduce 41
+	ADD  reduce 41
+	SUB  reduce 41
+	MULT  reduce 41
+	LESS  reduce 41
+	EQUAL  reduce 41
+	RIGHT_PAREN  reduce 41
+	CONS  reduce 41
+	COMMA  reduce 41
+	END_OF_EXPRESSION  reduce 41
+
+	simple_expr  goto 45
+	bool  goto 20
+	simple_expr_or_parenthesized_expr  goto 65
+	application_next  goto 77
+
+
+state 66
+	application : simple_expr_or_parenthesized_expr simple_expr_or_parenthesized_expr application_next .  (37)
+
+	.  reduce 37
+
+
+state 67
+	main : LET IDENT EQUAL expr . END_OF_EXPRESSION  (2)
+	expr : expr . CONS expr  (8)
+	expr : expr . ADD expr  (12)
+	expr : expr . MULT expr  (13)
+	expr : expr . SUB expr  (14)
+	expr : expr . LESS expr  (15)
+	expr : expr . EQUAL expr  (16)
+	expr : LET IDENT EQUAL expr . IN expr  (20)
+
+	IN  shift 78
+	ADD  shift 37
+	SUB  shift 38
+	MULT  shift 39
+	LESS  shift 40
+	EQUAL  shift 41
+	CONS  shift 42
+	END_OF_EXPRESSION  shift 79
+	.  error
+
+
+state 68
+	main : LET REC IDENT EQUAL . expr END_OF_EXPRESSION  (3)
+	expr : LET REC IDENT EQUAL . expr IN expr  (21)
+
+	INT  shift 4
+	IDENT  shift 5
+	TRUE  shift 6
+	FALSE  shift 7
+	LET  shift 31
+	FUNCTION  shift 9
+	IF  shift 10
+	FST  shift 11
+	SND  shift 12
+	LEFT_PAREN  shift 13
+	LEFT_BRACKET  shift 14
+	.  error
+
+	expr  goto 80
+	simple_expr  goto 18
+	application  goto 19
+	bool  goto 20
+	simple_expr_or_parenthesized_expr  goto 21
+
+
+state 69
+	pattern : LEFT_PAREN pattern COMMA . pattern RIGHT_PAREN  (31)
+
+	INT  shift 24
+	IDENT  shift 25
+	TRUE  shift 6
+	FALSE  shift 7
+	LEFT_PAREN  shift 26
+	LEFT_BRACKET  shift 27
+	.  error
+
+	bool  goto 29
+	pattern  goto 81
+
+
+state 70
+	expr : expr . CONS expr  (8)
+	expr : expr . ADD expr  (12)
+	expr : expr . MULT expr  (13)
+	expr : expr . SUB expr  (14)
+	expr : expr . LESS expr  (15)
+	expr : expr . EQUAL expr  (16)
+	pattern_expr_list : pattern ARROW expr . pattern_expr_list_next  (34)
+	pattern_expr_list_next : .  (36)
+
+	ALTERNATIVE  shift 82
+	ADD  shift 37
+	SUB  shift 38
+	MULT  shift 39
+	LESS  shift 40
+	EQUAL  shift 41
+	CONS  shift 42
+	IN  reduce 36
+	THEN  reduce 36
+	ELSE  reduce 36
+	RIGHT_PAREN  reduce 36
+	COMMA  reduce 36
+	END_OF_EXPRESSION  reduce 36
+
+	pattern_expr_list_next  goto 83
+
+
+state 71
+	pattern : pattern . CONS pattern  (33)
+	pattern : pattern CONS pattern .  (33)
+
+	CONS  shift 52
+	ARROW  reduce 33
+	RIGHT_PAREN  reduce 33
+	COMMA  reduce 33
+
+
+state 72
+	expr : LET IDENT EQUAL . expr IN expr  (20)
+
+	INT  shift 4
+	IDENT  shift 5
+	TRUE  shift 6
+	FALSE  shift 7
+	LET  shift 31
+	FUNCTION  shift 9
+	IF  shift 10
+	FST  shift 11
+	SND  shift 12
+	LEFT_PAREN  shift 13
+	LEFT_BRACKET  shift 14
+	.  error
+
+	expr  goto 84
+	simple_expr  goto 18
+	application  goto 19
+	bool  goto 20
+	simple_expr_or_parenthesized_expr  goto 21
+
+
+state 73
+	expr : LET REC IDENT . EQUAL expr IN expr  (21)
+
+	EQUAL  shift 85
+	.  error
+
+
+state 74
+	expr : expr . CONS expr  (8)
+	expr : expr . ADD expr  (12)
+	expr : expr . MULT expr  (13)
+	expr : expr . SUB expr  (14)
+	expr : expr . LESS expr  (15)
+	expr : expr . EQUAL expr  (16)
+	expr : IF expr THEN expr . ELSE expr  (17)
+
+	ELSE  shift 86
+	ADD  shift 37
+	SUB  shift 38
+	MULT  shift 39
+	LESS  shift 40
+	EQUAL  shift 41
+	CONS  shift 42
+	.  error
+
+
+state 75
+	expr : expr . CONS expr  (8)
+	expr : LEFT_PAREN expr COMMA expr . RIGHT_PAREN  (9)
+	expr : expr . ADD expr  (12)
+	expr : expr . MULT expr  (13)
+	expr : expr . SUB expr  (14)
+	expr : expr . LESS expr  (15)
+	expr : expr . EQUAL expr  (16)
+
+	ADD  shift 37
+	SUB  shift 38
+	MULT  shift 39
+	LESS  shift 40
+	EQUAL  shift 41
+	RIGHT_PAREN  shift 87
+	CONS  shift 42
+	.  error
+
+
+state 76
+	simple_expr_or_parenthesized_expr : LEFT_PAREN expr RIGHT_PAREN .  (39)
+
+	.  reduce 39
+
+
+state 77
+	application_next : simple_expr_or_parenthesized_expr application_next .  (40)
+
+	.  reduce 40
+
+
+state 78
+	expr : LET IDENT EQUAL expr IN . expr  (20)
+
+	INT  shift 4
+	IDENT  shift 5
+	TRUE  shift 6
+	FALSE  shift 7
+	LET  shift 31
+	FUNCTION  shift 9
+	IF  shift 10
+	FST  shift 11
+	SND  shift 12
+	LEFT_PAREN  shift 13
+	LEFT_BRACKET  shift 14
+	.  error
+
+	expr  goto 88
+	simple_expr  goto 18
+	application  goto 19
+	bool  goto 20
+	simple_expr_or_parenthesized_expr  goto 21
+
+
+state 79
+	main : LET IDENT EQUAL expr END_OF_EXPRESSION .  (2)
+
+	.  reduce 2
+
+
+state 80
+	main : LET REC IDENT EQUAL expr . END_OF_EXPRESSION  (3)
+	expr : expr . CONS expr  (8)
+	expr : expr . ADD expr  (12)
+	expr : expr . MULT expr  (13)
+	expr : expr . SUB expr  (14)
+	expr : expr . LESS expr  (15)
+	expr : expr . EQUAL expr  (16)
+	expr : LET REC IDENT EQUAL expr . IN expr  (21)
+
+	IN  shift 89
+	ADD  shift 37
+	SUB  shift 38
+	MULT  shift 39
+	LESS  shift 40
+	EQUAL  shift 41
+	CONS  shift 42
+	END_OF_EXPRESSION  shift 90
+	.  error
+
+
+state 81
+	pattern : LEFT_PAREN pattern COMMA pattern . RIGHT_PAREN  (31)
+	pattern : pattern . CONS pattern  (33)
+
+	RIGHT_PAREN  shift 91
+	CONS  shift 52
+	.  error
+
+
+state 82
+	pattern_expr_list_next : ALTERNATIVE . pattern ARROW expr pattern_expr_list_next  (35)
+
+	INT  shift 24
+	IDENT  shift 25
+	TRUE  shift 6
+	FALSE  shift 7
+	LEFT_PAREN  shift 26
+	LEFT_BRACKET  shift 27
+	.  error
+
+	bool  goto 29
+	pattern  goto 92
+
+
+state 83
+	pattern_expr_list : pattern ARROW expr pattern_expr_list_next .  (34)
+
+	.  reduce 34
+
+
+state 84
+	expr : expr . CONS expr  (8)
+	expr : expr . ADD expr  (12)
+	expr : expr . MULT expr  (13)
+	expr : expr . SUB expr  (14)
+	expr : expr . LESS expr  (15)
+	expr : expr . EQUAL expr  (16)
+	expr : LET IDENT EQUAL expr . IN expr  (20)
+
+	IN  shift 78
+	ADD  shift 37
+	SUB  shift 38
+	MULT  shift 39
+	LESS  shift 40
+	EQUAL  shift 41
+	CONS  shift 42
+	.  error
+
+
+state 85
+	expr : LET REC IDENT EQUAL . expr IN expr  (21)
+
+	INT  shift 4
+	IDENT  shift 5
+	TRUE  shift 6
+	FALSE  shift 7
+	LET  shift 31
+	FUNCTION  shift 9
+	IF  shift 10
+	FST  shift 11
+	SND  shift 12
+	LEFT_PAREN  shift 13
+	LEFT_BRACKET  shift 14
+	.  error
+
+	expr  goto 93
+	simple_expr  goto 18
+	application  goto 19
+	bool  goto 20
+	simple_expr_or_parenthesized_expr  goto 21
+
+
+state 86
+	expr : IF expr THEN expr ELSE . expr  (17)
+
+	INT  shift 4
+	IDENT  shift 5
+	TRUE  shift 6
+	FALSE  shift 7
+	LET  shift 31
+	FUNCTION  shift 9
+	IF  shift 10
+	FST  shift 11
+	SND  shift 12
+	LEFT_PAREN  shift 13
+	LEFT_BRACKET  shift 14
+	.  error
+
+	expr  goto 94
+	simple_expr  goto 18
+	application  goto 19
+	bool  goto 20
+	simple_expr_or_parenthesized_expr  goto 21
+
+
+state 87
+	expr : LEFT_PAREN expr COMMA expr RIGHT_PAREN .  (9)
+
+	.  reduce 9
+
+
+state 88
+	expr : expr . CONS expr  (8)
+	expr : expr . ADD expr  (12)
+	expr : expr . MULT expr  (13)
+	expr : expr . SUB expr  (14)
+	expr : expr . LESS expr  (15)
+	expr : expr . EQUAL expr  (16)
+	expr : LET IDENT EQUAL expr IN expr .  (20)
+
+	ADD  shift 37
+	SUB  shift 38
+	MULT  shift 39
+	LESS  shift 40
+	EQUAL  shift 41
+	CONS  shift 42
+	IN  reduce 20
+	ALTERNATIVE  reduce 20
+	THEN  reduce 20
+	ELSE  reduce 20
+	RIGHT_PAREN  reduce 20
+	COMMA  reduce 20
+	END_OF_EXPRESSION  reduce 20
+
+
+state 89
+	expr : LET REC IDENT EQUAL expr IN . expr  (21)
+
+	INT  shift 4
+	IDENT  shift 5
+	TRUE  shift 6
+	FALSE  shift 7
+	LET  shift 31
+	FUNCTION  shift 9
+	IF  shift 10
+	FST  shift 11
+	SND  shift 12
+	LEFT_PAREN  shift 13
+	LEFT_BRACKET  shift 14
+	.  error
+
+	expr  goto 95
+	simple_expr  goto 18
+	application  goto 19
+	bool  goto 20
+	simple_expr_or_parenthesized_expr  goto 21
+
+
+state 90
+	main : LET REC IDENT EQUAL expr END_OF_EXPRESSION .  (3)
+
+	.  reduce 3
+
+
+state 91
+	pattern : LEFT_PAREN pattern COMMA pattern RIGHT_PAREN .  (31)
+
+	.  reduce 31
+
+
+state 92
+	pattern : pattern . CONS pattern  (33)
+	pattern_expr_list_next : ALTERNATIVE pattern . ARROW expr pattern_expr_list_next  (35)
+
+	ARROW  shift 96
+	CONS  shift 52
+	.  error
+
+
+state 93
+	expr : expr . CONS expr  (8)
+	expr : expr . ADD expr  (12)
+	expr : expr . MULT expr  (13)
+	expr : expr . SUB expr  (14)
+	expr : expr . LESS expr  (15)
+	expr : expr . EQUAL expr  (16)
+	expr : LET REC IDENT EQUAL expr . IN expr  (21)
+
+	IN  shift 89
+	ADD  shift 37
+	SUB  shift 38
+	MULT  shift 39
+	LESS  shift 40
+	EQUAL  shift 41
+	CONS  shift 42
+	.  error
+
+
+state 94
+	expr : expr . CONS expr  (8)
+	expr : expr . ADD expr  (12)
+	expr : expr . MULT expr  (13)
+	expr : expr . SUB expr  (14)
+	expr : expr . LESS expr  (15)
+	expr : expr . EQUAL expr  (16)
+	expr : IF expr THEN expr ELSE expr .  (17)
+
+	.  reduce 17
+
+
+state 95
+	expr : expr . CONS expr  (8)
+	expr : expr . ADD expr  (12)
+	expr : expr . MULT expr  (13)
+	expr : expr . SUB expr  (14)
+	expr : expr . LESS expr  (15)
+	expr : expr . EQUAL expr  (16)
+	expr : LET REC IDENT EQUAL expr IN expr .  (21)
+
+	ADD  shift 37
+	SUB  shift 38
+	MULT  shift 39
+	LESS  shift 40
+	EQUAL  shift 41
+	CONS  shift 42
+	IN  reduce 21
+	ALTERNATIVE  reduce 21
+	THEN  reduce 21
+	ELSE  reduce 21
+	RIGHT_PAREN  reduce 21
+	COMMA  reduce 21
+	END_OF_EXPRESSION  reduce 21
+
+
+state 96
+	pattern_expr_list_next : ALTERNATIVE pattern ARROW . expr pattern_expr_list_next  (35)
+
+	INT  shift 4
+	IDENT  shift 5
+	TRUE  shift 6
+	FALSE  shift 7
+	LET  shift 31
+	FUNCTION  shift 9
+	IF  shift 10
+	FST  shift 11
+	SND  shift 12
+	LEFT_PAREN  shift 13
+	LEFT_BRACKET  shift 14
+	.  error
+
+	expr  goto 97
+	simple_expr  goto 18
+	application  goto 19
+	bool  goto 20
+	simple_expr_or_parenthesized_expr  goto 21
+
+
+state 97
+	expr : expr . CONS expr  (8)
+	expr : expr . ADD expr  (12)
+	expr : expr . MULT expr  (13)
+	expr : expr . SUB expr  (14)
+	expr : expr . LESS expr  (15)
+	expr : expr . EQUAL expr  (16)
+	pattern_expr_list_next : ALTERNATIVE pattern ARROW expr . pattern_expr_list_next  (35)
+	pattern_expr_list_next : .  (36)
+
+	ALTERNATIVE  shift 82
+	ADD  shift 37
+	SUB  shift 38
+	MULT  shift 39
+	LESS  shift 40
+	EQUAL  shift 41
+	CONS  shift 42
+	IN  reduce 36
+	THEN  reduce 36
+	ELSE  reduce 36
+	RIGHT_PAREN  reduce 36
+	COMMA  reduce 36
+	END_OF_EXPRESSION  reduce 36
+
+	pattern_expr_list_next  goto 98
+
+
+state 98
+	pattern_expr_list_next : ALTERNATIVE pattern ARROW expr pattern_expr_list_next .  (35)
+
+	.  reduce 35
+
+
+36 terminals, 12 nonterminals
+43 grammar rules, 99 states
