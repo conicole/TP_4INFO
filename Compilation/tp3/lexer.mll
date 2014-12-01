@@ -36,11 +36,3 @@ rule token = parse
                  with Not_found ->
                    IDENT id }
 
-
-(*
-|  _    as lxm       { let pos = lexeme_start_p lexbuf in
-                        failwith 
-                         (Printf.sprintf
-                         "Unknowm token %c at line %i column %i" lxm pos.pos_lnum pos.pos_bol)
-                      }
-*)
