@@ -27,6 +27,8 @@ rule token = parse
 | ")"                 { PARFERM }
 | "+"                 { PLUS }
 | "<"                 { INF }
+| ";"                 { PTVIRG }
+| ","				  { VIRG }
 | eof				  { EOF }
 | ['A'-'Z' 'a'-'z'] ['A'-'Z' 'a'-'z' '0'-'9' '_'] * as id
                { try
