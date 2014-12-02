@@ -310,103 +310,103 @@ analyse(L,ArbreS) :-
 	phrase_simple(L,[],ArbreS).
 
 phrase_simple(L,R,phr(Agn,Ar,Av,An,Ap)) :-
-	gp_nominal_sg(L,L1,Agn),
-	relatif_sg(L1,L2,Ar),
-	gp_verbal_sg(L2,L3,Av),
-	gp_nominal(L3,L4,An),
+	gp_nominal(L,L1,Agn,sg),
+	relatif(L1,L2,Ar,sg),
+	gp_verbal(L2,L3,Av,sg),
+	gp_nominal(L3,L4,An,_),
 	gp_prepositionnel(L4,R,Ap).
 
 phrase_simple(L,R,phr(Agn,Ar,Av,An,Ap)) :-
-	gp_nominal_pl(L,L1,Agn),
-	relatif_pl(L1,L2,Ar),
-	gp_verbal_pl(L2,L3,Av),
+	gp_nominal(L,L1,Agn,pl),
+	relatif_pl(L1,L2,Ar,pl),
+	gp_verbal_pl(L2,L3,Av,pl),
 	gp_nominal(L3,L4,An),
 	gp_prepositionnel(L4,R,Ap).
 
 phrase_simple(L,R,phr(Agn,Ar,Av,An)) :-
-	gp_nominal_sg(L,L1,Agn),
-	relatif_sg(L1,L2,Ar),
-	gp_verbal_sg(L2,L3,Av),
+	gp_nominal(L,L1,Agn,sg),
+	relatif(L1,L2,Ar,sg),
+	gp_verbal(L2,L3,Av,sg),
 	gp_nominal(L3,R,An).
 
 phrase_simple(L,R,phr(Agn,Ar,Av,An)) :-
-	gp_nominal_pl(L,L1,Agn),
-	relatif_pl(L1,L2,Ar),
-	gp_verbal_pl(L2,L3,Av),
+	gp_nominal_pl(L,L1,Agn,pl),
+	relatif_pl(L1,L2,Ar,pl),
+	gp_verbal_pl(L2,L3,Av,pl),
 	gp_nominal(L3,R,An).
 
 phrase_simple(L,R,phr(Agn,Av,An,Ap)) :-
-	gp_nominal_sg(L,L1,Agn),
-	gp_verbal_sg(L1,L2,Av),
-	gp_nominal(L2,L3,An),
+	gp_nominal(L,L1,Agn,sg),
+	gp_verbal(L1,L2,Av,sg),
+	gp_nominal(L2,L3,An,_),
 	gp_prepositionnel(L3,R,Ap).
 
 phrase_simple(L,R,phr(Agn,Av,An,Ap)) :-
-	gp_nominal_pl(L,L1,Agn),
-	gp_verbal_pl(L1,L2,Av),
-	gp_nominal(L2,L3,An),
+	gp_nominal_pl(L,L1,Agn,pl),
+	gp_verbal_pl(L1,L2,Av,pl),
+	gp_nominal(L2,L3,An,_),
 	gp_prepositionnel(L3,R,Ap).
 
 phrase_simple(L,R,phr(Agn,Av,An)) :-
-	gp_nominal_sg(L,L1,Agn),
-	gp_verbal_sg(L1,L2,Av),
-	gp_nominal(L2,R,An).
+	gp_nominal(L,L1,Agn,sg),
+	gp_verbal(L1,L2,Av,sg),
+	gp_nominal(L2,R,An,_).
 
 phrase_simple(L,R,phr(Agn,Av,An)) :-
-	gp_nominal_pl(L,L1,Agn),
-	gp_verbal_pl(L1,L2,Av),
+	gp_nominal_pl(L,L1,Agn,pl),
+	gp_verbal_pl(L1,L2,Av,pl),
 	gp_nominal(L2,R,An).
 	
 phrase_simple(L,R,phr(Agn,Ar,Av,Ap)) :-
-	gp_nominal_sg(L,L1,Agn),
-	relatif_sg(L1,L2,Ar),
-	gp_verbal(L2,L3,Av),
+	gp_nominal(L,L1,Agn,sg),
+	relatif(L1,L2,Ar,sg),
+	gp_verbal(L2,L3,Av,sg),
 	gp_prepositionnel(L3,R,Ap).
 
 phrase_simple(L,R,phr(Agn,Ar,Av,Ap)) :-
-	gp_nominal_pl(L,L1,Agn),
-	relatif_pl(L1,L2,Ar),
-	gp_verbal(L2,L3,Av),
+	gp_nominal_pl(L,L1,Agn,pl),
+	relatif_pl(L1,L2,Ar,pl),
+	gp_verbal(L2,L3,Av,pl),
 	gp_prepositionnel(L3,R,Ap).
 
 phrase_simple(L,R,phr(Agn,Ar,Av)) :-
-	gp_nominal_sg(L,L1,Agn),
-	relatif_sg(L1,L2,Ar),
-	gp_verbal_sg(L2,R,Av).
+	gp_nominal(L,L1,Agn,sg),
+	relatif(L1,L2,Ar,sg),
+	gp_verbal(L2,R,Av,sg).
 
 phrase_simple(L,R,phr(Agn,Ar,Av)) :-
-	gp_nominal_pl(L,L1,Agn),
-	relatif_pl(L1,L2,Ar),
+	gp_nominal_pl(L,L1,Agn,pl),
+	relatif_pl(L1,L2,Ar,pl),
 	gp_verbal_pl(L2,R,Av).
 
 phrase_simple(L,R,phr(Agn,Av,Ap)) :-
-	gp_nominal_sg(L,L1,Agn),
-	gp_verbal_sg(L1,L2,Av),
+	gp_nominal(L,L1,Agn,sg),
+	gp_verbal(L1,L2,Av,sg),
 	gp_prepositionnel(L2,R,Ap).
 
 phrase_simple(L,R,phr(Agn,Av,Ap)) :-
-	gp_nominal_pl(L,L1,Agn),
-	gp_verbal_pl(L1,L2,Av),
+	gp_nominal_pl(L,L1,Agn,pl),
+	gp_verbal_pl(L1,L2,Av,pl),
 	gp_prepositionnel(L2,R,Ap).
 
 phrase_simple(L,R,phr(Agn,Av)) :-
-	gp_nominal_sg(L,L1,Agn),
-	gp_verbal_sg(L1,R,Av).
+	gp_nominal(L,L1,Agn,sg),
+	gp_verbal(L1,R,Av,sg).
 
 phrase_simple(L,R,phr(Agn,Av)) :-
-	gp_nominal_pl(L,L1,Agn),
-	gp_verbal_pl(L1,R,Av).
+	gp_nominal_pl(L,L1,Agn,pl),
+	gp_verbal_pl(L1,R,Av,pl).
 
-gp_nominal_sg(L,R,ArbreS) :-
+gp_nominal_sg(L,R,ArbreS,sg) :-
 	gp_nominal_fem(L,R,ArbreS).
 
-gp_nominal_sg(L,R,ArbreS) :-
+gp_nominal_sg(L,R,ArbreS,sg) :-
 	gp_nominal_masc(L,R,ArbreS).
 
-gp_nominal(L,R,ArbreS) :-
+gp_nominal(L,R,ArbreS,sg) :-
 	gp_nominal_pl(L,R,ArbreS).
 	
-gp_nominal(L,R,ArbreS) :-
+gp_nominal(L,R,ArbreS,sg) :-
 	gp_nominal_sg(L,R,ArbreS).
 
 gp_nominal_fem(L,R,gn(Aart,Anc,Aadj)) :-
@@ -505,12 +505,12 @@ relatif_sg(L,R,rel(Ap,Agv)):-
 	pronom_relatif(L,L1,Ap),
 	gp_verbal_sg(L1,R,Agv).
 
-article_masc([un|L],L,art(un)).
-article_masc([le|L],L,art(le)).
-article_fem([la|L],L,art(la)).
-article_pl([les|L],L,art(les)).
+article([un|L],L,art(un),masc,_).
+article([le|L],L,art(le),masc,_).
+article([la|L],L,art(la),fem,_).
+article([les|L],L,art(les),_,pl).
 
- nom_commun_fem([femme|L],L,nom_com(femme)).
+nom_commun_fem([femme|L],L,nom_com(femme)).
 nom_commun_pl([enfants|L],L,nom_com(enfants)).
 nom_commun_masc([steak|L],L,nom_com(steak)).
 % nom_commun_masc([pull|L],L,nom_com(pull)).
