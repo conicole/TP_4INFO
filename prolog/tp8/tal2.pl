@@ -1,16 +1,15 @@
 /**
 TP 8 Traitement Automatique de la Langue (TAL) - Prolog
 
-@author Prenom1 NOM1
-@author Prenom2 NOM2
-@version Annee scolaire 20__/20__
+@author Maud LERAY
+@author Corentin NICOLE
+@version Annee scolaire 2014/2015__
 */
-
 
 /*
 ===============================================================================
 ===============================================================================
- Définition des prédicats
+ Definition des predicats
 ===============================================================================
 */
 % Afin de simplifier la correction, merci de conserver dans votre grammaire
@@ -39,8 +38,8 @@ pronom
 ===============================================================================
 */
 
-% Quelques phrases de test à copier coller pour vous faire gagner du temps, mais
-% n'hésitez pas à en définir d'autres
+% Quelques phrases de test a copier coller pour vous faire gagner du temps, mais
+% n'hesitez pas a en definir d'autres
 
 
 /*
