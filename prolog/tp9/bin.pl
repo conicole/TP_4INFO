@@ -6,27 +6,21 @@ TP 9 Prolog
 @version Annee scolaire 2014/2015
 */
 
-
-% 5 tp différents
-% tous les binomes possibles. ( n paire personne )
+% Question 1.1 %
 
 combiner([],[]).
-
 
 combiner([T|Q],List_of_binomes):-
 	creer_binomes(T,Q,R1),
 	combiner(Q,R2),
 	append(R1,R2,List_of_binomes).
 
-
-
 creer_binomes(_,[],[]).
 creer_binomes(B1,[T|Q],[(B1,T)|Cbin]):-
 	creer_binomes(B1,Q,Cbin).
 
+/* TESTS
 
-
-/* TEST
 [eclipse 2]: combiner (["valou","maud","corentin","jessica parker","hoel","flobear","justin bieber"],L).
 
 L = [("valou", "maud"), ("valou", "corentin"), ("valou", "jessica parker"), ("valou", "hoel"), ("valou", "flobear"), ("valou", "justin bieber"), ("maud", "corentin"), ("maud", "jessica parker"), ("maud", "hoel"), ("maud", "flobear"), ("maud", "justin bieber"), ("corentin", "jessica parker"), ("corentin", "hoel"), ("corentin", "flobear"), ("corentin", "justin bieber"), ("jessica parker", "hoel"), ("jessica parker", "flobear"), ("jessica parker", "justin bieber"), (..., ...), ...]
@@ -38,9 +32,7 @@ Yes (0.00s cpu)
 L = [("valou", "maud"), ("valou", "corentin"), ("valou", "flobear"), ("maud", "corentin"), ("maud", "flobear"), ("corentin", "flobear")]
 
 */
-
-
-% extraire N-1 sous liste ou chq personne n'apparait q'une fois.
+% Question 1.2 %
 
 check_acc(_,[]).
 
@@ -70,9 +62,8 @@ extraire_aux([(B1,B2)|Q], NbBinomes, TP, [(B1,B2)|RemainingBinomes], Acc ):-
 
 extraire(AllPossibleBinomes, NbBinomes, TP, RemainingBinomes ):-
 	extraire_aux(AllPossibleBinomes, NbBinomes, TP, RemainingBinomes, [] ).
-
-
-/* TEST
+	
+/* TESTS
 
 [eclipse 49]: combiner(["valou","maud","coco","flobear","hoel","justin"],Binomes),extraire(Binomes,2,TP,R).
 
@@ -81,10 +72,12 @@ TP = [("coco", "flobear"), ("valou", "maud")]
 R = [("valou", "coco"), ("valou", "flobear"), ("valou", "hoel"), ("valou", "justin"), ("maud", "coco"), ("maud", "flobear"), ("maud", "hoel"), ("maud", "justin"), ("coco", "hoel"), ("coco", "justin"), ("flobear", "hoel"), ("flobear", "justin"), ("hoel", "justin")]
 */
 
+% Question 1.3 %
+
 les_tps(Copains, Tps) :-
 	combiner(Copains, Binomes),
 	longueur_liste(Copains,NbBinomes),
-	NbBinomesRes is NbBinomes/2,
+	NbBinomesRes is NbBinomes//2,
 	extraire_all(Binomes,NbBinomesRes,Tps).
 
 extraire_all([],_,[]).
@@ -98,3 +91,11 @@ longueur_liste([],0).
 longueur_liste([_|Q],Res):-
 	longueur_liste(Q,R2),
 	Res is R2+1.
+	
+/* TESTS
+
+[eclipse 5]: les_tps(["coco","valou","maud","flobear"],Tps).
+
+Tps = [[("maud", "flobear"), ("coco", "valou")], [("valou", "flobear"), ("coco", "maud")], [("valou", "maud"), ("coco", "flobear")]]
+
+*/
