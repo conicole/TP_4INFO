@@ -21,21 +21,21 @@
   18       | FUNCTION pattern_expr_list
   19       | application
   20       | LET IDENT EQUAL expr IN expr
-  21       | LET REC IDENT EQUAL expr IN expr
+  21       | LET REC IDENT COLON typ EQUAL expr IN expr
 
   22  simple_expr : INT
   23              | bool
-  24              | LEFT_BRACKET RIGHT_BRACKET
+  24              | LEFT_BRACKET RIGHT_BRACKET COLON typ
   25              | IDENT
 
   26  bool : FALSE
   27       | TRUE
 
-  28  pattern : IDENT
+  28  pattern : IDENT COLON typ
   29          | INT
   30          | bool
   31          | LEFT_PAREN pattern COMMA pattern RIGHT_PAREN
-  32          | LEFT_BRACKET RIGHT_BRACKET
+  32          | LEFT_BRACKET RIGHT_BRACKET COLON typ
   33          | pattern CONS pattern
 
   34  pattern_expr_list : pattern ARROW expr pattern_expr_list_next
@@ -51,7 +51,14 @@
   40  application_next : simple_expr_or_parenthesized_expr application_next
   41                   |
 
-  42  %entry% : '\001' main
+  42  typ : TBOOL
+  43      | TINT
+  44      | typ ARROW typ
+  45      | typ TLIST
+  46      | typ MULT typ
+  47      | LEFT_PAREN typ RIGHT_PAREN
+
+  48  %entry% : '\001' main
 
 state 0
 	$accept : . %entry% $end  (0)
@@ -63,7 +70,7 @@ state 0
 
 
 state 1
-	%entry% : '\001' . main  (42)
+	%entry% : '\001' . main  (48)
 
 	error  shift 3
 	INT  shift 4
@@ -128,7 +135,7 @@ state 8
 	main : LET . IDENT EQUAL expr END_OF_EXPRESSION  (2)
 	main : LET . REC IDENT EQUAL expr END_OF_EXPRESSION  (3)
 	expr : LET . IDENT EQUAL expr IN expr  (20)
-	expr : LET . REC IDENT EQUAL expr IN expr  (21)
+	expr : LET . REC IDENT COLON typ EQUAL expr IN expr  (21)
 
 	IDENT  shift 22
 	REC  shift 23
@@ -246,7 +253,7 @@ state 13
 
 
 state 14
-	simple_expr : LEFT_BRACKET . RIGHT_BRACKET  (24)
+	simple_expr : LEFT_BRACKET . RIGHT_BRACKET COLON typ  (24)
 
 	RIGHT_BRACKET  shift 36
 	.  error
@@ -259,9 +266,9 @@ state 15
 
 
 state 16
-	%entry% : '\001' main .  (42)
+	%entry% : '\001' main .  (48)
 
-	.  reduce 42
+	.  reduce 48
 
 
 state 17
@@ -346,7 +353,7 @@ state 22
 
 state 23
 	main : LET REC . IDENT EQUAL expr END_OF_EXPRESSION  (3)
-	expr : LET REC . IDENT EQUAL expr IN expr  (21)
+	expr : LET REC . IDENT COLON typ EQUAL expr IN expr  (21)
 
 	IDENT  shift 48
 	.  error
@@ -359,9 +366,10 @@ state 24
 
 
 state 25
-	pattern : IDENT .  (28)
+	pattern : IDENT . COLON typ  (28)
 
-	.  reduce 28
+	COLON  shift 49
+	.  error
 
 
 state 26
@@ -376,13 +384,13 @@ state 26
 	.  error
 
 	bool  goto 29
-	pattern  goto 49
+	pattern  goto 50
 
 
 state 27
-	pattern : LEFT_BRACKET . RIGHT_BRACKET  (32)
+	pattern : LEFT_BRACKET . RIGHT_BRACKET COLON typ  (32)
 
-	RIGHT_BRACKET  shift 50
+	RIGHT_BRACKET  shift 51
 	.  error
 
 
@@ -402,17 +410,17 @@ state 30
 	pattern : pattern . CONS pattern  (33)
 	pattern_expr_list : pattern . ARROW expr pattern_expr_list_next  (34)
 
-	ARROW  shift 51
-	CONS  shift 52
+	ARROW  shift 52
+	CONS  shift 53
 	.  error
 
 
 state 31
 	expr : LET . IDENT EQUAL expr IN expr  (20)
-	expr : LET . REC IDENT EQUAL expr IN expr  (21)
+	expr : LET . REC IDENT COLON typ EQUAL expr IN expr  (21)
 
-	IDENT  shift 53
-	REC  shift 54
+	IDENT  shift 54
+	REC  shift 55
 	.  error
 
 
@@ -425,7 +433,7 @@ state 32
 	expr : expr . EQUAL expr  (16)
 	expr : IF expr . THEN expr ELSE expr  (17)
 
-	THEN  shift 55
+	THEN  shift 56
 	ADD  shift 37
 	SUB  shift 38
 	MULT  shift 39
@@ -475,16 +483,17 @@ state 35
 	MULT  shift 39
 	LESS  shift 40
 	EQUAL  shift 41
-	RIGHT_PAREN  shift 56
+	RIGHT_PAREN  shift 57
 	CONS  shift 42
-	COMMA  shift 57
+	COMMA  shift 58
 	.  error
 
 
 state 36
-	simple_expr : LEFT_BRACKET RIGHT_BRACKET .  (24)
+	simple_expr : LEFT_BRACKET RIGHT_BRACKET . COLON typ  (24)
 
-	.  reduce 24
+	COLON  shift 59
+	.  error
 
 
 state 37
@@ -503,7 +512,7 @@ state 37
 	LEFT_BRACKET  shift 14
 	.  error
 
-	expr  goto 58
+	expr  goto 60
 	simple_expr  goto 18
 	application  goto 19
 	bool  goto 20
@@ -526,7 +535,7 @@ state 38
 	LEFT_BRACKET  shift 14
 	.  error
 
-	expr  goto 59
+	expr  goto 61
 	simple_expr  goto 18
 	application  goto 19
 	bool  goto 20
@@ -549,7 +558,7 @@ state 39
 	LEFT_BRACKET  shift 14
 	.  error
 
-	expr  goto 60
+	expr  goto 62
 	simple_expr  goto 18
 	application  goto 19
 	bool  goto 20
@@ -572,7 +581,7 @@ state 40
 	LEFT_BRACKET  shift 14
 	.  error
 
-	expr  goto 61
+	expr  goto 63
 	simple_expr  goto 18
 	application  goto 19
 	bool  goto 20
@@ -595,7 +604,7 @@ state 41
 	LEFT_BRACKET  shift 14
 	.  error
 
-	expr  goto 62
+	expr  goto 64
 	simple_expr  goto 18
 	application  goto 19
 	bool  goto 20
@@ -618,7 +627,7 @@ state 42
 	LEFT_BRACKET  shift 14
 	.  error
 
-	expr  goto 63
+	expr  goto 65
 	simple_expr  goto 18
 	application  goto 19
 	bool  goto 20
@@ -647,7 +656,7 @@ state 44
 	LEFT_BRACKET  shift 14
 	.  error
 
-	expr  goto 64
+	expr  goto 66
 	simple_expr  goto 18
 	application  goto 19
 	bool  goto 20
@@ -686,8 +695,8 @@ state 46
 
 	simple_expr  goto 45
 	bool  goto 20
-	simple_expr_or_parenthesized_expr  goto 65
-	application_next  goto 66
+	simple_expr_or_parenthesized_expr  goto 67
+	application_next  goto 68
 
 
 state 47
@@ -707,7 +716,7 @@ state 47
 	LEFT_BRACKET  shift 14
 	.  error
 
-	expr  goto 67
+	expr  goto 69
 	simple_expr  goto 18
 	application  goto 19
 	bool  goto 20
@@ -716,28 +725,41 @@ state 47
 
 state 48
 	main : LET REC IDENT . EQUAL expr END_OF_EXPRESSION  (3)
-	expr : LET REC IDENT . EQUAL expr IN expr  (21)
+	expr : LET REC IDENT . COLON typ EQUAL expr IN expr  (21)
 
-	EQUAL  shift 68
+	EQUAL  shift 70
+	COLON  shift 71
 	.  error
 
 
 state 49
-	pattern : LEFT_PAREN pattern . COMMA pattern RIGHT_PAREN  (31)
-	pattern : pattern . CONS pattern  (33)
+	pattern : IDENT COLON . typ  (28)
 
-	CONS  shift 52
-	COMMA  shift 69
+	LEFT_PAREN  shift 72
+	TBOOL  shift 73
+	TINT  shift 74
 	.  error
+
+	typ  goto 75
 
 
 state 50
-	pattern : LEFT_BRACKET RIGHT_BRACKET .  (32)
+	pattern : LEFT_PAREN pattern . COMMA pattern RIGHT_PAREN  (31)
+	pattern : pattern . CONS pattern  (33)
 
-	.  reduce 32
+	CONS  shift 53
+	COMMA  shift 76
+	.  error
 
 
 state 51
+	pattern : LEFT_BRACKET RIGHT_BRACKET . COLON typ  (32)
+
+	COLON  shift 77
+	.  error
+
+
+state 52
 	pattern_expr_list : pattern ARROW . expr pattern_expr_list_next  (34)
 
 	INT  shift 4
@@ -753,14 +775,14 @@ state 51
 	LEFT_BRACKET  shift 14
 	.  error
 
-	expr  goto 70
+	expr  goto 78
 	simple_expr  goto 18
 	application  goto 19
 	bool  goto 20
 	simple_expr_or_parenthesized_expr  goto 21
 
 
-state 52
+state 53
 	pattern : pattern CONS . pattern  (33)
 
 	INT  shift 24
@@ -772,24 +794,24 @@ state 52
 	.  error
 
 	bool  goto 29
-	pattern  goto 71
-
-
-state 53
-	expr : LET IDENT . EQUAL expr IN expr  (20)
-
-	EQUAL  shift 72
-	.  error
+	pattern  goto 79
 
 
 state 54
-	expr : LET REC . IDENT EQUAL expr IN expr  (21)
+	expr : LET IDENT . EQUAL expr IN expr  (20)
 
-	IDENT  shift 73
+	EQUAL  shift 80
 	.  error
 
 
 state 55
+	expr : LET REC . IDENT COLON typ EQUAL expr IN expr  (21)
+
+	IDENT  shift 81
+	.  error
+
+
+state 56
 	expr : IF expr THEN . expr ELSE expr  (17)
 
 	INT  shift 4
@@ -805,14 +827,14 @@ state 55
 	LEFT_BRACKET  shift 14
 	.  error
 
-	expr  goto 74
+	expr  goto 82
 	simple_expr  goto 18
 	application  goto 19
 	bool  goto 20
 	simple_expr_or_parenthesized_expr  goto 21
 
 
-state 56
+state 57
 	expr : LEFT_PAREN expr RIGHT_PAREN .  (7)
 	simple_expr_or_parenthesized_expr : LEFT_PAREN expr RIGHT_PAREN .  (39)
 
@@ -837,7 +859,7 @@ state 56
 	END_OF_EXPRESSION  reduce 7
 
 
-state 57
+state 58
 	expr : LEFT_PAREN expr COMMA . expr RIGHT_PAREN  (9)
 
 	INT  shift 4
@@ -853,14 +875,25 @@ state 57
 	LEFT_BRACKET  shift 14
 	.  error
 
-	expr  goto 75
+	expr  goto 83
 	simple_expr  goto 18
 	application  goto 19
 	bool  goto 20
 	simple_expr_or_parenthesized_expr  goto 21
 
 
-state 58
+state 59
+	simple_expr : LEFT_BRACKET RIGHT_BRACKET COLON . typ  (24)
+
+	LEFT_PAREN  shift 72
+	TBOOL  shift 73
+	TINT  shift 74
+	.  error
+
+	typ  goto 84
+
+
+state 60
 	expr : expr . CONS expr  (8)
 	expr : expr . ADD expr  (12)
 	expr : expr ADD expr .  (12)
@@ -884,7 +917,7 @@ state 58
 	END_OF_EXPRESSION  reduce 12
 
 
-state 59
+state 61
 	expr : expr . CONS expr  (8)
 	expr : expr . ADD expr  (12)
 	expr : expr . MULT expr  (13)
@@ -908,7 +941,7 @@ state 59
 	END_OF_EXPRESSION  reduce 14
 
 
-state 60
+state 62
 	expr : expr . CONS expr  (8)
 	expr : expr . ADD expr  (12)
 	expr : expr . MULT expr  (13)
@@ -920,7 +953,7 @@ state 60
 	.  reduce 13
 
 
-state 61
+state 63
 	expr : expr . CONS expr  (8)
 	expr : expr . ADD expr  (12)
 	expr : expr . MULT expr  (13)
@@ -944,7 +977,7 @@ state 61
 	END_OF_EXPRESSION  reduce 15
 
 
-state 62
+state 64
 	expr : expr . CONS expr  (8)
 	expr : expr . ADD expr  (12)
 	expr : expr . MULT expr  (13)
@@ -968,7 +1001,7 @@ state 62
 	END_OF_EXPRESSION  reduce 16
 
 
-state 63
+state 65
 	expr : expr . CONS expr  (8)
 	expr : expr CONS expr .  (8)
 	expr : expr . ADD expr  (12)
@@ -992,7 +1025,7 @@ state 63
 	END_OF_EXPRESSION  reduce 8
 
 
-state 64
+state 66
 	expr : expr . CONS expr  (8)
 	expr : expr . ADD expr  (12)
 	expr : expr . MULT expr  (13)
@@ -1006,12 +1039,12 @@ state 64
 	MULT  shift 39
 	LESS  shift 40
 	EQUAL  shift 41
-	RIGHT_PAREN  shift 76
+	RIGHT_PAREN  shift 85
 	CONS  shift 42
 	.  error
 
 
-state 65
+state 67
 	application_next : simple_expr_or_parenthesized_expr . application_next  (40)
 	application_next : .  (41)
 
@@ -1037,17 +1070,17 @@ state 65
 
 	simple_expr  goto 45
 	bool  goto 20
-	simple_expr_or_parenthesized_expr  goto 65
-	application_next  goto 77
+	simple_expr_or_parenthesized_expr  goto 67
+	application_next  goto 86
 
 
-state 66
+state 68
 	application : simple_expr_or_parenthesized_expr simple_expr_or_parenthesized_expr application_next .  (37)
 
 	.  reduce 37
 
 
-state 67
+state 69
 	main : LET IDENT EQUAL expr . END_OF_EXPRESSION  (2)
 	expr : expr . CONS expr  (8)
 	expr : expr . ADD expr  (12)
@@ -1057,20 +1090,19 @@ state 67
 	expr : expr . EQUAL expr  (16)
 	expr : LET IDENT EQUAL expr . IN expr  (20)
 
-	IN  shift 78
+	IN  shift 87
 	ADD  shift 37
 	SUB  shift 38
 	MULT  shift 39
 	LESS  shift 40
 	EQUAL  shift 41
 	CONS  shift 42
-	END_OF_EXPRESSION  shift 79
+	END_OF_EXPRESSION  shift 88
 	.  error
 
 
-state 68
+state 70
 	main : LET REC IDENT EQUAL . expr END_OF_EXPRESSION  (3)
-	expr : LET REC IDENT EQUAL . expr IN expr  (21)
 
 	INT  shift 4
 	IDENT  shift 5
@@ -1085,14 +1117,63 @@ state 68
 	LEFT_BRACKET  shift 14
 	.  error
 
-	expr  goto 80
+	expr  goto 89
 	simple_expr  goto 18
 	application  goto 19
 	bool  goto 20
 	simple_expr_or_parenthesized_expr  goto 21
 
 
-state 69
+state 71
+	expr : LET REC IDENT COLON . typ EQUAL expr IN expr  (21)
+
+	LEFT_PAREN  shift 72
+	TBOOL  shift 73
+	TINT  shift 74
+	.  error
+
+	typ  goto 90
+
+
+state 72
+	typ : LEFT_PAREN . typ RIGHT_PAREN  (47)
+
+	LEFT_PAREN  shift 72
+	TBOOL  shift 73
+	TINT  shift 74
+	.  error
+
+	typ  goto 91
+
+
+state 73
+	typ : TBOOL .  (42)
+
+	.  reduce 42
+
+
+state 74
+	typ : TINT .  (43)
+
+	.  reduce 43
+
+
+75: shift/reduce conflict (shift 92, reduce 28) on ARROW
+state 75
+	pattern : IDENT COLON typ .  (28)
+	typ : typ . ARROW typ  (44)
+	typ : typ . TLIST  (45)
+	typ : typ . MULT typ  (46)
+
+	ARROW  shift 92
+	MULT  shift 93
+	TLIST  shift 94
+	RIGHT_PAREN  reduce 28
+	CONS  reduce 28
+	COMMA  reduce 28
+
+
+state 76
 	pattern : LEFT_PAREN pattern COMMA . pattern RIGHT_PAREN  (31)
 
 	INT  shift 24
@@ -1104,10 +1185,21 @@ state 69
 	.  error
 
 	bool  goto 29
-	pattern  goto 81
+	pattern  goto 95
 
 
-state 70
+state 77
+	pattern : LEFT_BRACKET RIGHT_BRACKET COLON . typ  (32)
+
+	LEFT_PAREN  shift 72
+	TBOOL  shift 73
+	TINT  shift 74
+	.  error
+
+	typ  goto 96
+
+
+state 78
 	expr : expr . CONS expr  (8)
 	expr : expr . ADD expr  (12)
 	expr : expr . MULT expr  (13)
@@ -1117,7 +1209,7 @@ state 70
 	pattern_expr_list : pattern ARROW expr . pattern_expr_list_next  (34)
 	pattern_expr_list_next : .  (36)
 
-	ALTERNATIVE  shift 82
+	ALTERNATIVE  shift 97
 	ADD  shift 37
 	SUB  shift 38
 	MULT  shift 39
@@ -1131,20 +1223,20 @@ state 70
 	COMMA  reduce 36
 	END_OF_EXPRESSION  reduce 36
 
-	pattern_expr_list_next  goto 83
+	pattern_expr_list_next  goto 98
 
 
-state 71
+state 79
 	pattern : pattern . CONS pattern  (33)
 	pattern : pattern CONS pattern .  (33)
 
-	CONS  shift 52
+	CONS  shift 53
 	ARROW  reduce 33
 	RIGHT_PAREN  reduce 33
 	COMMA  reduce 33
 
 
-state 72
+state 80
 	expr : LET IDENT EQUAL . expr IN expr  (20)
 
 	INT  shift 4
@@ -1160,21 +1252,21 @@ state 72
 	LEFT_BRACKET  shift 14
 	.  error
 
-	expr  goto 84
+	expr  goto 99
 	simple_expr  goto 18
 	application  goto 19
 	bool  goto 20
 	simple_expr_or_parenthesized_expr  goto 21
 
 
-state 73
-	expr : LET REC IDENT . EQUAL expr IN expr  (21)
+state 81
+	expr : LET REC IDENT . COLON typ EQUAL expr IN expr  (21)
 
-	EQUAL  shift 85
+	COLON  shift 71
 	.  error
 
 
-state 74
+state 82
 	expr : expr . CONS expr  (8)
 	expr : expr . ADD expr  (12)
 	expr : expr . MULT expr  (13)
@@ -1183,7 +1275,7 @@ state 74
 	expr : expr . EQUAL expr  (16)
 	expr : IF expr THEN expr . ELSE expr  (17)
 
-	ELSE  shift 86
+	ELSE  shift 100
 	ADD  shift 37
 	SUB  shift 38
 	MULT  shift 39
@@ -1193,7 +1285,7 @@ state 74
 	.  error
 
 
-state 75
+state 83
 	expr : expr . CONS expr  (8)
 	expr : LEFT_PAREN expr COMMA expr . RIGHT_PAREN  (9)
 	expr : expr . ADD expr  (12)
@@ -1207,24 +1299,54 @@ state 75
 	MULT  shift 39
 	LESS  shift 40
 	EQUAL  shift 41
-	RIGHT_PAREN  shift 87
+	RIGHT_PAREN  shift 101
 	CONS  shift 42
 	.  error
 
 
-state 76
+84: shift/reduce conflict (shift 93, reduce 24) on MULT
+state 84
+	simple_expr : LEFT_BRACKET RIGHT_BRACKET COLON typ .  (24)
+	typ : typ . ARROW typ  (44)
+	typ : typ . TLIST  (45)
+	typ : typ . MULT typ  (46)
+
+	ARROW  shift 92
+	MULT  shift 93
+	TLIST  shift 94
+	INT  reduce 24
+	IDENT  reduce 24
+	TRUE  reduce 24
+	FALSE  reduce 24
+	IN  reduce 24
+	ALTERNATIVE  reduce 24
+	THEN  reduce 24
+	ELSE  reduce 24
+	ADD  reduce 24
+	SUB  reduce 24
+	LESS  reduce 24
+	EQUAL  reduce 24
+	LEFT_PAREN  reduce 24
+	RIGHT_PAREN  reduce 24
+	LEFT_BRACKET  reduce 24
+	CONS  reduce 24
+	COMMA  reduce 24
+	END_OF_EXPRESSION  reduce 24
+
+
+state 85
 	simple_expr_or_parenthesized_expr : LEFT_PAREN expr RIGHT_PAREN .  (39)
 
 	.  reduce 39
 
 
-state 77
+state 86
 	application_next : simple_expr_or_parenthesized_expr application_next .  (40)
 
 	.  reduce 40
 
 
-state 78
+state 87
 	expr : LET IDENT EQUAL expr IN . expr  (20)
 
 	INT  shift 4
@@ -1240,20 +1362,20 @@ state 78
 	LEFT_BRACKET  shift 14
 	.  error
 
-	expr  goto 88
+	expr  goto 102
 	simple_expr  goto 18
 	application  goto 19
 	bool  goto 20
 	simple_expr_or_parenthesized_expr  goto 21
 
 
-state 79
+state 88
 	main : LET IDENT EQUAL expr END_OF_EXPRESSION .  (2)
 
 	.  reduce 2
 
 
-state 80
+state 89
 	main : LET REC IDENT EQUAL expr . END_OF_EXPRESSION  (3)
 	expr : expr . CONS expr  (8)
 	expr : expr . ADD expr  (12)
@@ -1261,29 +1383,96 @@ state 80
 	expr : expr . SUB expr  (14)
 	expr : expr . LESS expr  (15)
 	expr : expr . EQUAL expr  (16)
-	expr : LET REC IDENT EQUAL expr . IN expr  (21)
 
-	IN  shift 89
 	ADD  shift 37
 	SUB  shift 38
 	MULT  shift 39
 	LESS  shift 40
 	EQUAL  shift 41
 	CONS  shift 42
-	END_OF_EXPRESSION  shift 90
+	END_OF_EXPRESSION  shift 103
 	.  error
 
 
-state 81
+state 90
+	expr : LET REC IDENT COLON typ . EQUAL expr IN expr  (21)
+	typ : typ . ARROW typ  (44)
+	typ : typ . TLIST  (45)
+	typ : typ . MULT typ  (46)
+
+	ARROW  shift 92
+	MULT  shift 93
+	EQUAL  shift 104
+	TLIST  shift 94
+	.  error
+
+
+state 91
+	typ : typ . ARROW typ  (44)
+	typ : typ . TLIST  (45)
+	typ : typ . MULT typ  (46)
+	typ : LEFT_PAREN typ . RIGHT_PAREN  (47)
+
+	ARROW  shift 92
+	MULT  shift 93
+	RIGHT_PAREN  shift 105
+	TLIST  shift 94
+	.  error
+
+
+state 92
+	typ : typ ARROW . typ  (44)
+
+	LEFT_PAREN  shift 72
+	TBOOL  shift 73
+	TINT  shift 74
+	.  error
+
+	typ  goto 106
+
+
+state 93
+	typ : typ MULT . typ  (46)
+
+	LEFT_PAREN  shift 72
+	TBOOL  shift 73
+	TINT  shift 74
+	.  error
+
+	typ  goto 107
+
+
+state 94
+	typ : typ TLIST .  (45)
+
+	.  reduce 45
+
+
+state 95
 	pattern : LEFT_PAREN pattern COMMA pattern . RIGHT_PAREN  (31)
 	pattern : pattern . CONS pattern  (33)
 
-	RIGHT_PAREN  shift 91
-	CONS  shift 52
+	RIGHT_PAREN  shift 108
+	CONS  shift 53
 	.  error
 
 
-state 82
+96: shift/reduce conflict (shift 92, reduce 32) on ARROW
+state 96
+	pattern : LEFT_BRACKET RIGHT_BRACKET COLON typ .  (32)
+	typ : typ . ARROW typ  (44)
+	typ : typ . TLIST  (45)
+	typ : typ . MULT typ  (46)
+
+	ARROW  shift 92
+	MULT  shift 93
+	TLIST  shift 94
+	RIGHT_PAREN  reduce 32
+	CONS  reduce 32
+	COMMA  reduce 32
+
+
+state 97
 	pattern_expr_list_next : ALTERNATIVE . pattern ARROW expr pattern_expr_list_next  (35)
 
 	INT  shift 24
@@ -1295,16 +1484,16 @@ state 82
 	.  error
 
 	bool  goto 29
-	pattern  goto 92
+	pattern  goto 109
 
 
-state 83
+state 98
 	pattern_expr_list : pattern ARROW expr pattern_expr_list_next .  (34)
 
 	.  reduce 34
 
 
-state 84
+state 99
 	expr : expr . CONS expr  (8)
 	expr : expr . ADD expr  (12)
 	expr : expr . MULT expr  (13)
@@ -1313,7 +1502,7 @@ state 84
 	expr : expr . EQUAL expr  (16)
 	expr : LET IDENT EQUAL expr . IN expr  (20)
 
-	IN  shift 78
+	IN  shift 87
 	ADD  shift 37
 	SUB  shift 38
 	MULT  shift 39
@@ -1323,30 +1512,7 @@ state 84
 	.  error
 
 
-state 85
-	expr : LET REC IDENT EQUAL . expr IN expr  (21)
-
-	INT  shift 4
-	IDENT  shift 5
-	TRUE  shift 6
-	FALSE  shift 7
-	LET  shift 31
-	FUNCTION  shift 9
-	IF  shift 10
-	FST  shift 11
-	SND  shift 12
-	LEFT_PAREN  shift 13
-	LEFT_BRACKET  shift 14
-	.  error
-
-	expr  goto 93
-	simple_expr  goto 18
-	application  goto 19
-	bool  goto 20
-	simple_expr_or_parenthesized_expr  goto 21
-
-
-state 86
+state 100
 	expr : IF expr THEN expr ELSE . expr  (17)
 
 	INT  shift 4
@@ -1362,20 +1528,20 @@ state 86
 	LEFT_BRACKET  shift 14
 	.  error
 
-	expr  goto 94
+	expr  goto 110
 	simple_expr  goto 18
 	application  goto 19
 	bool  goto 20
 	simple_expr_or_parenthesized_expr  goto 21
 
 
-state 87
+state 101
 	expr : LEFT_PAREN expr COMMA expr RIGHT_PAREN .  (9)
 
 	.  reduce 9
 
 
-state 88
+state 102
 	expr : expr . CONS expr  (8)
 	expr : expr . ADD expr  (12)
 	expr : expr . MULT expr  (13)
@@ -1399,8 +1565,14 @@ state 88
 	END_OF_EXPRESSION  reduce 20
 
 
-state 89
-	expr : LET REC IDENT EQUAL expr IN . expr  (21)
+state 103
+	main : LET REC IDENT EQUAL expr END_OF_EXPRESSION .  (3)
+
+	.  reduce 3
+
+
+state 104
+	expr : LET REC IDENT COLON typ EQUAL . expr IN expr  (21)
 
 	INT  shift 4
 	IDENT  shift 5
@@ -1415,54 +1587,95 @@ state 89
 	LEFT_BRACKET  shift 14
 	.  error
 
-	expr  goto 95
+	expr  goto 111
 	simple_expr  goto 18
 	application  goto 19
 	bool  goto 20
 	simple_expr_or_parenthesized_expr  goto 21
 
 
-state 90
-	main : LET REC IDENT EQUAL expr END_OF_EXPRESSION .  (3)
+state 105
+	typ : LEFT_PAREN typ RIGHT_PAREN .  (47)
 
-	.  reduce 3
+	.  reduce 47
 
 
-state 91
+106: shift/reduce conflict (shift 94, reduce 44) on TLIST
+state 106
+	typ : typ . ARROW typ  (44)
+	typ : typ ARROW typ .  (44)
+	typ : typ . TLIST  (45)
+	typ : typ . MULT typ  (46)
+
+	TLIST  shift 94
+	INT  reduce 44
+	IDENT  reduce 44
+	TRUE  reduce 44
+	FALSE  reduce 44
+	IN  reduce 44
+	ARROW  reduce 44
+	ALTERNATIVE  reduce 44
+	THEN  reduce 44
+	ELSE  reduce 44
+	ADD  reduce 44
+	SUB  reduce 44
+	MULT  reduce 44
+	LESS  reduce 44
+	EQUAL  reduce 44
+	LEFT_PAREN  reduce 44
+	RIGHT_PAREN  reduce 44
+	LEFT_BRACKET  reduce 44
+	CONS  reduce 44
+	COMMA  reduce 44
+	END_OF_EXPRESSION  reduce 44
+
+
+107: shift/reduce conflict (shift 94, reduce 46) on TLIST
+state 107
+	typ : typ . ARROW typ  (44)
+	typ : typ . TLIST  (45)
+	typ : typ . MULT typ  (46)
+	typ : typ MULT typ .  (46)
+
+	ARROW  shift 92
+	TLIST  shift 94
+	INT  reduce 46
+	IDENT  reduce 46
+	TRUE  reduce 46
+	FALSE  reduce 46
+	IN  reduce 46
+	ALTERNATIVE  reduce 46
+	THEN  reduce 46
+	ELSE  reduce 46
+	ADD  reduce 46
+	SUB  reduce 46
+	MULT  reduce 46
+	LESS  reduce 46
+	EQUAL  reduce 46
+	LEFT_PAREN  reduce 46
+	RIGHT_PAREN  reduce 46
+	LEFT_BRACKET  reduce 46
+	CONS  reduce 46
+	COMMA  reduce 46
+	END_OF_EXPRESSION  reduce 46
+
+
+state 108
 	pattern : LEFT_PAREN pattern COMMA pattern RIGHT_PAREN .  (31)
 
 	.  reduce 31
 
 
-state 92
+state 109
 	pattern : pattern . CONS pattern  (33)
 	pattern_expr_list_next : ALTERNATIVE pattern . ARROW expr pattern_expr_list_next  (35)
 
-	ARROW  shift 96
-	CONS  shift 52
+	ARROW  shift 112
+	CONS  shift 53
 	.  error
 
 
-state 93
-	expr : expr . CONS expr  (8)
-	expr : expr . ADD expr  (12)
-	expr : expr . MULT expr  (13)
-	expr : expr . SUB expr  (14)
-	expr : expr . LESS expr  (15)
-	expr : expr . EQUAL expr  (16)
-	expr : LET REC IDENT EQUAL expr . IN expr  (21)
-
-	IN  shift 89
-	ADD  shift 37
-	SUB  shift 38
-	MULT  shift 39
-	LESS  shift 40
-	EQUAL  shift 41
-	CONS  shift 42
-	.  error
-
-
-state 94
+state 110
 	expr : expr . CONS expr  (8)
 	expr : expr . ADD expr  (12)
 	expr : expr . MULT expr  (13)
@@ -1474,14 +1687,106 @@ state 94
 	.  reduce 17
 
 
-state 95
+state 111
 	expr : expr . CONS expr  (8)
 	expr : expr . ADD expr  (12)
 	expr : expr . MULT expr  (13)
 	expr : expr . SUB expr  (14)
 	expr : expr . LESS expr  (15)
 	expr : expr . EQUAL expr  (16)
-	expr : LET REC IDENT EQUAL expr IN expr .  (21)
+	expr : LET REC IDENT COLON typ EQUAL expr . IN expr  (21)
+
+	IN  shift 113
+	ADD  shift 37
+	SUB  shift 38
+	MULT  shift 39
+	LESS  shift 40
+	EQUAL  shift 41
+	CONS  shift 42
+	.  error
+
+
+state 112
+	pattern_expr_list_next : ALTERNATIVE pattern ARROW . expr pattern_expr_list_next  (35)
+
+	INT  shift 4
+	IDENT  shift 5
+	TRUE  shift 6
+	FALSE  shift 7
+	LET  shift 31
+	FUNCTION  shift 9
+	IF  shift 10
+	FST  shift 11
+	SND  shift 12
+	LEFT_PAREN  shift 13
+	LEFT_BRACKET  shift 14
+	.  error
+
+	expr  goto 114
+	simple_expr  goto 18
+	application  goto 19
+	bool  goto 20
+	simple_expr_or_parenthesized_expr  goto 21
+
+
+state 113
+	expr : LET REC IDENT COLON typ EQUAL expr IN . expr  (21)
+
+	INT  shift 4
+	IDENT  shift 5
+	TRUE  shift 6
+	FALSE  shift 7
+	LET  shift 31
+	FUNCTION  shift 9
+	IF  shift 10
+	FST  shift 11
+	SND  shift 12
+	LEFT_PAREN  shift 13
+	LEFT_BRACKET  shift 14
+	.  error
+
+	expr  goto 115
+	simple_expr  goto 18
+	application  goto 19
+	bool  goto 20
+	simple_expr_or_parenthesized_expr  goto 21
+
+
+state 114
+	expr : expr . CONS expr  (8)
+	expr : expr . ADD expr  (12)
+	expr : expr . MULT expr  (13)
+	expr : expr . SUB expr  (14)
+	expr : expr . LESS expr  (15)
+	expr : expr . EQUAL expr  (16)
+	pattern_expr_list_next : ALTERNATIVE pattern ARROW expr . pattern_expr_list_next  (35)
+	pattern_expr_list_next : .  (36)
+
+	ALTERNATIVE  shift 97
+	ADD  shift 37
+	SUB  shift 38
+	MULT  shift 39
+	LESS  shift 40
+	EQUAL  shift 41
+	CONS  shift 42
+	IN  reduce 36
+	THEN  reduce 36
+	ELSE  reduce 36
+	RIGHT_PAREN  reduce 36
+	COMMA  reduce 36
+	END_OF_EXPRESSION  reduce 36
+
+	pattern_expr_list_next  goto 116
+
+
+state 115
+	expr : expr . CONS expr  (8)
+	expr : expr . ADD expr  (12)
+	expr : expr . MULT expr  (13)
+	expr : expr . SUB expr  (14)
+	expr : expr . LESS expr  (15)
+	expr : expr . EQUAL expr  (16)
+	expr : LET REC IDENT COLON typ EQUAL expr IN expr .  (21)
 
 	ADD  shift 37
 	SUB  shift 38
@@ -1498,61 +1803,18 @@ state 95
 	END_OF_EXPRESSION  reduce 21
 
 
-state 96
-	pattern_expr_list_next : ALTERNATIVE pattern ARROW . expr pattern_expr_list_next  (35)
-
-	INT  shift 4
-	IDENT  shift 5
-	TRUE  shift 6
-	FALSE  shift 7
-	LET  shift 31
-	FUNCTION  shift 9
-	IF  shift 10
-	FST  shift 11
-	SND  shift 12
-	LEFT_PAREN  shift 13
-	LEFT_BRACKET  shift 14
-	.  error
-
-	expr  goto 97
-	simple_expr  goto 18
-	application  goto 19
-	bool  goto 20
-	simple_expr_or_parenthesized_expr  goto 21
-
-
-state 97
-	expr : expr . CONS expr  (8)
-	expr : expr . ADD expr  (12)
-	expr : expr . MULT expr  (13)
-	expr : expr . SUB expr  (14)
-	expr : expr . LESS expr  (15)
-	expr : expr . EQUAL expr  (16)
-	pattern_expr_list_next : ALTERNATIVE pattern ARROW expr . pattern_expr_list_next  (35)
-	pattern_expr_list_next : .  (36)
-
-	ALTERNATIVE  shift 82
-	ADD  shift 37
-	SUB  shift 38
-	MULT  shift 39
-	LESS  shift 40
-	EQUAL  shift 41
-	CONS  shift 42
-	IN  reduce 36
-	THEN  reduce 36
-	ELSE  reduce 36
-	RIGHT_PAREN  reduce 36
-	COMMA  reduce 36
-	END_OF_EXPRESSION  reduce 36
-
-	pattern_expr_list_next  goto 98
-
-
-state 98
+state 116
 	pattern_expr_list_next : ALTERNATIVE pattern ARROW expr pattern_expr_list_next .  (35)
 
 	.  reduce 35
 
 
-36 terminals, 12 nonterminals
-43 grammar rules, 99 states
+State 75 contains 1 shift/reduce conflict.
+State 84 contains 1 shift/reduce conflict.
+State 96 contains 1 shift/reduce conflict.
+State 106 contains 1 shift/reduce conflict.
+State 107 contains 1 shift/reduce conflict.
+
+
+36 terminals, 13 nonterminals
+49 grammar rules, 117 states

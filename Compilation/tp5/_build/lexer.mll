@@ -15,6 +15,9 @@
 	"false", FALSE;
 	"fst", FST;
 	"snd", SND;
+  "bool" , TBOOL;
+  "int" , TINT;
+  "list" , TLIST
       ]
 }
 

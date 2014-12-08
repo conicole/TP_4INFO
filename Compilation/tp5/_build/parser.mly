@@ -25,6 +25,7 @@
 %right CONS
 %left ADD SUB
 %left MULT
+%left ARROW
 %nonassoc FST SND ELSE
 
 %start main
@@ -34,7 +35,7 @@
 main:
  | EOF { Printf.printf "\nbye"; exit 0 }
  | LET IDENT EQUAL expr END_OF_EXPRESSION { Ml_definition($2, fst $4), snd $4 }
- | LET REC IDENT EQUAL expr END_OF_EXPRESSION { Ml_definitionrec($3, failwith "let rec type expected", fst $5) , (*TODO*) StrSet.empty }
+ | LET REC IDENT EQUAL expr END_OF_EXPRESSION { Ml_definitionrec($3, failwith "let rec type expected", fst $5) , snd $5 }
  | expr END_OF_EXPRESSION { Ml_expr (fst $1) , (*TODO*) StrSet.empty}
  | error {
     let bol = (Parsing.symbol_start_pos ()).Lexing.pos_bol in
@@ -49,56 +50,64 @@ main:
 expr:
  | simple_expr { $1 }
  | LEFT_PAREN expr RIGHT_PAREN { $2 }
- | expr CONS expr { Ml_cons(fst $1, fst $3) , (*TODO*) StrSet.empty }
- | LEFT_PAREN expr COMMA expr RIGHT_PAREN { Ml_pair(fst $2, fst $4) , (*TODO*) StrSet.empty }
- | FST expr { Ml_unop(Ml_fst, fst $2) , (*TODO*) StrSet.empty }
- | SND expr { Ml_unop(Ml_snd, fst $2) , (*TODO*) StrSet.empty }
- | expr ADD expr { Ml_binop(Ml_add, fst $1, fst $3) , (*TODO*) StrSet.empty }
- | expr MULT expr { Ml_binop(Ml_mult, fst $1, fst $3) , (*TODO*) StrSet.empty }
- | expr SUB expr { Ml_binop(Ml_sub, fst $1, fst $3),  (*TODO*) StrSet.empty }
- | expr LESS expr { Ml_binop(Ml_less, fst $1, fst $3), (*TODO*) StrSet.empty }
- | expr EQUAL expr { Ml_binop(Ml_eq, fst $1, fst $3), (*TODO*) StrSet.empty }
- | IF expr THEN expr ELSE expr { Ml_if(fst $2, fst $4, fst $6), (*TODO*) StrSet.empty }
- | FUNCTION pattern_expr_list { Ml_fun (fst $2) , (*TODO*) StrSet.empty }
- | application { List.fold_left (fun res a -> Ml_app(res, a)) (List.hd (fst $1)) (List.tl (fst $1)) , (*TODO*) StrSet.empty    }
- | LET IDENT  EQUAL expr IN expr { Ml_let($2, fst $4, fst $6) , (*TODO*) StrSet.empty }
- | LET REC IDENT  EQUAL expr IN expr { Ml_letrec($3, failwith "let rec type expected", fst $5, fst $7) , (*TODO*) StrSet.empty }
+ | expr CONS expr { Ml_cons(fst $1, fst $3) ,  StrSet.union (snd $1) (snd $3) }
+ | LEFT_PAREN expr COMMA expr RIGHT_PAREN { Ml_pair(fst $2, fst $4) ,  StrSet.union (snd $2) (snd $4) }
+ | FST expr { Ml_unop(Ml_fst, fst $2) , snd $2 }
+ | SND expr { Ml_unop(Ml_snd, fst $2) , snd $2 }
+ | expr ADD expr { Ml_binop(Ml_add, fst $1, fst $3) ,  StrSet.union (snd $1) (snd $3) }
+ | expr MULT expr { Ml_binop(Ml_mult, fst $1, fst $3) ,  StrSet.union (snd $1) (snd $3) }
+ | expr SUB expr { Ml_binop(Ml_sub, fst $1, fst $3),  StrSet.union (snd $1) (snd $3)}
+ | expr LESS expr { Ml_binop(Ml_less, fst $1, fst $3), StrSet.union (snd $1) (snd $3) }
+ | expr EQUAL expr { Ml_binop(Ml_eq, fst $1, fst $3), StrSet.union (snd $1) (snd $3) }
+ | IF expr THEN expr ELSE expr { Ml_if(fst $2, fst $4, fst $6), StrSet.union (snd $2) (StrSet.union (snd $4) (snd $6))}
+ | FUNCTION pattern_expr_list { Ml_fun (fst $2) , snd $2 }
+ | application { List.fold_left (fun res a -> Ml_app(res, a)) (List.hd (fst $1)) (List.tl (fst $1)) , snd $1   }
+ | LET IDENT  EQUAL expr IN expr { Ml_let($2, fst $4, fst $6) , (StrSet.union (snd $4) (StrSet.remove $2 (snd $6))) }
+ | LET REC IDENT COLON typ EQUAL expr IN expr { Ml_letrec($3,$5, fst $7, fst $9) , (StrSet.union (StrSet.remove $3 (snd $7)) (StrSet.remove $3 (snd $9))) }
 
 simple_expr:
- | INT { Ml_int $1, (*TODO*) StrSet.empty }
- | bool { Ml_bool $1, (*TODO*) StrSet.empty }
- | LEFT_BRACKET RIGHT_BRACKET  { Ml_nil (failwith "[] : type expected"), (*TODO*) StrSet.empty }
- | IDENT { Ml_var $1 ,(*TODO*) StrSet.empty }
+ | INT { Ml_int $1, StrSet.empty }
+ | bool { Ml_bool $1, StrSet.empty }
+ | LEFT_BRACKET RIGHT_BRACKET COLON typ  { Ml_nil $4 , StrSet.empty }
+ | IDENT { Ml_var $1 , StrSet.singleton $1}
 
 bool:
- | FALSE { false }
+ | FALSE { false } 
  | TRUE  { true }
 
 pattern:
- | IDENT { Ml_pattern_var ($1,failwith "pattern variable: type expected") , (*TODO*) StrSet.empty} 
- | INT   { Ml_pattern_int $1 , (*TODO*) StrSet.empty }
- | bool  { Ml_pattern_bool $1 , (*TODO*) StrSet.empty }
+ | IDENT COLON typ	 { Ml_pattern_var ($1,$3) , StrSet.singleton $1} 
+ | INT   { Ml_pattern_int $1 , StrSet.empty }
+ | bool  { Ml_pattern_bool $1 , StrSet.empty }
  | LEFT_PAREN pattern COMMA pattern RIGHT_PAREN 
-   {Ml_pattern_pair(fst $2, fst $4), (*TODO*) StrSet.empty  }
- | LEFT_BRACKET RIGHT_BRACKET { Ml_pattern_nil (failwith "pattern []: type expected") , (*TODO*) StrSet.empty }
- | pattern CONS pattern { Ml_pattern_cons(fst $1, fst $3), (*TODO*) StrSet.empty }
+   {Ml_pattern_pair(fst $2, fst $4), StrSet.union (snd $2) (snd $4)  }
+ | LEFT_BRACKET RIGHT_BRACKET COLON typ { Ml_pattern_nil $4 , StrSet.empty }
+ | pattern CONS pattern { Ml_pattern_cons(fst $1, fst $3), StrSet.union (snd $1) (snd $3) }
 
 pattern_expr_list:
- | pattern ARROW expr pattern_expr_list_next { (fst $1, fst $3) :: fst $4 , (*TODO*) StrSet.empty}
+ | pattern ARROW expr pattern_expr_list_next { (fst $1, fst $3) :: fst $4 , StrSet.union (snd $4) (StrSet.diff (snd $3) (snd $1))  }
 
 pattern_expr_list_next:
- | ALTERNATIVE pattern ARROW expr pattern_expr_list_next { (fst $2, fst $4) :: fst $5, (*TODO*) StrSet.empty }
- | %prec NO_ALTERNATIVE { [] , (*TODO*) StrSet.empty }
+ | ALTERNATIVE pattern ARROW expr pattern_expr_list_next { (fst $2, fst $4) :: fst $5, StrSet.union (snd $5) (StrSet.diff (snd $4) (snd $2))  }
+ | %prec NO_ALTERNATIVE { [] ,  StrSet.empty }
 
 application:
- | simple_expr_or_parenthesized_expr simple_expr_or_parenthesized_expr application_next { fst $1 :: fst $2 :: fst $3, (*TODO*) StrSet.empty }
+ | simple_expr_or_parenthesized_expr simple_expr_or_parenthesized_expr application_next { fst $1 :: fst $2 :: fst $3, StrSet.union (snd $1) (StrSet.union (snd $2) (snd $3))  }
 
 simple_expr_or_parenthesized_expr:
  | simple_expr { $1 }
  | LEFT_PAREN expr RIGHT_PAREN { $2 }
 
 application_next:
- | simple_expr_or_parenthesized_expr application_next { fst $1 :: fst $2 , (*TODO*) StrSet.empty }
- | { [] , (*TODO*) StrSet.empty }
+ | simple_expr_or_parenthesized_expr application_next { fst $1 :: fst $2 , StrSet.union (snd $1) (snd $2) }
+ | { [] , StrSet.empty }
 
+
+typ :
+| TBOOL { Tbool }
+| TINT { Tint }
+| typ ARROW typ { TFun($1,$3) }
+| typ TLIST { TList $1 }
+| typ MULT typ {TPair($1,$3)}
+| LEFT_PAREN typ RIGHT_PAREN {$2 }
 

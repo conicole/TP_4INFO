@@ -8,7 +8,7 @@ let is_list_typ = function
 
 let rec typ_of_pattern : ml_pattern -> TypEnv.t * Ast.typ = 
  function
- | Ml_pattern_var(s,typ) -> failwith "TODO"
+ | Ml_pattern_var(s,typ) -> TypEnv.singleton s typ , typ
  | Ml_pattern_bool b -> failwith "TODO"
  | Ml_pattern_int i  -> failwith "TODO"
  | Ml_pattern_pair(p1,p2) -> failwith "TODO"
