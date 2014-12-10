@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_Yn6TUIBXEeS6lqOp8z3ALQ" type="EcoreTools" name="My.ecorediag" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_Yn_y4IBXEeS6lqOp8z3ALQ" type="1002">
+    <children xmi:type="notation:Node" xmi:id="_YoAZ8IBXEeS6lqOp8z3ALQ" type="4006"/>
+    <children xmi:type="notation:Node" xmi:id="_YoBoEIBXEeS6lqOp8z3ALQ" type="5003">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_YoBoEYBXEeS6lqOp8z3ALQ"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_YoBoEoBXEeS6lqOp8z3ALQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_YoBoE4BXEeS6lqOp8z3ALQ"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_Yn_y4YBXEeS6lqOp8z3ALQ" fontColor="4210752" fontName="Cantarell" fontHeight="10" fillColor="13150135" lineColor="4210752"/>
+    <styles xmi:type="notation:MultiDiagramLinkStyle" xmi:id="_Yn_y4oBXEeS6lqOp8z3ALQ"/>
+    <element xmi:type="ecore:EPackage" href="My.ecore#//Robot"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Yn_y44BXEeS6lqOp8z3ALQ"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_YoBoFIBXEeS6lqOp8z3ALQ" type="1002">
+    <children xmi:type="notation:Node" xmi:id="_YoBoGIBXEeS6lqOp8z3ALQ" type="4006"/>
+    <children xmi:type="notation:Node" xmi:id="_YoCPIIBXEeS6lqOp8z3ALQ" type="5003">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_YoCPIYBXEeS6lqOp8z3ALQ"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_YoCPIoBXEeS6lqOp8z3ALQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_YoCPI4BXEeS6lqOp8z3ALQ"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_YoBoFYBXEeS6lqOp8z3ALQ" fontColor="4210752" fontName="Cantarell" fontHeight="10" fillColor="13150135" lineColor="4210752"/>
+    <styles xmi:type="notation:MultiDiagramLinkStyle" xmi:id="_YoBoFoBXEeS6lqOp8z3ALQ"/>
+    <element xmi:type="ecore:EPackage" href="My.ecore#//controlflow"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_YoBoF4BXEeS6lqOp8z3ALQ" x="172"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_Yn6TUYBXEeS6lqOp8z3ALQ"/>
+  <element xmi:type="ecore:EPackage" href="My.ecore#/"/>
+</notation:Diagram>

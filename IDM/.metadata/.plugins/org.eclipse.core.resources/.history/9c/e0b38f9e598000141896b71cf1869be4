@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Legolang" nsURI="Lego-lg" nsPrefix="Lego">
+  <eClassifiers xsi:type="ecore:EClass" name="EClass0"/>
+  <eSubpackages name="Robot" nsURI="legorb" nsPrefix="lego_rb">
+    <eClassifiers xsi:type="ecore:EClass" name="OrderRobot"/>
+    <eClassifiers xsi:type="ecore:EClass" name="move" eSuperTypes="#//Robot/OrderRobot"/>
+    <eClassifiers xsi:type="ecore:EClass" name="bip" eSuperTypes="#//Robot/OrderRobot"/>
+    <eClassifiers xsi:type="ecore:EClass" name="turn" eSuperTypes="#//Robot/OrderRobot"/>
+    <eClassifiers xsi:type="ecore:EClass" name="stopEngine" eSuperTypes="#//Robot/OrderRobot"/>
+    <eClassifiers xsi:type="ecore:EClass" name="display" eSuperTypes="#//Robot/OrderRobot"/>
+    <eClassifiers xsi:type="ecore:EClass"/>
+    <eClassifiers xsi:type="ecore:EClass" name="turnAngle" eSuperTypes="#//Robot/OrderRobot"/>
+    <eClassifiers xsi:type="ecore:EClass" name="obstacle" eSuperTypes="#//Robot/OrderRobot"/>
+    <eClassifiers xsi:type="ecore:EClass" name="hasTurned" eSuperTypes="#//Robot/OrderRobot"/>
+  </eSubpackages>
+  <eSubpackages name="controlflow" nsURI="lego_controlflow" nsPrefix="legoCf">
+    <eClassifiers xsi:type="ecore:EClass" name="while" eSuperTypes="#//controlflow/Expr"/>
+    <eClassifiers xsi:type="ecore:EClass" name="if" eSuperTypes="#//controlflow/Expr"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Expr"/>
+    <eClassifiers xsi:type="ecore:EClass" name="operator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="opUnaire" eSuperTypes="#//controlflow/operator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="opBinaire" eSuperTypes="#//controlflow/operator">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ExprBool"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="not" eSuperTypes="#//controlflow/opUnaire"/>
+    <eClassifiers xsi:type="ecore:EClass" name="and" eSuperTypes="#//controlflow/opBinaire"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ExprBool" eSuperTypes="#//controlflow/Expr"/>
+  </eSubpackages>
+</ecore:EPackage>

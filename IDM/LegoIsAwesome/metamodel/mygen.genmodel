@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/LegoIsAwesome/src" modelPluginID="LegoIsAwesome"
+    modelName="Mygen" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" copyrightFields="false" operationReflection="false"
+    importOrganizing="true">
+  <foreignModel>My.ecore</foreignModel>
+  <genPackages prefix="Legolang" disposableProviderFactory="true" ecorePackage="My.ecore#/">
+    <nestedGenPackages prefix="Robot" disposableProviderFactory="true" ecorePackage="My.ecore#//Robot">
+      <genClasses ecoreClass="My.ecore#//Robot/OrderRobot"/>
+      <genClasses ecoreClass="My.ecore#//Robot/move"/>
+      <genClasses ecoreClass="My.ecore#//Robot/bip"/>
+      <genClasses ecoreClass="My.ecore#//Robot/turn"/>
+      <genClasses ecoreClass="My.ecore#//Robot/stopEngine"/>
+      <genClasses ecoreClass="My.ecore#//Robot/display"/>
+      <genClasses ecoreClass="My.ecore#//Robot/%"/>
+      <genClasses ecoreClass="My.ecore#//Robot/turnAngle"/>
+      <genClasses ecoreClass="My.ecore#//Robot/obstacle"/>
+      <genClasses ecoreClass="My.ecore#//Robot/hasTurned"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Controlflow" disposableProviderFactory="true" ecorePackage="My.ecore#//controlflow">
+      <genClasses ecoreClass="My.ecore#//controlflow/while"/>
+      <genClasses ecoreClass="My.ecore#//controlflow/if"/>
+      <genClasses ecoreClass="My.ecore#//controlflow/Expr"/>
+      <genClasses ecoreClass="My.ecore#//controlflow/operator"/>
+      <genClasses ecoreClass="My.ecore#//controlflow/opUnaire"/>
+      <genClasses ecoreClass="My.ecore#//controlflow/opBinaire">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference My.ecore#//controlflow/opBinaire/EReference0"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference My.ecore#//controlflow/opBinaire/LeftSon"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference My.ecore#//controlflow/opBinaire/RightSon"/>
+      </genClasses>
+      <genClasses ecoreClass="My.ecore#//controlflow/not"/>
+      <genClasses ecoreClass="My.ecore#//controlflow/and"/>
+      <genClasses ecoreClass="My.ecore#//controlflow/ExprBool"/>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>
