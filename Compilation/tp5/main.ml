@@ -18,7 +18,7 @@ let loop debug =
         StrSet.print free ;
         Printf.printf "\n"
        end
-      else
+     (*  else
         let val_option = Eval.eval env ast in
         (match val_option with
         | None -> ()
@@ -27,7 +27,17 @@ let loop debug =
 	 Print_val.print_val v;
         let typ = Typing.wt_ast tenv ast in
          Printf.printf ":%s\n" (Print_ast.string_of_typ typ)
-	)
+	) *)
+ else
+let typ = Typing.wt_ast tenv ast in
+let val_option = Eval.eval env ast in
+(match val_option with
+| None -> ()
+| Some v ->
+print_string "- = ";
+Print_val.print_val v;
+Printf.printf ":%s\n" (Print_ast.string_of_typ typ)
+)
     with
     | Eval.Error msg -> Printf.printf " error: eval: %s\n" msg
     | Failure msg -> Printf.printf " error: %s\n" msg
