@@ -1,9 +1,7 @@
 open Print_ast
 open Ast
 
-let is_list_typ = function
- | TList _ -> true
- | _       -> false
+
 
 
 let rec typ_of_pattern : ml_pattern -> TypEnv.t * Ast.typ = 
