@@ -1,0 +1,77 @@
+\documentclass{article}
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{listings} % Required for insertion of code
+\usepackage{courier} % Required for the courier font
+
+\usepackage[top=1in]{geometry}
+\usepackage{textcomp}
+
+\usepackage{xcolor}
+\usepackage{filecontents}
+
+% Margins
+\topmargin=-0.65in
+\evensidemargin=0in
+\oddsidemargin=-0.15in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+\headheight=30pt
+\linespread{1} % Line spacing
+\marginparwidth=0.05in
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CLASS SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\hmwkTitle}{} % Assignment title
+\newcommand{\hmwkDueDate}{19 décembre 2014} % Due date
+\newcommand{\hmwkClass}{Compilation : TP5} % Course/class
+\newcommand{\hmwkClassTime}{} % Class/lecture time
+\newcommand{\hmwkClassInstructor}{} % Teacher/lecturer
+\newcommand{\hmwkAuthorName}{Valentin { \sc Esmieu} \\ Corentin {\sc Nicole} \\ \textit{groupe 1.2}} % Your name
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title{
+\vspace{2in}
+\textmd{\textbf{\hmwkClass}}\\
+\normalsize\vspace{0.1in}\small{\hmwkDueDate}\\
+\vspace{0.1in}\large{\textit{\hmwkClassInstructor\ \hmwkClassTime}}
+\vspace{3in}
+}
+
+\author{\hmwkAuthorName}
+\date{} % Insert date here if you want it to appear below your name
+
+
+\begin{document}
+
+
+\maketitle
+\newpage
+
+\section{Code}
+\lstinputlisting[
+  caption    = {{\bf typing.ml}},
+ % breaklines,
+]{typing.ml}
+
+
+
+\newpage
+\section{Tests}
+
+
+
+
+
+
+\end{document}
