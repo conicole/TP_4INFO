@@ -1,5 +1,5 @@
 /**
-TP 10 Prolog
+TP 9 Prolog
 
 @author Corentin NICOLE
 @author Maud LERAY
@@ -55,6 +55,8 @@ create_world(L,Res):-
 	length(L,LG),
 	subl_list(L,LG,Res).
 
+
+
 create_n(_,0,[]):-
 	!.
 
@@ -89,36 +91,29 @@ proposition1([_|Q]):-
 	proposition1(Q).
 
 proposition2([]).
-proposition2([likes(bess,Qqun)|Q]) :-
-	\==(Qqun,dana),
-	proposition2(Q).
+proposition2([likes(bess,Qqun)|_]) :-
+	\==(Qqun,dana).
 proposition2([likes(P1,_)|Q]):-
 	\==(P1,bess),
 	proposition2(Q).
 
 proposition3([]).
-proposition3([likes(cody,Qqun)|Q]):-
-	\==(Qqun,abby),
-	proposition3(Q).
+proposition3([likes(cody,Qqun)|_]):-
+	\==(Qqun,abby).
 
 proposition3([likes(P1,_)|Q]):-
 	\==(P1,cody),
 	proposition3(Q).
 
-proposition4([],_).
-
-proposition4([likes(P1,P2)|Q],L):-
-	member(likes(P2,P1),L),
-	proposition4(Q,L).
+proposition4([likes(P1,P2)|_],L):-
+	member(likes(P1,P2),L).
 
 proposition4(L):-
 	proposition4(L,L).
 
 proposition5([],_).
-proposition5([likes(Qqun,bess)|Q],L):-
-	member(likes(abby,Qqun),L),
-	proposition5(Q,L).
-
+proposition5([likes(Qqun,bess)|_],L):-
+	member(likes(abby,Qqun),L).
 proposition5([likes(_,P2)|Q],L):-
 	\==(P2,bess),
 	proposition5(Q,L).
@@ -127,10 +122,8 @@ proposition5(L):-
 	proposition5(L,L).
 
 proposition6([],_).
-proposition6([likes(bess,Qqun)|Q],L):-
-	member(likes(dana,Qqun),L),
-	proposition6(Q,L).
-
+proposition6([likes(bess,Qqun)|_],L):-
+	member(likes(dana,Qqun),L).
 proposition6([likes(P1,_)|Q],L):-
 	\==(P1,bess),
 	proposition6(Q,L).
@@ -139,31 +132,27 @@ proposition6(L):-
 	proposition6(L,L).
 
 proposition7([],_).
-proposition7([P|Q],Llike):-
-	member(likes(P,_),Llike),
-	proposition7(Q,Llike),
-	!.
+proposition7([likes(_,P2)|Q],L):-
+	member(likes(P2,_),L),
+	proposition7(Q,L).
+proposition7(L):-
+	proposition7(L,L).
 
 people([abby, bess, cody, dana]).
 
-
-test(L):-
-	people(List_people),
-	make_all_pairs(List_people,R),
-	create_world(R,L).
 
 possible_worlds(L):-
 	people(List_people),
 	make_all_pairs(List_people,R),
 	create_world(R,L),
-	%proposition_double(L),
+	proposition_double(L),
 	proposition1(L),
 	proposition2(L),
 	proposition3(L),
 	proposition4(L),
 	proposition5(L),
 	proposition6(L),
-	proposition7(List_people,L).
+	proposition7(L).
 
 % Questions 1.6 and 1.7
 test_possible_worlds :-
@@ -282,18 +271,7 @@ Yes (0.00s cpu, solution 1, maybe more) ?
 
 No (0.00s cpu)
 
-% QUESTIONS 1.4 & 1.5) %
 
-| ?- possible_worlds(L).
 
-L = [likes(abby,abby),likes(abby,bess),likes(abby,dana),likes(bess,abby),likes(cody,cody),likes(cody,dana),likes(dana,cody),likes(dana,abby),likes(dana,dana)] ? ;
-
-L = [likes(abby,abby),likes(abby,bess),likes(abby,dana),likes(bess,abby),likes(cody,cody),likes(cody,dana),likes(dana,cody),likes(dana,abby)] ? ;
-
-L = [likes(abby,abby),likes(abby,bess),likes(abby,dana),likes(bess,abby),likes(cody,dana),likes(dana,cody),likes(dana,abby),likes(dana,dana)] ? ;
-
-L = [likes(abby,abby),likes(abby,bess),likes(abby,dana),likes(bess,abby),likes(cody,dana),likes(dana,cody),likes(dana,abby)] ? ;
-
-(664 ms) no
 
 */
